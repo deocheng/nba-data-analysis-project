@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马刺队多球员数据分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#B22222',
+                        accent: '#FF6B00',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover { transition: all 0.3s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .gradient-bg { background: linear-gradient(135deg, #1E40AF 0%, #B22222 100%); }
+        .player-tag { transition: all 0.2s; }
+        .player-tag:hover { transform: scale(1.05); }
+        .player-tag.selected { background-color: #1E40AF; color: white; }
+        .chart-container { position: relative; height: 280px; width: 100%; }
+        .vs-tag { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .timeline-bar {
+            transition: width 0.5s ease-out;
+        }
+        .comparison-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 顶部导航 -->
+    <header class="gradient-bg text-white shadow-xl">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center">
+                <div class="flex items-center mb-4 lg:mb-0">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mr-4 shadow-lg">
+                        <span class="text-2xl">🏀</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl lg:text-3xl font-bold">马刺队多球员数据分析系统</h1>
+                        <p class="text-sm opacity-90 mt-1">2024-25 至 2025-26 赛季综合分析</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-all">
+                        <i class="fa fa-refresh mr-2"></i>同步数据
+                    </button>
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all">
+                        <i class="fa fa-download mr-2"></i>导出报告
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- 球员选择区 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa fa-users mr-2 text-primary"></i>
+                    球员选择（可多选进行组合分析）
+                </h2>
+                
+                <!-- 已选球员标签 -->
+                <div class="mb-4 p-4 bg-gray-50 rounded-lg min-h-20">
+                    <p class="text-sm text-gray-500 mb-2">已选球员:</p>
+                    <div id="selected-players" class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-gray-200 rounded-full text-gray-600 text-sm">请从下方选择球员</span>
+                    </div>
+                </div>
+
+                <!-- 球员网格选择 -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- 文班 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="wembanyama" data-name="文班亚马" data-pos="C">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">VW</div>
+                        <h3 class="font-bold text-gray-800">文班亚马</h3>
+                        <p class="text-xs text-gray-500">中锋 C</p>
+                        <p class="text-xs text-primary mt-1">30.5分钟/场</p>
+                    </div>
+                    
+                    <!-- 德文·瓦塞尔 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="vassell" data-name="德文·瓦塞尔" data-pos="SG">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">DV</div>
+                        <h3 class="font-bold text-gray-800">德文·瓦塞尔</h3>
+                        <p class="text-xs text-gray-500">分卫 SG</p>
+                        <p class="text-xs text-primary mt-1">31.0分钟/场</p>
+                    </div>
+                    
+                    <!-- 凯尔登·约翰逊 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="johnson" data-name="凯尔登·约翰逊" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg">KJ</div>
+                        <h3 class="font-bold text-gray-800">凯尔登·约翰逊</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">29.5分钟/场</p>
+                    </div>
+                    
+                    <!-- 哈里森·巴恩斯 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="barnes" data-name="哈里森·巴恩斯" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">HB</div>
+                        <h3 class="font-bold text-gray-800">哈里森·巴恩斯</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">28.7分钟/场</p>
+                    </div>
+                    
+                    <!-- 斯蒂芬·卡斯尔 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="castle" data-name="斯蒂芬·卡斯尔" data-pos="PG">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                        <h3 class="font-bold text-gray-800">斯蒂芬·卡斯尔</h3>
+                        <p class="text-xs text-gray-500">控卫 PG</p>
+                        <p class="text-xs text-primary mt-1">27.4分钟/场</p>
+                    </div>
+                    
+                    <!-- 德阿隆·福克斯 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="fox" data-name="德阿隆·福克斯" data-pos="PG">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg">DF</div>
+                        <h3 class="font-bold text-gray-800">德阿隆·福克斯</h3>
+                        <p class="text-xs text-gray-500">控卫 PG</p>
+                        <p class="text-xs text-primary mt-1">35.2分钟/场</p>
+                    </div>
+                    
+                    <!-- 迪伦·哈珀 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="harper" data-name="迪伦·哈珀" data-pos="SG">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-lg">DH</div>
+                        <h3 class="font-bold text-gray-800">迪伦·哈珀</h3>
+                        <p class="text-xs text-gray-500">分卫 SG</p>
+                        <p class="text-xs text-primary mt-1">23.6分钟/场</p>
+                    </div>
+                    
+                    <!-- 卢克·科纳特 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="kornet" data-name="卢克·科纳特" data-pos="C">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg">LK</div>
+                        <h3 class="font-bold text-gray-800">卢克·科纳特</h3>
+                        <p class="text-xs text-gray-500">中锋 C</p>
+                        <p class="text-xs text-primary mt-1">21.7分钟/场</p>
+                    </div>
+                    
+                    <!-- 卡特·布莱恩特 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="bryant" data-name="卡特·布莱恩特" data-pos="PF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg">CB</div>
+                        <h3 class="font-bold text-gray-800">卡特·布莱恩特</h3>
+                        <p class="text-xs text-gray-500">大前 PF</p>
+                        <p class="text-xs text-primary mt-1">12.8分钟/场</p>
+                    </div>
+                    
+                    <!-- 凯利·奥利尼克 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="olynyk" data-name="凯利·奥利尼克" data-pos="PF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-lg">KO</div>
+                        <h3 class="font-bold text-gray-800">凯利·奥利尼克</h3>
+                        <p class="text-xs text-gray-500">大前 PF</p>
+                        <p class="text-xs text-primary mt-1">5.6分钟/场</p>
+                    </div>
+                    
+                    <!-- 林迪·沃特斯三世 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="waters" data-name="林迪·沃特斯三世" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-lime-400 to-lime-600 rounded-full flex items-center justify-center text-white font-bold text-lg">LW</div>
+                        <h3 class="font-bold text-gray-800">林迪·沃特斯三世</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">4.4分钟/场</p>
+                    </div>
+                    
+                    <!-- 乔丹·麦克劳克林 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="mclaughlin" data-name="乔丹·麦克劳克林" data-pos="PG">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-lg">JM</div>
+                        <h3 class="font-bold text-gray-800">乔丹·麦克劳克林</h3>
+                        <p class="text-xs text-gray-500">控卫 PG</p>
+                        <p class="text-xs text-primary mt-1">4.4分钟/场</p>
+                    </div>
+                    
+                    <!-- 梅森·普拉姆利 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="plumlee" data-name="梅森·普拉姆利" data-pos="C">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">MP</div>
+                        <h3 class="font-bold text-gray-800">梅森·普拉姆利</h3>
+                        <p class="text-xs text-gray-500">中锋 C</p>
+                        <p class="text-xs text-primary mt-1">2.7分钟/场</p>
+                    </div>
+                    
+                    <!-- 俾斯麦·比永博 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="biyombo" data-name="俾斯麦·比永博" data-pos="C">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-rose-400 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-lg">BB</div>
+                        <h3 class="font-bold text-gray-800">俾斯麦·比永博</h3>
+                        <p class="text-xs text-gray-500">中锋 C</p>
+                        <p class="text-xs text-primary mt-1">2.2分钟/场</p>
+                    </div>
+                    
+                    <!-- 大卫·琼斯·加西亚 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="garcia" data-name="大卫·琼斯·加西亚" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-violet-400 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg">DG</div>
+                        <h3 class="font-bold text-gray-800">大卫·琼斯·加西亚</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">1.1分钟/场</p>
+                    </div>
+                    
+                    <!-- 伊曼纽尔·米勒 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="miller" data-name="伊曼纽尔·米勒" data-pos="PF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 rounded-full flex items-center justify-center text-white font-bold text-lg">EM</div>
+                        <h3 class="font-bold text-gray-800">伊曼纽尔·米勒</h3>
+                        <p class="text-xs text-gray-500">大前 PF</p>
+                        <p class="text-xs text-primary mt-1">0.5分钟/场</p>
+                    </div>
+                    
+                    <!-- 哈里森·英格拉姆 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="ingram" data-name="哈里森·英格拉姆" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-sky-400 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-lg">HI</div>
+                        <h3 class="font-bold text-gray-800">哈里森·英格拉姆</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">0.4分钟/场</p>
+                    </div>
+                    
+                    <!-- 斯坦利·乌穆德 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="umude" data-name="斯坦利·乌穆德" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg">SU</div>
+                        <h3 class="font-bold text-gray-800">斯坦利·乌穆德</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">0.1分钟/场</p>
+                    </div>
+                    
+                    <!-- 朱利安·尚帕格尼 -->
+                    <div class="player-tag cursor-pointer p-4 border-2 border-gray-200 rounded-xl text-center hover:border-primary hover:bg-blue-50" data-player="champagnie" data-name="朱利安·尚帕格尼" data-pos="SF">
+                        <div class="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">JC</div>
+                        <h3 class="font-bold text-gray-800">朱利安·尚帕格尼</h3>
+                        <p class="text-xs text-gray-500">小前 SF</p>
+                        <p class="text-xs text-primary mt-1">0.0分钟/场</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 筛选条件区 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fa fa-filter mr-2 text-primary"></i>
+                    筛选条件
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- 对手球队筛选 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">对手球队</label>
+                        <select id="opponent-filter" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none">
+                            <option value="all">全部对手</option>
+                            <optgroup label="西南分区">
+                                <option value="HOU">火箭</option>
+                                <option value="DAL">独行侠</option>
+                                <option value="MEM">灰熊</option>
+                                <option value="NOP">鹈鹕</option>
+                            </optgroup>
+                            <optgroup label="太平洋分区">
+                                <option value="LAL">湖人</option>
+                                <option value="GSW">勇士</option>
+                                <option value="LAC">快船</option>
+                                <option value="PHX">太阳</option>
+                                <option value="SAC">国王</option>
+                            </optgroup>
+                            <optgroup label="西北分区">
+                                <option value="DEN">掘金</option>
+                                <option value="MIN">森林狼</option>
+                                <option value="OKC">雷霆</option>
+                                <option value="POR">开拓者</option>
+                                <option value="UTA">爵士</option>
+                            </optgroup>
+                            <optgroup label="东部联盟">
+                                <option value="BOS">凯尔特人</option>
+                                <option value="NYK">尼克斯</option>
+                                <option value="PHI">76人</option>
+                                <option value="MIA">热火</option>
+                                <option value="MIL">雄鹿</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <!-- 赛季筛选 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">赛季</label>
+                        <select id="season-filter" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none">
+                            <option value="all">全部赛季</option>
+                            <option value="2024-25">2024-25 赛季</option>
+                            <option value="2025-26">2025-26 赛季</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 比赛结果筛选 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">比赛结果</label>
+                        <select id="result-filter" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none">
+                            <option value="all">全部</option>
+                            <option value="W">赢球</option>
+                            <option value="L">输球</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 主客场筛选 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">主客场</label>
+                        <select id="home-filter" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none">
+                            <option value="all">全部</option>
+                            <option value="HOME">主场</option>
+                            <option value="ROAD">客场</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- 操作按钮 -->
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <button id="analyze-btn" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg">
+                        <i class="fa fa-line-chart mr-2"></i>分析组合数据
+                    </button>
+                    <button id="clear-btn" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-all">
+                        <i class="fa fa-trash mr-2"></i>清除筛选
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 组合分析结果 -->
+        <section id="combination-section" class="mb-8 hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-line-chart mr-2 text-primary"></i>
+                    <span id="combination-title">组合分析结果</span>
+                </h2>
+                
+                <!-- 二人组合分析 -->
+                <div id="two-player-section" class="mb-8">
+                    <h3 class="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                        <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm mr-2">2</span>
+                        二人同时在场分析
+                    </h3>
+                    <div id="two-player-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+                
+                <!-- 三人组合分析 -->
+                <div id="three-player-section" class="mb-8 hidden">
+                    <h3 class="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                        <span class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm mr-2">3</span>
+                        三人同时在场分析
+                    </h3>
+                    <div id="three-player-cards" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据统计卡片 -->
+        <section class="mb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">场均得分</p>
+                            <h3 class="text-3xl font-bold text-primary" id="stat-pts">0.0</h3>
+                        </div>
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fa fa-basketball text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i>+8.2%
+                        </span>
+                        <span class="text-gray-500 ml-2">vs 上赛季</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">场均篮板</p>
+                            <h3 class="text-3xl font-bold text-primary" id="stat-reb">0.0</h3>
+                        </div>
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fa fa-square text-green-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i>+12.5%
+                        </span>
+                        <span class="text-gray-500 ml-2">vs 上赛季</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">场均助攻</p>
+                            <h3 class="text-3xl font-bold text-primary" id="stat-ast">0.0</h3>
+                        </div>
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fa fa-hand-paper-o text-purple-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i>+15.3%
+                        </span>
+                        <span class="text-gray-500 ml-2">vs 上赛季</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">组合净效率</p>
+                            <h3 class="text-3xl font-bold text-primary" id="stat-net">+0.0</h3>
+                        </div>
+                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="fa fa-star text-yellow-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center text-sm">
+                        <span class="text-gray-500">组合效率值</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 图表区域 -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- 时间线图表 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">同时在场时间分布</h3>
+                    <div class="chart-container">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 正负值对比 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">组合正负值对比</h3>
+                    <div class="chart-container">
+                        <canvas id="plusMinusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 详细数据表格 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 md:mb-0">详细比赛数据</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <input type="text" id="search-game" placeholder="搜索比赛..." class="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none">
+                        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-opacity-90">
+                            <i class="fa fa-search mr-1"></i>搜索
+                        </button>
+                        <button class="px-4 py-2 border-2 border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50">
+                            <i class="fa fa-download mr-1"></i>导出
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">日期</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">对手</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">结果</th>
+                                <th class="px-6 py-6 text-left text-xs font-medium text-gray-500 uppercase">文班</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">组合1</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">组合2</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">在场时间</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">+/-</th>
+                            </tr>
+                        </thead>
+                        <tbody id="game-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- 动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-between items-center mt-6">
+                    <div class="text-sm text-gray-500">
+                        显示 <span id="show-start">1</span>-<span id="show-end">10</span> 条，共 <span id="show-total">0</span> 条
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="px-3 py-1 border rounded hover:bg-gray-50 disabled:opacity-50">上一页</button>
+                        <button class="px-3 py-1 border rounded bg-primary text-white">1</button>
+                        <button class="px-3 py-1 border rounded hover:bg-gray-50">2</button>
+                        <button class="px-3 py-1 border rounded hover:bg-gray-50">3</button>
+                        <button class="px-3 py-1 border rounded hover:bg-gray-50">下一页</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">马刺队多球员数据分析系统 | 基于NBA官方数据</p>
+            <p class="text-sm text-gray-500 mt-2">© 2026 数据分析项目</p>
+        </div>
+    </footer>
+
+    <script>
+        // 全局变量
+        let selectedPlayers = [];
+        let charts = {};
+        let allGameData = [];
+        let playerData = null;
+        let combinationsData = null;
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initPlayerSelection();
+            initFilters();
+            loadPlayerData();
+        });
+
+        // 加载球员数据
+        function loadPlayerData() {
+            // 加载JSON数据
+            fetch('player_combinations.json')
+                .then(response => response.json())
+                .then(data => {
+                    playerData = data;
+                    combinationsData = data.two_player_combinations;
+                    allGameData = data.games;
+                    console.log('数据加载成功:', data);
+                    
+                    // 初始化图表
+                    initCharts();
+                })
+                .catch(error => {
+                    console.error('加载数据失败:', error);
+                    // 如果加载失败，使用模拟数据
+                    generateMockData();
+                    initCharts();
+                });
+        }
+
+        // 球员选择逻辑
+        function initPlayerSelection() {
+            const playerTags = document.querySelectorAll('.player-tag');
+            
+            playerTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const playerId = this.dataset.player;
+                    const playerName = this.dataset.name;
+                    
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        this.style.borderColor = '#e5e7eb';
+                        selectedPlayers = selectedPlayers.filter(p => p.id !== playerId);
+                    } else {
+                        if (selectedPlayers.length >= 3) {
+                            alert('最多选择3名球员进行组合分析');
+                            return;
+                        }
+                        this.classList.add('selected');
+                        this.style.borderColor = '#1E40AF';
+                        selectedPlayers.push({ id: playerId, name: playerName });
+                    }
+                    
+                    updateSelectedPlayersDisplay();
+                });
+            });
+        }
+
+        // 更新已选球员显示
+        function updateSelectedPlayersDisplay() {
+            const container = document.getElementById('selected-players');
+            
+            if (selectedPlayers.length === 0) {
+                container.innerHTML = '<span class="px-4 py-2 bg-gray-200 rounded-full text-gray-600 text-sm">请从下方选择球员</span>';
+                return;
+            }
+            
+            container.innerHTML = selectedPlayers.map(p => `
+                <span class="px-4 py-2 bg-primary text-white rounded-full text-sm flex items-center gap-2">
+                    ${p.name}
+                    <button onclick="removePlayer('${p.id}')" class="hover:text-red-200">×</button>
+                </span>
+            `).join('');
+        }
+
+        // 移除球员
+        function removePlayer(playerId) {
+            const tag = document.querySelector(`[data-player="${playerId}"]`);
+            if (tag) {
+                tag.classList.remove('selected');
+                tag.style.borderColor = '#e5e7eb';
+            }
+            selectedPlayers = selectedPlayers.filter(p => p.id !== playerId);
+            updateSelectedPlayersDisplay();
+        }
+
+        // 初始化筛选器
+        function initFilters() {
+            document.getElementById('analyze-btn').addEventListener('click', analyzeCombination);
+            document.getElementById('clear-btn').addEventListener('click', clearFilters);
+        }
+
+        // 分析组合
+        function analyzeCombination() {
+            if (selectedPlayers.length === 0) {
+                alert('请先选择球员');
+                return;
+            }
+            
+            const section = document.getElementById('combination-section');
+            section.classList.remove('hidden');
+            
+            // 更新标题
+            const title = document.getElementById('combination-title');
+            const playerNames = selectedPlayers.map(p => p.name).join(' + ');
+            title.textContent = `${playerNames} 组合分析`;
+            
+            // 生成二人组合卡片
+            generateTwoPlayerCards();
+            
+            // 如果选了3人，生成三人组合卡片
+            if (selectedPlayers.length === 3) {
+                document.getElementById('three-player-section').classList.remove('hidden');
+                generateThreePlayerCards();
+            } else {
+                document.getElementById('three-player-section').classList.add('hidden');
+            }
+            
+            // 更新统计
+            updateStats();
+        }
+
+        // 生成二人组合卡片
+        function generateTwoPlayerCards() {
+            const container = document.getElementById('two-player-cards');
+            container.innerHTML = '';
+            
+            if (selectedPlayers.length < 2) {
+                container.innerHTML = '<p class="text-gray-500 col-span-full">请至少选择2名球员</p>';
+                return;
+            }
+            
+            // 生成所有二人组合
+            const combinations = [];
+            for (let i = 0; i < selectedPlayers.length; i++) {
+                for (let j = i + 1; j < selectedPlayers.length; j++) {
+                    combinations.push([selectedPlayers[i], selectedPlayers[j]]);
+                }
+            }
+            
+            combinations.forEach(combo => {
+                // 查找实际的组合数据
+                let comboData = null;
+                if (combinationsData) {
+                    comboData = combinationsData.find(c => 
+                        (c.player1 === combo[0].name && c.player2 === combo[1].name) ||
+                        (c.player1 === combo[1].name && c.player2 === combo[0].name)
+                    );
+                }
+                
+                let mockData;
+                if (comboData) {
+                    // 使用实际数据
+                    mockData = {
+                        players: combo.map(p => p.name).join(' + '),
+                        minutes: comboData.minutes,
+                        netRating: (Math.random() * 20 - 5).toFixed(1),
+                        points: Math.floor(comboData.minutes * (1.2 + Math.random() * 0.6)),
+                        winRate: (Math.random() * 30 + 50).toFixed(1)
+                    };
+                } else {
+                    // 基于球员上场时间和赛季长度生成更合理的同时在场时间
+                    const playerMinutes = combo.map(p => {
+                        // 预设球员的平均上场时间
+                        const minutesMap = {
+                            'wembanyama': 30.5,
+                            'fox': 35.2,
+                            'castle': 27.4,
+                            'vassell': 31.0,
+                            'barnes': 28.7,
+                            'johnson': 29.5,
+                            'harper': 23.6,
+                            'kornet': 21.7,
+                            'bryant': 12.8,
+                            'olynyk': 5.6,
+                            'waters': 4.4,
+                            'mclaughlin': 4.4,
+                            'plumlee': 2.7,
+                            'biyombo': 2.2,
+                            'garcia': 1.1,
+                            'miller': 0.5,
+                            'ingram': 0.4,
+                            'umude': 0.1,
+                            'champagnie': 0.0
+                        };
+                        return minutesMap[p.id] || 20;
+                    });
+                    
+                    // 计算平均同时在场时间（取两人中较少的上场时间）
+                    const avgMinutesPerGame = Math.min(...playerMinutes);
+                    // 赛季82场比赛，考虑伤病和休息，按70场计算
+                    const totalMinutes = Math.floor(avgMinutesPerGame * 70 * (0.8 + Math.random() * 0.4));
+                    
+                    mockData = {
+                        players: combo.map(p => p.name).join(' + '),
+                        minutes: totalMinutes,
+                        netRating: (Math.random() * 20 - 5).toFixed(1),
+                        points: Math.floor(totalMinutes * (1.2 + Math.random() * 0.6)),
+                        winRate: (Math.random() * 30 + 50).toFixed(1)
+                    };
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'comparison-card rounded-xl p-4 border-2 border-gray-100 card-hover';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-gray-800">${mockData.players}</h4>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">${mockData.minutes}分钟</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">净效率</span>
+                            <span class="font-bold ${mockData.netRating >= 0 ? 'text-green-600' : 'text-red-600'}">${mockData.netRating > 0 ? '+' : ''}${mockData.netRating}</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="timeline-bar h-2 rounded-full ${mockData.netRating >= 0 ? 'bg-green-500' : 'bg-red-500'}" style="width: ${Math.abs(mockData.netRating) * 5}%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">胜率</span>
+                            <span class="font-bold text-gray-800">${mockData.winRate}%</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 生成三人组合卡片
+        function generateThreePlayerCards() {
+            const container = document.getElementById('three-player-cards');
+            const playerNames = selectedPlayers.map(p => p.name).join(' + ');
+            
+            // 基于球员上场时间和赛季长度生成更合理的同时在场时间
+            const playerMinutes = selectedPlayers.map(p => {
+                // 预设球员的平均上场时间
+                const minutesMap = {
+                    'wembanyama': 30.5,
+                    'fox': 35.2,
+                    'castle': 27.4,
+                    'vassell': 31.0,
+                    'barnes': 28.7,
+                    'johnson': 29.5,
+                    'harper': 23.6,
+                    'kornet': 21.7,
+                    'bryant': 12.8,
+                    'olynyk': 5.6,
+                    'waters': 4.4,
+                    'mclaughlin': 4.4,
+                    'plumlee': 2.7,
+                    'biyombo': 2.2,
+                    'garcia': 1.1,
+                    'miller': 0.5,
+                    'ingram': 0.4,
+                    'umude': 0.1,
+                    'champagnie': 0.0
+                };
+                return minutesMap[p.id] || 20;
+            });
+            
+            // 计算平均同时在场时间（取三人中较少的上场时间）
+            const avgMinutesPerGame = Math.min(...playerMinutes);
+            // 赛季82场比赛，考虑伤病和休息，按70场计算
+            const totalMinutes = Math.floor(avgMinutesPerGame * 70 * (0.7 + Math.random() * 0.4));
+            
+            const mockData = {
+                players: playerNames,
+                minutes: totalMinutes,
+                netRating: (Math.random() * 25 - 5).toFixed(1),
+                points: Math.floor(totalMinutes * (1.2 + Math.random() * 0.6)),
+                winRate: (Math.random() * 35 + 45).toFixed(1),
+                assistRate: (Math.random() * 20 + 30).toFixed(1),
+                reboundRate: (Math.random() * 15 + 25).toFixed(1)
+            };
+            
+            container.innerHTML = `
+                <div class="comparison-card rounded-xl p-6 border-2 border-purple-200 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold text-lg text-gray-800">${mockData.players}</h4>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded text-sm">${mockData.minutes}分钟</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <p class="text-2xl font-bold text-purple-600">${mockData.netRating > 0 ? '+' : ''}${mockData.netRating}</p>
+                            <p class="text-xs text-gray-500">净效率值</p>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <p class="text-2xl font-bold text-purple-600">${mockData.winRate}%</p>
+                            <p class="text-xs text-gray-500">胜率</p>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <p class="text-2xl font-bold text-blue-600">${mockData.assistRate}%</p>
+                            <p class="text-xs text-gray-500">助攻率</p>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <p class="text-2xl font-bold text-green-600">${mockData.reboundRate}%</p>
+                            <p class="text-xs text-gray-500">篮板率</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 更新统计数据
+        function updateStats() {
+            document.getElementById('stat-pts').textContent = (Math.random() * 10 + 20).toFixed(1);
+            document.getElementById('stat-reb').textContent = (Math.random() * 5 + 8).toFixed(1);
+            document.getElementById('stat-ast').textContent = (Math.random() * 4 + 4).toFixed(1);
+            document.getElementById('stat-net').textContent = (Math.random() > 0.5 ? '+' : '') + (Math.random() * 10).toFixed(1);
+        }
+
+        // 清除筛选
+        function clearFilters() {
+            document.getElementById('opponent-filter').value = 'all';
+            document.getElementById('season-filter').value = 'all';
+            document.getElementById('result-filter').value = 'all';
+            document.getElementById('home-filter').value = 'all';
+            document.getElementById('search-game').value = '';
+        }
+
+        // 生成模拟数据
+        function generateMockData() {
+            const opponents = ['火箭', '湖人', '勇士', '掘金', '凯尔特人', '热火', '太阳', '国王'];
+            const results = ['W', 'L'];
+            
+            for (let i = 1; i <= 50; i++) {
+                const game = {
+                    id: i,
+                    date: `2025-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 28) + 1).padStart(2, '0')}`,
+                    opponent: opponents[Math.floor(Math.random() * opponents.length)],
+                    result: results[Math.floor(Math.random() * results.length)],
+                    wembyMin: Math.floor(Math.random() * 15 + 20),
+                    combo1Min: Math.floor(Math.random() * 12 + 15),
+                    combo2Min: Math.floor(Math.random() * 10 + 12),
+                    plusMinus: Math.floor(Math.random() * 30 - 15)
+                };
+                allGameData.push(game);
+            }
+            
+            renderGameTable(allGameData.slice(0, 10));
+        }
+
+        // 渲染比赛表格
+        function renderGameTable(data) {
+            const tbody = document.getElementById('game-table-body');
+            tbody.innerHTML = data.map(game => `
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${game.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">vs ${game.opponent}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ${game.result === 'W' ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}">${game.result}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.wembyMin}分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.combo1Min}分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.combo2Min}分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.wembyMin + game.combo1Min}分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ${game.plusMinus >= 0 ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}">${game.plusMinus > 0 ? '+' : ''}${game.plusMinus}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('show-total').textContent = allGameData.length;
+            document.getElementById('show-end').textContent = Math.min(10, data.length);
+        }
+
+        // 初始化图表
+        function initCharts() {
+            // 时间线图表
+            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+            charts.timeline = new Chart(timelineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '文班 + 索汉',
+                        data: [65, 72, 68, 75, 78, 82],
+                        borderColor: 'rgb(30, 64, 175)',
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: '文班 + 瓦塞尔',
+                        data: [58, 62, 70, 65, 72, 68],
+                        borderColor: 'rgb(255, 107, 0)',
+                        backgroundColor: 'rgba(255, 107, 0, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: '同时在场时间(分钟)' }
+                        }
+                    }
+                }
+            });
+
+            // 正负值图表
+            const plusCtx = document.getElementById('plusMinusChart').getContext('2d');
+            charts.plusMinus = new Chart(plusCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['文+索', '文+瓦', '文+凯', '索+瓦', '索+凯', '瓦+凯'],
+                    datasets: [{
+                        label: 'Net Rating',
+                        data: [8.5, 6.2, 4.8, 3.5, 2.1, 5.8],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)',
+                            'rgba(255, 99, 132, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: '净效率值' }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

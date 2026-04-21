@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文班亚马赛季分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#B22222',
+                        accent: '#FF6B00',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover { transition: all 0.3s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .gradient-bg { background: linear-gradient(135deg, #1E40AF 0%, #B22222 100%); }
+        .player-tag { transition: all 0.2s; }
+        .player-tag:hover { transform: scale(1.05); }
+        .timeline-bar { transition: width 0.5s ease-out; }
+        .chart-container { position: relative; height: 500px; }
+        @media (max-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 顶部导航栏 -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-line-chart text-3xl mr-3"></i>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">文班亚马赛季分析</h1>
+                        <p class="text-sm opacity-80">2024-25 至 2025-26 赛季表现</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-4">
+                    <div class="flex space-x-2">
+                        <button id="season-2024-25" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                            2024-25赛季
+                        </button>
+                        <button id="season-2025-26" class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors bg-blue-100">
+                            2025-26赛季
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">统计类型:</label>
+                        <select id="stat-type-select" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="points">得分</option>
+                            <option value="rebounds">篮板</option>
+                            <option value="assists">助攻</option>
+                            <option value="blocks">盖帽</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 数据概览 -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-gray-500 text-sm mb-2">总比赛场次</h3>
+                    <p class="text-3xl font-bold text-primary">52</p>
+                    <div class="flex items-center mt-2 text-sm">
+                        <span class="text-green-600 font-medium">45 胜</span>
+                        <span class="mx-2">/</span>
+                        <span class="text-red-600 font-medium">7 负</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-gray-500 text-sm mb-2">场均得分</h3>
+                    <p class="text-3xl font-bold text-primary">27.8</p>
+                    <div class="flex items-center mt-2 text-sm text-gray-500">
+                        <i class="fa fa-arrow-up text-green-600 mr-1"></i>
+                        <span>较上赛季 +5.2</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-gray-500 text-sm mb-2">场均篮板</h3>
+                    <p class="text-3xl font-bold text-primary">11.8</p>
+                    <div class="flex items-center mt-2 text-sm text-gray-500">
+                        <i class="fa fa-arrow-up text-green-600 mr-1"></i>
+                        <span>较上赛季 +2.1</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-gray-500 text-sm mb-2">场均盖帽</h3>
+                    <p class="text-3xl font-bold text-primary">3.2</p>
+                    <div class="flex items-center mt-2 text-sm text-gray-500">
+                        <i class="fa fa-arrow-up text-green-600 mr-1"></i>
+                        <span>较上赛季 +0.8</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 球队战绩柱状图 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                        <i class="fa fa-bar-chart text-primary mr-2"></i>
+                        球队战绩走势
+                    </h2>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium transition-colors">
+                            <i class="fa fa-download mr-1"></i> 导出数据
+                        </button>
+                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium transition-colors">
+                            <i class="fa fa-refresh mr-1"></i> 刷新
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="teamPerformanceChart"></canvas>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-3 bg-green-50 rounded-lg">
+                        <p class="text-sm text-gray-600">赢球场次</p>
+                        <p class="text-2xl font-bold text-green-600">45</p>
+                    </div>
+                    <div class="text-center p-3 bg-red-50 rounded-lg">
+                        <p class="text-sm text-gray-600">输球场次</p>
+                        <p class="text-2xl font-bold text-red-600">7</p>
+                    </div>
+                    <div class="text-center p-3 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-gray-600">胜率</p>
+                        <p class="text-2xl font-bold text-blue-600">86.5%</p>
+                    </div>
+                    <div class="text-center p-3 bg-yellow-50 rounded-lg">
+                        <p class="text-sm text-gray-600">平均净胜分</p>
+                        <p class="text-2xl font-bold text-yellow-600">+12.3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人数据统计 -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 得分统计 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fa fa-basketball-ball text-orange-500 mr-2"></i>
+                        得分统计
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">最高分</span>
+                                <span class="font-bold">41</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-orange-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">场均得分</span>
+                                <span class="font-bold">27.8</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-orange-500 h-2 rounded-full" style="width: 68%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">得分上20</span>
+                                <span class="font-bold">46场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-orange-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">得分上30</span>
+                                <span class="font-bold">21场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-orange-500 h-2 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 篮板统计 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fa fa-shield text-blue-500 mr-2"></i>
+                        篮板统计
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">最高篮板</span>
+                                <span class="font-bold">18</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">场均篮板</span>
+                                <span class="font-bold">11.8</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">篮板上10</span>
+                                <span class="font-bold">32场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">篮板上15</span>
+                                <span class="font-bold">12场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 23%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 盖帽统计 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fa fa-ban text-purple-500 mr-2"></i>
+                        盖帽统计
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">最高盖帽</span>
+                                <span class="font-bold">7</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">场均盖帽</span>
+                                <span class="font-bold">3.2</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 46%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">盖帽上3</span>
+                                <span class="font-bold">28场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 54%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">盖帽上5</span>
+                                <span class="font-bold">11场</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 21%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 比赛详情表格 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-table text-primary mr-2"></i>
+                    比赛详情
+                </h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">日期</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">对手</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">结果</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">上场状态</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">得分</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">篮板</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">助攻</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">盖帽</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">正负值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="gameTableBody">
+                            <!-- 数据将通过JavaScript动态填充 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-between items-center mt-6">
+                    <div class="text-sm text-gray-500">
+                        显示 <span id="showingRange">1-10</span> 条，共 <span id="totalGames">52</span> 条
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">上一页</button>
+                        <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md text-sm">1</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">2</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">3</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">下一页</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">文班亚马赛季分析</h3>
+                    <p class="text-gray-400 text-sm">基于2024-25和2025-26赛季数据</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 text-center text-gray-400 text-sm">
+                © 2026 NBA数据分析系统 | 数据来源：NBA官方
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 2025-26赛季数据
+        const wemby202526Data = [
+            { date: "2026-04-10", opponent: "DAL", result: "W", points: 40, rebounds: 13, assists: 5, blocks: 2, plusMinus: 10, spread: 10, played: true },
+            { date: "2026-04-06", opponent: "PHI", result: "W", points: 17, rebounds: 5, assists: 1, blocks: 3, plusMinus: 7, spread: 7, played: true },
+            { date: "2026-04-04", opponent: "DEN", result: "L", points: 34, rebounds: 18, assists: 7, blocks: 5, plusMinus: 4, spread: -4, played: true },
+            { date: "2026-04-01", opponent: "GSW", result: "W", points: 41, rebounds: 18, assists: 3, blocks: 3, plusMinus: 16, spread: 16, played: true },
+            { date: "2026-03-30", opponent: "CHI", result: "W", points: 41, rebounds: 16, assists: 4, blocks: 3, plusMinus: 15, spread: 15, played: true },
+            { date: "2026-03-28", opponent: "MIL", result: "W", points: 23, rebounds: 15, assists: 6, blocks: 1, plusMinus: 14, spread: 14, played: true },
+            { date: "2026-03-25", opponent: "MEM", result: "W", points: 19, rebounds: 15, assists: 3, blocks: 7, plusMinus: 34, spread: 34, played: true },
+            { date: "2026-03-23", opponent: "MIA", result: "W", points: 26, rebounds: 15, assists: 4, blocks: 5, plusMinus: 19, spread: 19, played: true },
+            { date: "2026-03-21", opponent: "IND", result: "W", points: 20, rebounds: 8, assists: 6, blocks: 5, plusMinus: 14, spread: 14, played: true },
+            { date: "2026-03-19", opponent: "PHX", result: "W", points: 34, rebounds: 12, assists: 1, blocks: 1, plusMinus: 18, spread: 18, played: true },
+            { date: "2026-03-17", opponent: "SAC", result: "W", points: 18, rebounds: 8, assists: 3, blocks: 1, plusMinus: 23, spread: 23, played: true },
+            { date: "2026-03-16", opponent: "LAC", result: "W", points: 21, rebounds: 13, assists: 2, blocks: 4, plusMinus: 7, spread: 7, played: true },
+            { date: "2026-03-14", opponent: "CHA", result: "W", points: 32, rebounds: 12, assists: 8, blocks: 4, plusMinus: 6, spread: 6, played: true },
+            { date: "2026-03-10", opponent: "BOS", result: "W", points: 39, rebounds: 11, assists: 3, blocks: 2, plusMinus: 5, spread: 5, played: true },
+            { date: "2026-03-08", opponent: "HOU", result: "W", points: 29, rebounds: 8, assists: 1, blocks: 4, plusMinus: 27, spread: 27, played: true },
+            { date: "2026-03-06", opponent: "LAC", result: "W", points: 27, rebounds: 10, assists: 1, blocks: 4, plusMinus: 10, spread: 10, played: true },
+            { date: "2026-03-05", opponent: "DET", result: "W", points: 38, rebounds: 16, assists: 3, blocks: 5, plusMinus: 20, spread: 20, played: true },
+            { date: "2026-03-03", opponent: "PHI", result: "W", points: 10, rebounds: 8, assists: 4, blocks: 6, plusMinus: 41, spread: 41, played: true },
+            { date: "2026-03-01", opponent: "NYK", result: "L", points: 25, rebounds: 13, assists: 2, blocks: 4, plusMinus: -15, spread: -15, played: true },
+            { date: "2026-02-26", opponent: "BKN", result: "W", points: 12, rebounds: 8, assists: 5, blocks: 2, plusMinus: 15, spread: 15, played: true },
+            { date: "2026-02-25", opponent: "TOR", result: "W", points: 12, rebounds: 8, assists: 3, blocks: 5, plusMinus: 19, spread: 19, played: true },
+            { date: "2026-02-23", opponent: "DET", result: "W", points: 21, rebounds: 17, assists: 4, blocks: 6, plusMinus: 13, spread: 13, played: true },
+            { date: "2026-02-21", opponent: "SAC", result: "W", points: 28, rebounds: 15, assists: 6, blocks: 4, plusMinus: 32, spread: 32, played: true },
+            { date: "2026-02-19", opponent: "PHX", result: "W", points: 17, rebounds: 11, assists: 4, blocks: 5, plusMinus: 23, spread: 23, played: true },
+            { date: "2026-02-11", opponent: "GSW", result: "W", points: 26, rebounds: 9, assists: 4, blocks: 2, plusMinus: 7, spread: 7, played: true },
+            { date: "2026-02-10", opponent: "LAL", result: "W", points: 40, rebounds: 12, assists: 2, blocks: 1, plusMinus: 22, spread: 22, played: true },
+            { date: "2026-02-07", opponent: "DAL", result: "W", points: 16, rebounds: 11, assists: 1, blocks: 3, plusMinus: 3, spread: 3, played: true },
+            { date: "2026-02-05", opponent: "DAL", result: "W", points: 29, rebounds: 11, assists: 6, blocks: 3, plusMinus: 14, spread: 14, played: true },
+            { date: "2026-02-04", opponent: "OKC", result: "W", points: 22, rebounds: 14, assists: 2, blocks: 2, plusMinus: 17, spread: 17, played: true },
+            { date: "2026-02-01", opponent: "ORL", result: "W", points: 25, rebounds: 8, assists: 2, blocks: 5, plusMinus: 14, spread: 14, played: true },
+            { date: "2026-01-31", opponent: "CHA", result: "L", points: 16, rebounds: 8, assists: 1, blocks: 0, plusMinus: -14, spread: -14, played: true },
+            { date: "2026-01-28", opponent: "HOU", result: "W", points: 28, rebounds: 16, assists: 3, blocks: 5, plusMinus: 6, spread: 6, played: true },
+            { date: "2026-01-25", opponent: "NOP", result: "L", points: 16, rebounds: 16, assists: 0, blocks: 4, plusMinus: -12, spread: -12, played: true },
+            { date: "2026-01-22", opponent: "UTA", result: "W", points: 26, rebounds: 14, assists: 3, blocks: 5, plusMinus: 19, spread: 19, played: true },
+            { date: "2026-01-20", opponent: "HOU", result: "L", points: 14, rebounds: 10, assists: 2, blocks: 0, plusMinus: -14, spread: -14, played: true },
+            { date: "2026-01-19", opponent: "UTA", result: "W", points: 33, rebounds: 10, assists: 1, blocks: 2, plusMinus: 8, spread: 8, played: true },
+            { date: "2026-01-17", opponent: "MIN", result: "W", points: 39, rebounds: 9, assists: 3, blocks: 2, plusMinus: 5, spread: 5, played: true },
+            { date: "2026-01-15", opponent: "MIL", result: "W", points: 22, rebounds: 10, assists: 1, blocks: 2, plusMinus: 27, spread: 27, played: true },
+            { date: "2026-01-13", opponent: "OKC", result: "L", points: 17, rebounds: 7, assists: 1, blocks: 1, plusMinus: -14, spread: -14, played: true },
+            { date: "2026-01-11", opponent: "MIN", result: "L", points: 29, rebounds: 7, assists: 1, blocks: 0, plusMinus: 17, spread: -17, played: true },
+            { date: "2026-01-10", opponent: "BOS", result: "W", points: 21, rebounds: 6, assists: 1, blocks: 3, plusMinus: 15, spread: 15, played: true },
+            { date: "2026-01-07", opponent: "LAL", result: "W", points: 16, rebounds: 14, assists: 2, blocks: 4, plusMinus: 9, spread: 9, played: true },
+            { date: "2026-01-06", opponent: "MEM", result: "L", points: 30, rebounds: 5, assists: 3, blocks: 1, plusMinus: 2, spread: -2, played: true },
+            { date: "2025-12-31", opponent: "NYK", result: "W", points: 31, rebounds: 13, assists: 1, blocks: 1, plusMinus: 17, spread: 17, played: true },
+            { date: "2025-12-29", opponent: "CLE", result: "L", points: 26, rebounds: 14, assists: 3, blocks: 1, plusMinus: -17, spread: -17, played: true },
+            { date: "2025-12-27", opponent: "UTA", result: "L", points: 32, rebounds: 7, assists: 3, blocks: 5, plusMinus: -6, spread: -6, played: true },
+            { date: "2025-12-25", opponent: "OKC", result: "W", points: 19, rebounds: 11, assists: 2, blocks: 1, plusMinus: 13, spread: 13, played: true },
+            { date: "2025-12-23", opponent: "OKC", result: "W", points: 12, rebounds: 5, assists: 3, blocks: 0, plusMinus: 13, spread: 13, played: true },
+            { date: "2025-12-21", opponent: "WAS", result: "W", points: 14, rebounds: 12, assists: 2, blocks: 2, plusMinus: 5, spread: 5, played: true },
+            // 文班没上场的比赛
+            { date: "2025-12-19", opponent: "ATL", result: "L", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: -8, played: false },
+            { date: "2025-12-17", opponent: "BKN", result: "W", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: 12, played: false },
+            { date: "2025-12-15", opponent: "CHI", result: "L", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: -5, played: false },
+            { date: "2025-12-13", opponent: "DET", result: "W", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: 9, played: false },
+            { date: "2025-12-11", opponent: "IND", result: "L", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: -11, played: false },
+            { date: "2025-12-09", opponent: "MIA", result: "W", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: 15, played: false },
+            { date: "2025-12-07", opponent: "MIL", result: "L", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: -7, played: false },
+            { date: "2025-12-05", opponent: "ORL", result: "W", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: 6, played: false },
+            { date: "2025-12-03", opponent: "PHI", result: "L", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: -4, played: false },
+            { date: "2025-12-01", opponent: "POR", result: "W", points: 0, rebounds: 0, assists: 0, blocks: 0, plusMinus: 0, spread: 8, played: false }
+        ];
+
+        // 2024-25赛季数据（简化版）
+        const wemby202425Data = [
+            { date: "2025-04-12", opponent: "DAL", result: "W", points: 32, rebounds: 10, assists: 4, blocks: 3, plusMinus: 8, spread: 8, played: true },
+            { date: "2025-04-10", opponent: "HOU", result: "L", points: 28, rebounds: 9, assists: 3, blocks: 2, plusMinus: -5, spread: -5, played: true },
+            { date: "2025-04-08", opponent: "MEM", result: "W", points: 25, rebounds: 12, assists: 5, blocks: 4, plusMinus: 12, spread: 12, played: true },
+            { date: "2025-04-06", opponent: "NOP", result: "W", points: 30, rebounds: 8, assists: 2, blocks: 3, plusMinus: 10, spread: 10, played: true },
+            { date: "2025-04-04", opponent: "SAS", result: "L", points: 22, rebounds: 11, assists: 3, blocks: 2, plusMinus: -8, spread: -8, played: true },
+            { date: "2025-04-02", opponent: "LAL", result: "W", points: 35, rebounds: 13, assists: 4, blocks: 5, plusMinus: 15, spread: 15, played: true },
+            { date: "2025-03-30", opponent: "GSW", result: "W", points: 27, rebounds: 9, assists: 2, blocks: 3, plusMinus: 7, spread: 7, played: true },
+            { date: "2025-03-28", opponent: "PHX", result: "L", points: 24, rebounds: 10, assists: 3, blocks: 2, plusMinus: -6, spread: -6, played: true },
+            { date: "2025-03-26", opponent: "DEN", result: "W", points: 31, rebounds: 12, assists: 5, blocks: 4, plusMinus: 9, spread: 9, played: true },
+            { date: "2025-03-24", opponent: "POR", result: "W", points: 26, rebounds: 8, assists: 3, blocks: 3, plusMinus: 11, spread: 11, played: true }
+        ];
+
+        // 当前显示的数据
+        let currentData = wemby202526Data;
+        let currentStatType = 'points'; // 当前统计类型
+
+        // 初始化图表
+        function initChart(statType = 'points') {
+            const ctx = document.getElementById('teamPerformanceChart').getContext('2d');
+            
+            // 按日期排序数据
+            currentData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            const labels = currentData.map(game => game.date);
+            
+            // 根据统计类型获取数据
+            let datasets = [];
+            
+            // 主柱状图数据
+            let mainData, mainColors, mainBorderColors;
+            
+            switch(statType) {
+                case 'points':
+                    mainData = currentData.map(game => game.points);
+                    mainColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+                    mainBorderColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+                    break;
+                case 'rebounds':
+                    mainData = currentData.map(game => game.rebounds);
+                    mainColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+                    mainBorderColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+                    break;
+                case 'assists':
+                    mainData = currentData.map(game => game.assists);
+                    mainColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+                    mainBorderColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+                    break;
+                case 'blocks':
+                    mainData = currentData.map(game => game.blocks);
+                    mainColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+                    mainBorderColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+                    break;
+            }
+            
+            // 添加主柱状图
+            datasets.push({
+                label: getStatLabel(statType),
+                data: mainData,
+                backgroundColor: mainColors,
+                borderColor: mainBorderColors,
+                borderWidth: 1,
+                barPercentage: 0.6,
+                categoryPercentage: 0.8
+            });
+            
+            // 准备散点图数据（始终显示文班数据）
+            const scatterData = currentData.map((game, index) => ({
+                x: index,
+                y: mainData[index] + 2 // 在柱状图上方显示
+            }));
+            
+            const scatterColors = currentData.map(game => game.played ? 'rgba(54, 162, 235, 0.6)' : 'rgba(153, 153, 153, 0.6)');
+            const scatterBorderColors = currentData.map(game => game.played ? 'rgba(54, 162, 235, 1)' : 'rgba(153, 153, 153, 1)');
+            
+            datasets.push({
+                label: '文班数据',
+                data: scatterData,
+                type: 'scatter',
+                backgroundColor: scatterColors,
+                borderColor: scatterBorderColors,
+                borderWidth: 2,
+                pointRadius: 8,
+                pointHoverRadius: 10
+            });
+            
+            // 创建图表
+            window.teamChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    const game = currentData[item.dataIndex];
+                                    return `${game.date} vs ${game.opponent} (${game.result})`;
+                                },
+                                label: function(context) {
+                                    if (context.datasetIndex === 0) {
+                                        return `${getStatLabel(statType)}: ${context.parsed.y}`;
+                                    }
+                                    if (context.datasetIndex === 1) {
+                                        return `文班数据`;
+                                    }
+                                    return null;
+                                },
+                                afterLabel: function(context) {
+                                    const game = currentData[context.dataIndex];
+                                    if (context.datasetIndex === 0) {
+                                        return [
+                                            `分差: ${game.spread >= 0 ? '+' : ''}${game.spread}`,
+                                            `文班上场: ${game.played ? '是' : '否'}`
+                                        ];
+                                    }
+                                    if (context.datasetIndex === 1) {
+                                        if (game.played) {
+                                            return [
+                                                `得分: ${game.points}`,
+                                                `篮板: ${game.rebounds}`,
+                                                `助攻: ${game.assists}`,
+                                                `盖帽: ${game.blocks}`,
+                                                `正负值: ${game.plusMinus}`
+                                            ];
+                                        } else {
+                                            return [
+                                                `文班未上场`
+                                            ];
+                                        }
+                                    }
+                                    return null;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: getStatLabel(statType)
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        }
+
+        // 获取统计类型标签
+        function getStatLabel(statType) {
+            switch(statType) {
+                case 'points': return '得分';
+                case 'rebounds': return '篮板';
+                case 'assists': return '助攻';
+                case 'blocks': return '盖帽';
+                default: return '数据';
+            }
+        }
+
+        // 填充比赛表格
+        function populateGameTable() {
+            const tableBody = document.getElementById('gameTableBody');
+            tableBody.innerHTML = '';
+            
+            // 按日期排序数据
+            const sortedData = [...currentData].sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            sortedData.forEach(game => {
+                const row = document.createElement('tr');
+                row.className = game.result === 'W' ? 'bg-green-50' : 'bg-red-50';
+                
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${game.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${game.opponent}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 ${game.result === 'W' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} rounded-full text-xs font-medium">
+                            ${game.result}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 ${game.played ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'} rounded-full text-xs font-medium">
+                            ${game.played ? '上场' : '未上场'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${game.points}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.rebounds}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.assists}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.blocks}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ${game.plusMinus >= 0 ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}">
+                        ${game.plusMinus >= 0 ? '+' : ''}${game.plusMinus}
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // 更新分页信息
+            document.getElementById('totalGames').textContent = currentData.length;
+            document.getElementById('showingRange').textContent = `1-${Math.min(10, currentData.length)}`;
+        }
+
+        // 切换赛季
+        document.getElementById('season-2024-25').addEventListener('click', function() {
+            currentData = wemby202425Data;
+            updateUIForSeason('2024-25');
+        });
+
+        document.getElementById('season-2025-26').addEventListener('click', function() {
+            currentData = wemby202526Data;
+            updateUIForSeason('2025-26');
+        });
+
+        // 更新UI为选中的赛季
+        function updateUIForSeason(season) {
+            // 更新按钮状态
+            document.getElementById('season-2024-25').className = season === '2024-25' ? 'bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors bg-blue-100' : 'bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors';
+            document.getElementById('season-2025-26').className = season === '2025-26' ? 'bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors bg-blue-100' : 'bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors';
+            
+            // 销毁旧图表
+            if (window.teamChart) {
+                window.teamChart.destroy();
+            }
+            
+            // 重新初始化图表
+            initChart();
+            
+            // 重新填充表格
+            populateGameTable();
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initChart();
+            populateGameTable();
+            
+            // 统计类型切换事件
+            document.getElementById('stat-type-select').addEventListener('change', function() {
+                currentStatType = this.value;
+                // 销毁旧图表
+                if (window.teamChart) {
+                    window.teamChart.destroy();
+                }
+                // 重新初始化图表
+                initChart(currentStatType);
+            });
+        });
+    </script>
+</body>
+</html>

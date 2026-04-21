@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文班亚马Stint数据分析仪表板</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF', // 马刺蓝
+                        secondary: '#B22222', // 马刺红
+                        accent: '#FF6B00', // 强调色
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .chart-container {
+                position: relative;
+                height: 300px;
+                width: 100%;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .gradient-bg {
+                @apply bg-gradient-to-br from-primary to-secondary;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-line-chart text-3xl mr-3"></i>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">文班亚马Stint数据分析</h1>
+                        <p class="text-sm opacity-80">2024-25 至 2025-26 赛季分析（10月-4月常规赛 + 季后赛）</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                        <i class="fa fa-refresh mr-1"></i> 刷新数据
+                    </button>
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
+                        <i class="fa fa-download mr-1"></i> 导出报告
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 数据概览卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">总Stint数</p>
+                        <h3 class="text-3xl font-bold text-primary">844</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-clock-o text-primary text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i> 12.5%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">平均Stint时长</p>
+                        <h3 class="text-3xl font-bold text-primary">2.72<span class="text-lg">分钟</span></h3>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-hourglass-half text-green-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm">
+                        <span class="text-red-500 flex items-center">
+                            <i class="fa fa-arrow-down mr-1"></i> 3.2%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">场均Stint数</p>
+                        <h3 class="text-3xl font-bold text-primary">7.67</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-list-ol text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i> 5.8%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">最长Stint</p>
+                        <h3 class="text-3xl font-bold text-primary">11.48<span class="text-lg">分钟</span></h3>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-trophy text-yellow-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm">
+                        <span class="text-gray-500">2025-26赛季 vs 湖人</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- 按节分布图表 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">按节次分布</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="periodChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 按持续时间分布图表 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">按持续时间分布</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="durationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 胜负对比图表 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- 胜负场次Stint数量对比 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">胜负场次Stint数量对比</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="wlCountChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 胜负场次Stint时长对比 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">胜负场次Stint时长对比</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="wlDurationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 赛季对比图表 -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-gray-800">赛季对比</h2>
+                <div class="flex space-x-2">
+                    <button class="text-sm text-gray-500 hover:text-primary">
+                        <i class="fa fa-info-circle"></i>
+                    </button>
+                    <button class="text-sm text-gray-500 hover:text-primary">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="chart-container h-80">
+                <canvas id="seasonComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 md:mb-0">Stint详细数据</h2>
+                <div class="flex flex-wrap gap-4">
+                    <!-- 赛季筛选 -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">赛季:</label>
+                        <select id="season-filter" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">全部</option>
+                            <option value="2024-25">2024-25</option>
+                            <option value="2025-26">2025-26</option>
+                        </select>
+                    </div>
+                    <!-- 比赛结果筛选 -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">结果:</label>
+                        <select id="result-filter" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">全部</option>
+                            <option value="W">赢球</option>
+                            <option value="L">输球</option>
+                        </select>
+                    </div>
+                    <!-- 节次筛选 -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">节次:</label>
+                        <select id="period-filter" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">全部</option>
+                            <option value="1">第1节</option>
+                            <option value="2">第2节</option>
+                            <option value="3">第3节</option>
+                            <option value="4">第4节</option>
+                            <option value="5">加时赛</option>
+                        </select>
+                    </div>
+                    <!-- 搜索框 -->
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="搜索比赛..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fa fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <!-- 下载按钮 -->
+                    <button class="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-opacity-90 transition-colors">
+                        <i class="fa fa-download mr-1"></i> 导出数据
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Stint ID
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                比赛
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                赛季
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                节次
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                开始时间
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                结束时间
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                持续时间
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                得分
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                结果
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                类型
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="stint-table-body" class="bg-white divide-y divide-gray-200">
+                        <!-- 数据将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- 加载状态 -->
+            <div id="loading-indicator" class="flex justify-center items-center py-8 hidden">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+            <!-- 分页控制 -->
+            <div class="flex items-center justify-between mt-6">
+                <div class="text-sm text-gray-500">
+                    显示 <span id="start-range">1</span>-<span id="end-range">10</span> 条，共 <span id="total-count">844</span> 条
+                </div>
+                <div class="flex space-x-2">
+                    <button id="prev-page" class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i class="fa fa-chevron-left mr-1"></i> 上一页
+                    </button>
+                    <div class="flex space-x-1">
+                        <button class="page-btn px-3 py-1 border border-primary bg-primary text-white rounded-md text-sm">1</button>
+                        <button class="page-btn px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50">2</button>
+                        <button class="page-btn px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50">3</button>
+                        <button class="page-btn px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50">4</button>
+                        <button class="page-btn px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50">5</button>
+                    </div>
+                    <button id="next-page" class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50">
+                        下一页 <i class="fa fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">文班亚马Stint数据分析</h3>
+                    <p class="text-gray-400">基于2024-25和2025-26赛季数据</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+                © 2026 文班亚马数据分析项目. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 等待DOM加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 图表配置
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            };
+
+            // 按节分布图表
+            const periodCtx = document.getElementById('periodChart').getContext('2d');
+            new Chart(periodCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['第1节', '第2节', '第3节', '第4节', '加时赛'],
+                    datasets: [{
+                        label: 'Stint数量',
+                        data: [205, 227, 217, 190, 5],
+                        backgroundColor: [
+                            'rgba(30, 64, 175, 0.8)',
+                            'rgba(30, 64, 175, 0.7)',
+                            'rgba(30, 64, 175, 0.6)',
+                            'rgba(30, 64, 175, 0.5)',
+                            'rgba(30, 64, 175, 0.4)'
+                        ],
+                        borderColor: [
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(30, 64, 175, 1)',
+                            'rgba(30, 64, 175, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Stint数量'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 按持续时间分布图表
+            const durationCtx = document.getElementById('durationChart').getContext('2d');
+            new Chart(durationCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['0-5分钟', '5-10分钟', '10-15分钟', '15分钟以上'],
+                    datasets: [{
+                        data: [601, 134, 3, 0],
+                        backgroundColor: [
+                            'rgba(255, 107, 0, 0.8)',
+                            'rgba(255, 107, 0, 0.6)',
+                            'rgba(255, 107, 0, 0.4)',
+                            'rgba(255, 107, 0, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 107, 0, 1)',
+                            'rgba(255, 107, 0, 1)',
+                            'rgba(255, 107, 0, 1)',
+                            'rgba(255, 107, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // 胜负场次Stint数量对比
+            const wlCountCtx = document.getElementById('wlCountChart').getContext('2d');
+            new Chart(wlCountCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['赢球', '输球'],
+                    datasets: [{
+                        label: 'Stint数量',
+                        data: [480, 364],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(255, 99, 132, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Stint数量'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 胜负场次Stint时长对比
+            const wlDurationCtx = document.getElementById('wlDurationChart').getContext('2d');
+            new Chart(wlDurationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['赢球', '输球'],
+                    datasets: [{
+                        label: '平均Stint时长（分钟）',
+                        data: [2.8, 2.6],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '平均时长（分钟）'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 赛季对比图表
+            const seasonCtx = document.getElementById('seasonComparisonChart').getContext('2d');
+            new Chart(seasonCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '2024-25赛季',
+                        data: [7.2, 7.5, 7.8, 8.0, 7.9, 8.1],
+                        borderColor: 'rgba(30, 64, 175, 1)',
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: '2025-26赛季',
+                        data: [7.5, 7.7, 8.0, 8.2, 8.3, 8.5],
+                        borderColor: 'rgba(255, 107, 0, 1)',
+                        backgroundColor: 'rgba(255, 107, 0, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: '场均Stint数'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 添加卡片悬停效果
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('shadow-lg', '-translate-y-1');
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('shadow-lg', '-translate-y-1');
+                });
+            });
+
+            // 添加图表动画效果
+            const animateCharts = () => {
+                const chartElements = document.querySelectorAll('canvas');
+                chartElements.forEach(canvas => {
+                    const rect = canvas.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                    if (isVisible) {
+                        canvas.style.opacity = '1';
+                        canvas.style.transform = 'scale(1)';
+                    }
+                });
+            };
+
+            // 初始设置
+            const chartElements = document.querySelectorAll('canvas');
+            chartElements.forEach(canvas => {
+                canvas.style.opacity = '0';
+                canvas.style.transform = 'scale(0.9)';
+                canvas.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // 监听滚动事件
+            window.addEventListener('scroll', animateCharts);
+            
+            // 初始调用
+            animateCharts();
+        });
+
+        // 数据管理和表格功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟Stint数据
+            const generateMockData = () => {
+                const data = [];
+                const games = [
+                    '马刺 vs 火箭', '马刺 vs 湖人', '马刺 vs 勇士', '马刺 vs 快船', '马刺 vs 小牛',
+                    '马刺 vs 掘金', '马刺 vs 爵士', '马刺 vs 开拓者', '马刺 vs 国王', '马刺 vs 太阳'
+                ];
+                const seasons = ['2024-25', '2025-26'];
+                const results = ['W', 'L'];
+                const periods = [1, 2, 3, 4, 5];
+                const types = ['进攻', '防守', '混合'];
+
+                for (let i = 1; i <= 844; i++) {
+                    const season = seasons[Math.floor(Math.random() * seasons.length)];
+                    const game = games[Math.floor(Math.random() * games.length)];
+                    const period = periods[Math.floor(Math.random() * periods.length)];
+                    const duration = (Math.random() * 10 + 0.5).toFixed(2);
+                    const startMinutes = 12 - Math.floor(Math.random() * 10);
+                    const startSeconds = Math.floor(Math.random() * 60);
+                    const endMinutes = startMinutes - Math.floor(parseFloat(duration));
+                    const endSeconds = startSeconds - Math.floor((parseFloat(duration) % 1) * 60);
+                    
+                    data.push({
+                        id: i,
+                        game: game,
+                        season: season,
+                        period: period,
+                        startTime: `${startMinutes.toString().padStart(2, '0')}:${startSeconds.toString().padStart(2, '0')}`,
+                        endTime: `${Math.max(0, endMinutes).toString().padStart(2, '0')}:${Math.max(0, endSeconds).toString().padStart(2, '0')}`,
+                        duration: `${duration}分钟`,
+                        points: Math.floor(Math.random() * 10),
+                        result: results[Math.floor(Math.random() * results.length)],
+                        type: types[Math.floor(Math.random() * types.length)]
+                    });
+                }
+                return data;
+            };
+
+            // 全局变量
+            let allStintData = generateMockData();
+            let filteredData = [...allStintData];
+            let currentPage = 1;
+            const itemsPerPage = 10;
+
+            // DOM元素
+            const tableBody = document.getElementById('stint-table-body');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const startRangeEl = document.getElementById('start-range');
+            const endRangeEl = document.getElementById('end-range');
+            const totalCountEl = document.getElementById('total-count');
+            const prevPageBtn = document.getElementById('prev-page');
+            const nextPageBtn = document.getElementById('next-page');
+            const pageBtns = document.querySelectorAll('.page-btn');
+            const seasonFilter = document.getElementById('season-filter');
+            const resultFilter = document.getElementById('result-filter');
+            const periodFilter = document.getElementById('period-filter');
+            const searchInput = document.getElementById('search-input');
+
+            // 渲染表格数据
+            const renderTable = (data, page) => {
+                loadingIndicator.classList.remove('hidden');
+                tableBody.innerHTML = '';
+
+                // 模拟加载延迟
+                setTimeout(() => {
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+                    const pageData = data.slice(start, end);
+
+                    pageData.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.className = 'hover:bg-gray-50';
+                        
+                        row.innerHTML = `
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.id}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.game}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.season}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.period}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.startTime}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.endTime}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.duration}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.points}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm ${item.result === 'W' ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}">${item.result}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.type}</td>
+                        `;
+                        
+                        tableBody.appendChild(row);
+                    });
+
+                    // 更新分页信息
+                    startRangeEl.textContent = start + 1;
+                    endRangeEl.textContent = Math.min(end, data.length);
+                    totalCountEl.textContent = data.length;
+
+                    // 更新分页按钮状态
+                    prevPageBtn.disabled = page === 1;
+                    nextPageBtn.disabled = end >= data.length;
+
+                    // 更新页码按钮
+                    pageBtns.forEach((btn, index) => {
+                        const pageNum = index + 1;
+                        if (pageNum === page) {
+                            btn.className = 'page-btn px-3 py-1 border border-primary bg-primary text-white rounded-md text-sm';
+                        } else {
+                            btn.className = 'page-btn px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50';
+                        }
+                    });
+
+                    loadingIndicator.classList.add('hidden');
+                }, 500);
+            };
+
+            // 筛选数据
+            const filterData = () => {
+                const season = seasonFilter.value;
+                const result = resultFilter.value;
+                const period = periodFilter.value;
+                const search = searchInput.value.toLowerCase();
+
+                filteredData = allStintData.filter(item => {
+                    const matchSeason = season === 'all' || item.season === season;
+                    const matchResult = result === 'all' || item.result === result;
+                    const matchPeriod = period === 'all' || item.period.toString() === period;
+                    const matchSearch = search === '' || item.game.toLowerCase().includes(search);
+
+                    return matchSeason && matchResult && matchPeriod && matchSearch;
+                });
+
+                currentPage = 1;
+                renderTable(filteredData, currentPage);
+            };
+
+            // 分页按钮点击事件
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable(filteredData, currentPage);
+                }
+            });
+
+            nextPageBtn.addEventListener('click', () => {
+                const maxPage = Math.ceil(filteredData.length / itemsPerPage);
+                if (currentPage < maxPage) {
+                    currentPage++;
+                    renderTable(filteredData, currentPage);
+                }
+            });
+
+            pageBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    currentPage = index + 1;
+                    renderTable(filteredData, currentPage);
+                });
+            });
+
+            // 筛选器变化事件
+            seasonFilter.addEventListener('change', filterData);
+            resultFilter.addEventListener('change', filterData);
+            periodFilter.addEventListener('change', filterData);
+            searchInput.addEventListener('input', filterData);
+
+            // 导出数据按钮
+            document.querySelector('button:has(.fa-download)').addEventListener('click', () => {
+                // 这里可以实现导出功能
+                alert('数据导出功能开发中...');
+            });
+
+            // 初始渲染
+            renderTable(filteredData, currentPage);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612741,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Chicago",
+      "TEAM_NAME": "Bulls",
+      "TEAM_ABBREVIATION": "CHI",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Central",
+      "TEAM_CODE": "bulls",
+      "TEAM_SLUG": "bulls",
+      "W": 31,
+      "L": 51,
+      "PCT": 0.378,
+      "CONF_RANK": 12,
+      "DIV_RANK": 4,
+      "MIN_YEAR": "1966",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:40:07.624770",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612741
+  }
+}

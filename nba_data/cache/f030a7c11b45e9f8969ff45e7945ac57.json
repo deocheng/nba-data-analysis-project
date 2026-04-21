@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612738,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Boston",
+      "TEAM_NAME": "Celtics",
+      "TEAM_ABBREVIATION": "BOS",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Atlantic",
+      "TEAM_CODE": "celtics",
+      "TEAM_SLUG": "celtics",
+      "W": 56,
+      "L": 26,
+      "PCT": 0.683,
+      "CONF_RANK": 2,
+      "DIV_RANK": 1,
+      "MIN_YEAR": "1946",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:39:39.996308",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612738
+  }
+}

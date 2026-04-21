@@ -1,0 +1,4462 @@
+{
+  "players": {
+    "Wembanyama": {
+      "total_minutes": 3599.4,
+      "periods": 5
+    },
+    "Castle": {
+      "total_minutes": 3471.9,
+      "periods": 5
+    },
+    "Vassell": {
+      "total_minutes": 3432.5,
+      "periods": 5
+    },
+    "Barnes": {
+      "total_minutes": 3392.7,
+      "periods": 5
+    },
+    "Champagnie": {
+      "total_minutes": 2956.2,
+      "periods": 5
+    },
+    "Fox": {
+      "total_minutes": 2031.7,
+      "periods": 5
+    },
+    "Johnson": {
+      "total_minutes": 1616.0,
+      "periods": 4
+    },
+    "Paul": {
+      "total_minutes": 1587.5,
+      "periods": 5
+    },
+    "Sochan": {
+      "total_minutes": 1042.6,
+      "periods": 5
+    },
+    "Harper": {
+      "total_minutes": 1011.2,
+      "periods": 4
+    },
+    "Kornet": {
+      "total_minutes": 939.6,
+      "periods": 4
+    },
+    "Collins": {
+      "total_minutes": 450.0,
+      "periods": 5
+    },
+    "Bryant": {
+      "total_minutes": 250.4,
+      "periods": 4
+    },
+    "Bassey": {
+      "total_minutes": 190.5,
+      "periods": 4
+    },
+    "Jones": {
+      "total_minutes": 157.3,
+      "periods": 4
+    },
+    "Wesley": {
+      "total_minutes": 105.4,
+      "periods": 4
+    },
+    "Branham": {
+      "total_minutes": 82.7,
+      "periods": 4
+    },
+    "Waters III": {
+      "total_minutes": 72.5,
+      "periods": 4
+    },
+    "McLaughlin": {
+      "total_minutes": 62.1,
+      "periods": 4
+    },
+    "Biyombo": {
+      "total_minutes": 55.6,
+      "periods": 4
+    },
+    "Olynyk": {
+      "total_minutes": 49.1,
+      "periods": 4
+    },
+    "Mamukelashvili": {
+      "total_minutes": 41.7,
+      "periods": 4
+    },
+    "Plumlee": {
+      "total_minutes": 15.5,
+      "periods": 2
+    },
+    "Cissoko": {
+      "total_minutes": 10.2,
+      "periods": 1
+    },
+    "Duke Jr.": {
+      "total_minutes": 8.8,
+      "periods": 1
+    },
+    "Ingram": {
+      "total_minutes": 3.6,
+      "periods": 1
+    },
+    "Jones Garcia": {
+      "total_minutes": 1.6,
+      "periods": 1
+    }
+  },
+  "two_player_combinations": [
+    {
+      "player1": "Castle",
+      "player2": "Wembanyama",
+      "minutes": 3471.9
+    },
+    {
+      "player1": "Castle",
+      "player2": "Vassell",
+      "minutes": 3432.5
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Vassell",
+      "minutes": 3432.5
+    },
+    {
+      "player1": "Castle",
+      "player2": "Barnes",
+      "minutes": 3392.7
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Wembanyama",
+      "minutes": 3392.7
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Vassell",
+      "minutes": 3392.7
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Castle",
+      "minutes": 2956.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Barnes",
+      "minutes": 2956.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Wembanyama",
+      "minutes": 2956.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Vassell",
+      "minutes": 2956.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Fox",
+      "minutes": 2031.7
+    },
+    {
+      "player1": "Castle",
+      "player2": "Fox",
+      "minutes": 2031.7
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Fox",
+      "minutes": 2031.7
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Fox",
+      "minutes": 2031.7
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Fox",
+      "minutes": 2031.7
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Johnson",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Castle",
+      "player2": "Johnson",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Johnson",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Johnson",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Vassell",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Fox",
+      "minutes": 1616.0
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Paul",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Castle",
+      "player2": "Paul",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Paul",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Wembanyama",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Johnson",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Vassell",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Fox",
+      "minutes": 1587.5
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Castle",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Paul",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Sochan",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Fox",
+      "minutes": 1042.6
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Castle",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Paul",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Fox",
+      "player2": "Harper",
+      "minutes": 1011.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Castle",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Paul",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Fox",
+      "player2": "Kornet",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Harper",
+      "minutes": 939.6
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Castle",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Paul",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Collins",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Collins",
+      "player2": "Vassell",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Collins",
+      "player2": "Sochan",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Collins",
+      "player2": "Fox",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Collins",
+      "player2": "Kornet",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Collins",
+      "player2": "Harper",
+      "minutes": 450.0
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Castle",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Paul",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Collins",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Fox",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Harper",
+      "player2": "Bryant",
+      "minutes": 250.4
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Castle",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Collins",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Bassey",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Sochan",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Fox",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Kornet",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Harper",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Bryant",
+      "minutes": 190.5
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Castle",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Paul",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Collins",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Jones",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Bassey",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Sochan",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Fox",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Kornet",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Harper",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Jones",
+      "player2": "Bryant",
+      "minutes": 157.3
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Castle",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Paul",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Collins",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Wesley",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Jones",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Bassey",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Sochan",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Fox",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Kornet",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Harper",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Bryant",
+      "minutes": 105.4
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Castle",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Paul",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Collins",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Jones",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Branham",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Branham",
+      "player2": "Fox",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Branham",
+      "player2": "Kornet",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Branham",
+      "player2": "Harper",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Branham",
+      "player2": "Bryant",
+      "minutes": 82.7
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Castle",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Collins",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Jones",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Branham",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Fox",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Harper",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Bryant",
+      "player2": "Waters III",
+      "minutes": 72.5
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Castle",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Barnes",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Paul",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Johnson",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Collins",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Vassell",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Wesley",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Jones",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Bassey",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Sochan",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Branham",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Fox",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Kornet",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Harper",
+      "player2": "McLaughlin",
+      "minutes": 62.1
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Bryant",
+      "minutes": 62.1
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Waters III",
+      "minutes": 62.1
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Castle",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Paul",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Collins",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Jones",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Branham",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Fox",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Harper",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Bryant",
+      "player2": "Biyombo",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Biyombo",
+      "player2": "Waters III",
+      "minutes": 55.6
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Castle",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Paul",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Collins",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Jones",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Branham",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Fox",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Harper",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Bryant",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Biyombo",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Waters III",
+      "player2": "Olynyk",
+      "minutes": 49.1
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Castle",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Paul",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Collins",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Jones",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Branham",
+      "player2": "Mamukelashvili",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Fox",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Kornet",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Harper",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "McLaughlin",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Bryant",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Biyombo",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Waters III",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Olynyk",
+      "minutes": 41.7
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Castle",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Paul",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Collins",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Jones",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Branham",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Fox",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Harper",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Bryant",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Biyombo",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Waters III",
+      "player2": "Plumlee",
+      "minutes": 15.5
+    },
+    {
+      "player1": "Olynyk",
+      "player2": "Plumlee",
+      "minutes": 13.3
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Castle",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Paul",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Collins",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Jones",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Branham",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Cissoko",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Fox",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Kornet",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Harper",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "McLaughlin",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Bryant",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Biyombo",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Waters III",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Olynyk",
+      "minutes": 10.2
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Castle",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Paul",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Collins",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Jones",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Branham",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Duke Jr.",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Fox",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Kornet",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Harper",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "McLaughlin",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Bryant",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Biyombo",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Waters III",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Olynyk",
+      "minutes": 8.8
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Castle",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Paul",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Collins",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Jones",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Branham",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Ingram",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Fox",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Kornet",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Harper",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "McLaughlin",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Bryant",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Biyombo",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Waters III",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Olynyk",
+      "minutes": 3.6
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Plumlee",
+      "minutes": 2.7
+    },
+    {
+      "player1": "Champagnie",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Castle",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Barnes",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Paul",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Wembanyama",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Johnson",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Collins",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Vassell",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Wesley",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Jones",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Bassey",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Sochan",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Branham",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Mamukelashvili",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Fox",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Kornet",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Harper",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "McLaughlin",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Bryant",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Biyombo",
+      "player2": "Jones Garcia",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Jones Garcia",
+      "player2": "Waters III",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Jones Garcia",
+      "player2": "Olynyk",
+      "minutes": 1.6
+    },
+    {
+      "player1": "Cissoko",
+      "player2": "Plumlee",
+      "minutes": 0.0
+    },
+    {
+      "player1": "Duke Jr.",
+      "player2": "Plumlee",
+      "minutes": 0.0
+    },
+    {
+      "player1": "Ingram",
+      "player2": "Plumlee",
+      "minutes": 0.0
+    },
+    {
+      "player1": "Jones Garcia",
+      "player2": "Plumlee",
+      "minutes": 0.0
+    }
+  ],
+  "three_player_combinations": [],
+  "games": [
+    {
+      "date": "2025-10-01",
+      "opponent": "Team 2",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-02",
+      "opponent": "Team 3",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-03",
+      "opponent": "Team 4",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-04",
+      "opponent": "Team 5",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "opponent": "Team 6",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-06",
+      "opponent": "Team 7",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-07",
+      "opponent": "Team 8",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-08",
+      "opponent": "Team 9",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-09",
+      "opponent": "Team 10",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-10",
+      "opponent": "Team 11",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-11",
+      "opponent": "Team 12",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-12",
+      "opponent": "Team 13",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-13",
+      "opponent": "Team 14",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-14",
+      "opponent": "Team 15",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-15",
+      "opponent": "Team 16",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-16",
+      "opponent": "Team 17",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "opponent": "Team 18",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-18",
+      "opponent": "Team 19",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-19",
+      "opponent": "Team 20",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "opponent": "Team 21",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-21",
+      "opponent": "Team 22",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-22",
+      "opponent": "Team 23",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-23",
+      "opponent": "Team 24",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-24",
+      "opponent": "Team 25",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-25",
+      "opponent": "Team 26",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "opponent": "Team 27",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-27",
+      "opponent": "Team 28",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-28",
+      "opponent": "Team 29",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-29",
+      "opponent": "Team 30",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-30",
+      "opponent": "Team 1",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-10-31",
+      "opponent": "Team 2",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "opponent": "Team 3",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-02",
+      "opponent": "Team 4",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-03",
+      "opponent": "Team 5",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-04",
+      "opponent": "Team 6",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-05",
+      "opponent": "Team 7",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-06",
+      "opponent": "Team 8",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-07",
+      "opponent": "Team 9",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-08",
+      "opponent": "Team 10",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "opponent": "Team 11",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-10",
+      "opponent": "Team 12",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-11",
+      "opponent": "Team 13",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-12",
+      "opponent": "Team 14",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-13",
+      "opponent": "Team 15",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Team 16",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-15",
+      "opponent": "Team 17",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-16",
+      "opponent": "Team 18",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-17",
+      "opponent": "Team 19",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "Team 20",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-19",
+      "opponent": "Team 21",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-20",
+      "opponent": "Team 22",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "opponent": "Team 23",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "opponent": "Team 24",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "opponent": "Team 25",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "opponent": "Team 26",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-25",
+      "opponent": "Team 27",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-26",
+      "opponent": "Team 28",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-27",
+      "opponent": "Team 29",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-28",
+      "opponent": "Team 30",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-29",
+      "opponent": "Team 1",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "opponent": "Team 2",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-31",
+      "opponent": "Team 3",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-32",
+      "opponent": "Team 4",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-33",
+      "opponent": "Team 5",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-34",
+      "opponent": "Team 6",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-35",
+      "opponent": "Team 7",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-36",
+      "opponent": "Team 8",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-37",
+      "opponent": "Team 9",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-38",
+      "opponent": "Team 10",
+      "result": "L",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    },
+    {
+      "date": "2025-11-39",
+      "opponent": "Team 11",
+      "result": "W",
+      "combinations": [
+        {
+          "players": "Castle + Wembanyama",
+          "minutes": 49.6,
+          "net_rating": 34.7,
+          "points": 89.3
+        },
+        {
+          "players": "Castle + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Wembanyama + Vassell",
+          "minutes": 49.0,
+          "net_rating": 34.3,
+          "points": 88.3
+        },
+        {
+          "players": "Castle + Barnes",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        },
+        {
+          "players": "Barnes + Wembanyama",
+          "minutes": 48.5,
+          "net_rating": 33.9,
+          "points": 87.2
+        }
+      ]
+    }
+  ]
+}

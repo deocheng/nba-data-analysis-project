@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勒布朗·詹姆斯职业生涯出场时间分析</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #862633;
+            --secondary-color: #FDB927;
+            --light-color: #F3F4F6;
+            --dark-color: #1F2937;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+        
+        .nba-header {
+            background: linear-gradient(135deg, #862633, #FDB927);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .nba-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .analysis-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .lebron-card {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="nba-header py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="nba-logo flex items-center">
+                    <i class="fas fa-basketball-ball mr-2"></i>
+                    勒布朗·詹姆斯职业生涯出场时间分析
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6 text-center">勒布朗·詹姆斯职业生涯出场时间与休息时间趋势</h1>
+        
+        <!-- 趋势图表 -->
+        <div class="analysis-card p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4">出场时间与休息时间趋势</h2>
+            <div class="h-96">
+                <canvas id="minutesTrendChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- 分析总结 -->
+        <div class="analysis-card p-6">
+            <h2 class="text-xl font-bold mb-4">分析总结</h2>
+            <div class="prose max-w-none">
+                <p class="mb-4">勒布朗·詹姆斯的职业生涯出场时间和休息时间经历了明显的变化趋势：</p>
+                
+                <h3 class="text-lg font-semibold">早期职业生涯（2003-2010）</h3>
+                <p class="mb-4">在骑士队的前七个赛季，勒布朗的场均出场时间非常高，尤其是2004-05赛季达到了职业生涯最高的42.4分钟。这一时期他体力充沛，休息时间较短，通常在1.5分钟之间。</p>
+                
+                <h3 class="text-lg font-semibold">中期职业生涯（2011-2018）</h3>
+                <p class="mb-4">加盟热火后，勒布朗的出场时间开始逐渐下降，稳定在37-38分钟左右。休息时间也相应增加到2.0分钟，显示出更加注重效率和保持体力的策略。</p>
+                
+                <h3 class="text-lg font-semibold">后期职业生涯（2019至今）</h3>
+                <p class="mb-4">随着年龄的增长，勒布朗的出场时间进一步减少，从35分钟逐渐下降到33分钟。休息时间也相应增加到2.5分钟，达到了职业生涯晚期的最佳平衡状态。</p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // 内联数据
+        const lebronData = {
+            "2003-04": {"average_minutes": 39.5, "best_stint_duration": 9.9, "best_rest_duration": 1.5, "age": 19},
+            "2004-05": {"average_minutes": 42.4, "best_stint_duration": 10.6, "best_rest_duration": 1.5, "age": 20},
+            "2005-06": {"average_minutes": 42.5, "best_stint_duration": 10.6, "best_rest_duration": 1.5, "age": 21},
+            "2006-07": {"average_minutes": 40.9, "best_stint_duration": 10.2, "best_rest_duration": 1.5, "age": 22},
+            "2007-08": {"average_minutes": 40.4, "best_stint_duration": 10.1, "best_rest_duration": 1.5, "age": 23},
+            "2008-09": {"average_minutes": 37.7, "best_stint_duration": 9.4, "best_rest_duration": 1.5, "age": 24},
+            "2009-10": {"average_minutes": 39.1, "best_stint_duration": 9.8, "best_rest_duration": 1.5, "age": 25},
+            "2010-11": {"average_minutes": 38.8, "best_stint_duration": 9.7, "best_rest_duration": 1.5, "age": 26},
+            "2011-12": {"average_minutes": 37.5, "best_stint_duration": 9.4, "best_rest_duration": 1.5, "age": 27},
+            "2012-13": {"average_minutes": 37.9, "best_stint_duration": 9.5, "best_rest_duration": 1.5, "age": 28},
+            "2013-14": {"average_minutes": 37.7, "best_stint_duration": 9.4, "best_rest_duration": 1.5, "age": 29},
+            "2014-15": {"average_minutes": 36.1, "best_stint_duration": 9.0, "best_rest_duration": 2.0, "age": 30},
+            "2015-16": {"average_minutes": 35.6, "best_stint_duration": 8.9, "best_rest_duration": 2.0, "age": 31},
+            "2016-17": {"average_minutes": 37.8, "best_stint_duration": 9.4, "best_rest_duration": 2.0, "age": 32},
+            "2017-18": {"average_minutes": 36.9, "best_stint_duration": 9.2, "best_rest_duration": 2.0, "age": 33},
+            "2018-19": {"average_minutes": 35.2, "best_stint_duration": 8.8, "best_rest_duration": 2.0, "age": 34},
+            "2019-20": {"average_minutes": 34.6, "best_stint_duration": 8.6, "best_rest_duration": 2.5, "age": 35},
+            "2020-21": {"average_minutes": 33.4, "best_stint_duration": 8.3, "best_rest_duration": 2.5, "age": 36},
+            "2021-22": {"average_minutes": 37.2, "best_stint_duration": 9.3, "best_rest_duration": 2.5, "age": 37},
+            "2022-23": {"average_minutes": 35.5, "best_stint_duration": 8.9, "best_rest_duration": 2.5, "age": 38},
+            "2023-24": {"average_minutes": 35.3, "best_stint_duration": 8.8, "best_rest_duration": 2.5, "age": 39},
+            "2024-25": {"average_minutes": 35.0, "best_stint_duration": 8.7, "best_rest_duration": 2.5, "age": 40},
+            "2025-26": {"average_minutes": 33.1, "best_stint_duration": 8.3, "best_rest_duration": 2.5, "age": 41}
+        };
+        
+        // 准备图表数据
+        const seasons = Object.keys(lebronData);
+        const avgMinutes = seasons.map(season => lebronData[season].average_minutes);
+        const bestStint = seasons.map(season => lebronData[season].best_stint_duration);
+        const bestRest = seasons.map(season => lebronData[season].best_rest_duration);
+        
+        // 渲染图表
+        function renderChart() {
+            const ctx = document.getElementById('minutesTrendChart').getContext('2d');
+            
+            // 创建颜色映射函数
+            function getColor(value, min, max, baseColor) {
+                const ratio = (value - min) / (max - min);
+                const r = parseInt(baseColor.substring(1, 3), 16);
+                const g = parseInt(baseColor.substring(3, 5), 16);
+                const b = parseInt(baseColor.substring(5, 7), 16);
+                
+                // 使用更浅的颜色，混合白色
+                const adjustedR = Math.round(220 + (r - 220) * ratio);
+                const adjustedG = Math.round(250 + (g - 250) * ratio);
+                const adjustedB = Math.round(220 + (b - 220) * ratio);
+                
+                return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
+            }
+            
+            // 定义更清新的基础颜色
+            const minutesBaseColor = '#DC2626'; // 浅红色
+            const stintBaseColor = '#10B981';  // 清新绿色
+            const restBaseColor = '#3B82F6';   // 浅蓝色
+            
+            // 计算最小值和最大值
+            const minMinutes = Math.min(...avgMinutes);
+            const maxMinutes = Math.max(...avgMinutes);
+            const minStint = Math.min(...bestStint);
+            const maxStint = Math.max(...bestStint);
+            const minRest = Math.min(...bestRest);
+            const maxRest = Math.max(...bestRest);
+            
+            // 为每个数据点创建颜色数组
+            const minutesPointColors = avgMinutes.map(val => getColor(val, minMinutes, maxMinutes, minutesBaseColor));
+            const stintPointColors = bestStint.map(val => getColor(val, minStint, maxStint, stintBaseColor));
+            const restPointColors = bestRest.map(val => getColor(val, minRest, maxRest, restBaseColor));
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: seasons,
+                    datasets: [
+                        {
+                            label: '场均出场时间',
+                            data: avgMinutes,
+                            borderWidth: 0,
+                            pointBackgroundColor: minutesPointColors,
+                            pointBorderColor: minutesPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        },
+                        {
+                            label: '最佳出场时长',
+                            data: bestStint,
+                            borderWidth: 0,
+                            pointBackgroundColor: stintPointColors,
+                            pointBorderColor: stintPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        },
+                        {
+                            label: '最佳休息时长',
+                            data: bestRest,
+                            borderWidth: 0,
+                            pointBackgroundColor: restPointColors,
+                            pointBorderColor: restPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: '勒布朗·詹姆斯职业生涯出场时间与休息时间趋势'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 0,
+                            max: 45,
+                            title: {
+                                display: true,
+                                text: '时间 (分钟)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: '赛季'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 页面加载完成后渲染图表
+        document.addEventListener('DOMContentLoaded', renderChart);
+    </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勒布朗·詹姆斯职业生涯出场时间分析</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #862633;
+            --secondary-color: #FDB927;
+            --light-color: #F3F4F6;
+            --dark-color: #1F2937;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+        
+        .nba-header {
+            background: linear-gradient(135deg, #862633, #FDB927);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .nba-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .analysis-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .lebron-card {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .season-card {
+            border: 1px solid #E5E7EB;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+        }
+        
+        .season-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="nba-header py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="nba-logo flex items-center">
+                    <i class="fas fa-basketball-ball mr-2"></i>
+                    勒布朗·詹姆斯职业生涯出场时间分析
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../playoffs/playoff_bracket_complete.html" class="text-white hover:text-gray-200">
+                        <i class="fas fa-trophy"></i>
+                        <span class="ml-1">季后赛</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6 text-center">勒布朗·詹姆斯职业生涯出场时间与休息时间分析</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- 总体分析卡片 -->
+            <div class="analysis-card p-6 lebron-card">
+                <h2 class="text-xl font-bold mb-4">职业生涯概览</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="stat-card bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-600">职业生涯总出场时间</h3>
+                        <p class="text-2xl font-bold">57,000+ 分钟</p>
+                    </div>
+                    <div class="stat-card bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-600">职业生涯总比赛数</h3>
+                        <p class="text-2xl font-bold">1,500+ 场</p>
+                    </div>
+                    <div class="stat-card bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-600">职业生涯平均出场时间</h3>
+                        <p class="text-2xl font-bold">37.2 分钟</p>
+                    </div>
+                    <div class="stat-card bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-600">最长连续出场纪录</h3>
+                        <p class="text-2xl font-bold">82 场 (2017-18)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 趋势图表 -->
+            <div class="analysis-card p-6">
+                <h2 class="text-xl font-bold mb-4">出场时间与休息时间趋势</h2>
+                <div class="h-80">
+                    <canvas id="minutesTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 详细数据表格 -->
+        <div class="analysis-card p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4">赛季详细数据</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">赛季</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">年龄</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">场均出场时间</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">最佳出场时长</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">最佳休息时长</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">总比赛数</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">描述</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="seasonTableBody">
+                        <!-- 动态内容将通过JavaScript渲染 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 分析总结 -->
+        <div class="analysis-card p-6">
+            <h2 class="text-xl font-bold mb-4">分析总结</h2>
+            <div class="prose max-w-none">
+                <p class="mb-4">勒布朗·詹姆斯的职业生涯出场时间和休息时间经历了明显的变化趋势：</p>
+                
+                <h3 class="text-lg font-semibold">早期职业生涯（2003-2010）</h3>
+                <p class="mb-4">在骑士队的前七个赛季，勒布朗的场均出场时间非常高，尤其是2004-05赛季达到了职业生涯最高的42.4分钟。这一时期他体力充沛，休息时间较短，通常在2.5-3分钟之间。</p>
+                
+                <h3 class="text-lg font-semibold">热火时期（2010-2014）</h3>
+                <p class="mb-4">加盟热火后，勒布朗的出场时间开始逐渐下降，稳定在37-38分钟左右。休息时间也相应增加到4分钟，显示出更加注重效率和保持体力的策略。</p>
+                
+                <h3 class="text-lg font-semibold">回归骑士（2014-2018）</h3>
+                <p class="mb-4">回归骑士后，勒布朗的出场时间继续优化，尤其是2015-16赛季带领球队完成历史唯一1-3逆转时，场均出场时间为35.6分钟，休息时间增加到4.5分钟。</p>
+                
+                <h3 class="text-lg font-semibold">湖人时期（2018至今）</h3>
+                <p class="mb-4">随着年龄的增长，勒布朗的出场时间进一步减少，从35分钟逐渐下降到32-33分钟。休息时间也相应增加到5-6分钟，达到了职业生涯晚期的最佳平衡状态。</p>
+                
+                <h3 class="text-lg font-semibold">关键发现</h3>
+                <ul class="list-disc pl-5 mb-4">
+                    <li>勒布朗的最佳出场时长从职业生涯早期的40+分钟逐渐下降到现在的33分钟左右</li>
+                    <li>最佳休息时长从早期的2.5-3分钟增加到现在的6分钟左右</li>
+                    <li>这种变化反映了他从依赖体力到依赖经验和效率的转变</li>
+                    <li>合理的出场时间和休息时间安排是他能够在41岁仍然保持高水平竞技状态的重要因素</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-basketball-ball mr-2"></i>
+                        <span class="font-bold text-xl">勒布朗·詹姆斯职业生涯分析</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">数据更新时间: 2026-04-20</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>© 2026 NBA Analysis. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 加载勒布朗·詹姆斯的赛季数据
+        async function loadLeBronData() {
+            try {
+                const response = await fetch('lebron_career_analysis.json');
+                const data = await response.json();
+                renderLeBronData(data);
+            } catch (error) {
+                console.error('Error loading LeBron data:', error);
+            }
+        }
+
+        function renderLeBronData(data) {
+            // 准备图表数据
+            const seasons = Object.keys(data);
+            const avgMinutes = seasons.map(season => data[season].average_minutes);
+            const bestStint = seasons.map(season => data[season].best_stint_duration);
+            const bestRest = seasons.map(season => data[season].best_rest_duration);
+            const ages = seasons.map(season => data[season].age);
+
+            // 渲染趋势图表
+            renderMinutesTrendChart(seasons, avgMinutes, bestStint, bestRest, ages);
+
+            // 渲染赛季表格
+            renderSeasonTable(data, ages);
+        }
+
+        function renderMinutesTrendChart(seasons, avgMinutes, bestStint, bestRest, ages) {
+            const ctx = document.getElementById('minutesTrendChart').getContext('2d');
+            
+            // 创建颜色映射函数
+            function getColor(value, min, max, baseColor) {
+                const ratio = (value - min) / (max - min);
+                // 计算颜色深度，ratio越大颜色越深
+                const r = parseInt(baseColor.substring(1, 3), 16);
+                const g = parseInt(baseColor.substring(3, 5), 16);
+                const b = parseInt(baseColor.substring(5, 7), 16);
+                
+                // 使用更浅的颜色，混合白色
+                const adjustedR = Math.round(220 + (r - 220) * ratio);
+                const adjustedG = Math.round(250 + (g - 250) * ratio);
+                const adjustedB = Math.round(220 + (b - 220) * ratio);
+                
+                return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
+            }
+            
+            // 定义更清新的基础颜色
+            const minutesBaseColor = '#DC2626'; // 浅红色
+            const stintBaseColor = '#10B981';  // 清新绿色
+            const restBaseColor = '#3B82F6';   // 浅蓝色
+            
+            // 计算最小值和最大值
+            const minMinutes = Math.min(...avgMinutes);
+            const maxMinutes = Math.max(...avgMinutes);
+            const minStint = Math.min(...bestStint);
+            const maxStint = Math.max(...bestStint);
+            const minRest = Math.min(...bestRest);
+            const maxRest = Math.max(...bestRest);
+            
+            // 为每个数据点创建颜色数组
+            const minutesPointColors = avgMinutes.map(val => getColor(val, minMinutes, maxMinutes, minutesBaseColor));
+            const stintPointColors = bestStint.map(val => getColor(val, minStint, maxStint, stintBaseColor));
+            const restPointColors = bestRest.map(val => getColor(val, minRest, maxRest, restBaseColor));
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: seasons,
+                    datasets: [
+                        {
+                            label: '场均出场时间',
+                            data: avgMinutes,
+                            backgroundColor: minutesPointColors,
+                            borderColor: minutesPointColors,
+                            borderWidth: 0, // 隐藏线条
+                            pointBackgroundColor: minutesPointColors,
+                            pointBorderColor: minutesPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        },
+                        {
+                            label: '最佳出场时长',
+                            data: bestStint,
+                            backgroundColor: stintPointColors,
+                            borderColor: stintPointColors,
+                            borderWidth: 0, // 隐藏线条
+                            pointBackgroundColor: stintPointColors,
+                            pointBorderColor: stintPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        },
+                        {
+                            label: '最佳休息时长',
+                            data: bestRest,
+                            backgroundColor: restPointColors,
+                            borderColor: restPointColors,
+                            borderWidth: 0, // 隐藏线条
+                            pointBackgroundColor: restPointColors,
+                            pointBorderColor: restPointColors,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: '勒布朗·詹姆斯职业生涯出场时间与休息时间趋势'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 0,
+                            max: 45,
+                            title: {
+                                display: true,
+                                text: '时间 (分钟)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: '赛季'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderSeasonTable(data, ages) {
+            const tableBody = document.getElementById('seasonTableBody');
+            tableBody.innerHTML = '';
+
+            const seasons = Object.keys(data);
+            seasons.forEach((season, index) => {
+                const seasonData = data[season];
+                const age = ages[index];
+                const description = seasonData.description || '';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${season}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${age}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${seasonData.average_minutes.toFixed(1)} 分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${seasonData.best_stint_duration.toFixed(1)} 分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${seasonData.best_rest_duration.toFixed(1)} 分钟</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${seasonData.total_games}</td>
+                    <td class="px-6 py-4">${description}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 页面加载完成后加载数据
+        document.addEventListener('DOMContentLoaded', loadLeBronData);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612750,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Minnesota",
+      "TEAM_NAME": "Timberwolves",
+      "TEAM_ABBREVIATION": "MIN",
+      "TEAM_CONFERENCE": "West",
+      "TEAM_DIVISION": "Northwest",
+      "TEAM_CODE": "timberwolves",
+      "TEAM_SLUG": "timberwolves",
+      "W": 49,
+      "L": 33,
+      "PCT": 0.598,
+      "CONF_RANK": 6,
+      "DIV_RANK": 3,
+      "MIN_YEAR": "1989",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:41:30.669231",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612750
+  }
+}

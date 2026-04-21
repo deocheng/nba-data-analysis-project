@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612756,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Phoenix",
+      "TEAM_NAME": "Suns",
+      "TEAM_ABBREVIATION": "PHX",
+      "TEAM_CONFERENCE": "West",
+      "TEAM_DIVISION": "Pacific",
+      "TEAM_CODE": "suns",
+      "TEAM_SLUG": "suns",
+      "W": 45,
+      "L": 37,
+      "PCT": 0.549,
+      "CONF_RANK": 7,
+      "DIV_RANK": 2,
+      "MIN_YEAR": "1968",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:42:26.946908",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612756
+  }
+}

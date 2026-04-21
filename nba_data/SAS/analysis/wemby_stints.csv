@@ -1,0 +1,845 @@
+﻿stint_id,game_file,period,start_time,end_time,duration_seconds,duration_minutes,event_count,points,event_types,shot_results
+1,wemby_playbyplay_2024-25_0022400015.csv,1,PT12M00.00S,PT06M23.00S,337,5.616666666666666,13,43,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+2,wemby_playbyplay_2024-25_0022400015.csv,1,PT01M28.00S,PT00M30.90S,58,0.9666666666666667,4,0,"{'Turnover', 'Missed Shot'}","{'Missed', nan}"
+3,wemby_playbyplay_2024-25_0022400015.csv,2,PT11M06.00S,PT10M40.00S,26,0.43333333333333335,3,67,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+4,wemby_playbyplay_2024-25_0022400015.csv,2,PT08M15.00S,PT05M18.00S,177,2.95,8,176,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+5,wemby_playbyplay_2024-25_0022400015.csv,3,PT11M22.00S,PT09M38.00S,104,1.7333333333333334,6,133,"{'Turnover', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+6,wemby_playbyplay_2024-25_0022400015.csv,3,PT07M31.00S,PT04M20.00S,191,3.183333333333333,6,152,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+7,wemby_playbyplay_2024-25_0022400015.csv,3,PT01M37.00S,PT00M28.80S,69,1.15,3,176,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+8,wemby_playbyplay_2024-25_0022400015.csv,4,PT11M18.00S,PT06M41.00S,277,4.616666666666666,8,0,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+9,wemby_playbyplay_2024-25_0022400015.csv,4,PT04M04.00S,PT00M04.00S,240,4.0,4,439,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+10,wemby_playbyplay_2024-25_0022400038.csv,1,PT11M23.00S,PT11M23.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+11,wemby_playbyplay_2024-25_0022400038.csv,1,PT09M18.00S,PT08M23.00S,55,0.9166666666666666,4,79,"{'Free Throw', 'Made Shot'}","{nan, 'Made'}"
+12,wemby_playbyplay_2024-25_0022400038.csv,1,PT06M22.00S,PT06M22.00S,0,0.0,1,0,{'Substitution'},{nan}
+13,wemby_playbyplay_2024-25_0022400038.csv,1,PT01M04.00S,PT00M01.00S,63,1.05,2,0,{'Missed Shot'},{'Missed'}
+14,wemby_playbyplay_2024-25_0022400038.csv,2,PT10M20.00S,PT06M31.00S,229,3.816666666666667,11,355,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+15,wemby_playbyplay_2024-25_0022400038.csv,2,PT03M50.00S,PT00M25.60S,205,3.4166666666666665,5,360,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+16,wemby_playbyplay_2024-25_0022400038.csv,3,PT11M42.00S,PT09M48.00S,114,1.9,4,282,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+17,wemby_playbyplay_2024-25_0022400038.csv,3,PT07M05.00S,PT05M24.00S,101,1.6833333333333333,4,0,"{'Turnover', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+18,wemby_playbyplay_2024-25_0022400038.csv,3,PT01M27.00S,PT00M04.90S,83,1.3833333333333333,4,189,"{'Turnover', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+19,wemby_playbyplay_2024-25_0022400038.csv,4,PT07M07.00S,PT05M21.00S,106,1.7666666666666666,4,0,"{'Rebound', nan, 'Foul', 'Substitution'}",{nan}
+20,wemby_playbyplay_2024-25_0022400038.csv,4,PT03M05.00S,PT00M56.60S,129,2.15,3,227,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+21,wemby_playbyplay_2024-25_0022400057.csv,1,PT10M18.00S,PT06M38.00S,220,3.6666666666666665,6,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+22,wemby_playbyplay_2024-25_0022400057.csv,1,PT00M22.20S,PT00M15.10S,7,0.11666666666666667,2,0,{'Missed Shot'},{'Missed'}
+23,wemby_playbyplay_2024-25_0022400057.csv,2,PT11M48.00S,PT07M09.00S,279,4.65,8,0,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+24,wemby_playbyplay_2024-25_0022400057.csv,2,PT00M00.00S,PT00M00.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+25,wemby_playbyplay_2024-25_0022400057.csv,3,PT11M47.00S,PT07M40.00S,247,4.116666666666666,16,719,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Violation', 'Free Throw'}","{'Missed', nan, 'Made'}"
+26,wemby_playbyplay_2024-25_0022400057.csv,3,PT04M55.00S,PT04M16.00S,39,0.65,2,0,"{'Rebound', 'Substitution'}",{nan}
+27,wemby_playbyplay_2024-25_0022400057.csv,3,PT01M48.00S,PT01M10.00S,38,0.6333333333333333,3,0,"{'Turnover', 'Rebound', 'Foul'}",{nan}
+28,wemby_playbyplay_2024-25_0022400057.csv,4,PT10M02.00S,PT00M06.00S,596,9.933333333333334,10,176,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+29,wemby_playbyplay_2024-25_0022400074.csv,1,PT09M47.00S,PT07M16.00S,151,2.5166666666666666,6,0,"{'Turnover', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+30,wemby_playbyplay_2024-25_0022400074.csv,1,PT02M18.00S,PT01M03.00S,75,1.25,3,42,"{'Turnover', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+31,wemby_playbyplay_2024-25_0022400074.csv,2,PT11M42.00S,PT08M01.00S,221,3.683333333333333,8,105,"{'Free Throw', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+32,wemby_playbyplay_2024-25_0022400074.csv,2,PT02M24.00S,PT00M38.60S,106,1.7666666666666666,4,89,"{'Turnover', 'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+33,wemby_playbyplay_2024-25_0022400074.csv,3,PT11M23.00S,PT03M58.00S,445,7.416666666666667,14,636,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+34,wemby_playbyplay_2024-25_0022400074.csv,4,PT11M41.00S,PT05M59.00S,342,5.7,8,381,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+35,wemby_playbyplay_2024-25_0022400094.csv,1,PT12M00.00S,PT06M03.00S,357,5.95,10,46,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+36,wemby_playbyplay_2024-25_0022400094.csv,2,PT11M41.00S,PT06M57.00S,284,4.733333333333333,7,155,"{'Turnover', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+37,wemby_playbyplay_2024-25_0022400094.csv,2,PT02M13.00S,PT00M34.30S,99,1.65,7,290,"{'Rebound', 'Made Shot', 'Missed Shot', 'Violation', 'Free Throw'}","{'Missed', nan, 'Made'}"
+38,wemby_playbyplay_2024-25_0022400094.csv,3,PT11M26.00S,PT11M26.00S,0,0.0,1,0,{'Foul'},{nan}
+39,wemby_playbyplay_2024-25_0022400094.csv,3,PT09M25.00S,PT07M42.00S,103,1.7166666666666666,2,0,"{'Substitution', 'Jump Ball'}",{nan}
+40,wemby_playbyplay_2024-25_0022400094.csv,3,PT01M38.00S,PT00M00.00S,98,1.6333333333333333,4,594,"{'Free Throw', 'Made Shot'}","{nan, 'Made'}"
+41,wemby_playbyplay_2024-25_0022400094.csv,4,PT11M40.00S,PT08M25.00S,195,3.25,8,168,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+42,wemby_playbyplay_2024-25_0022400094.csv,4,PT05M50.00S,PT00M25.60S,325,5.416666666666667,10,979,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Free Throw'}","{nan, 'Made'}"
+43,wemby_playbyplay_2024-25_0022400109.csv,1,PT12M00.00S,PT07M08.00S,292,4.866666666666666,12,16,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+44,wemby_playbyplay_2024-25_0022400109.csv,1,PT03M01.00S,PT01M58.00S,63,1.05,2,0,{nan},{nan}
+45,wemby_playbyplay_2024-25_0022400109.csv,2,PT11M40.00S,PT11M26.00S,14,0.23333333333333334,2,0,"{'Turnover', 'Foul'}",{nan}
+46,wemby_playbyplay_2024-25_0022400109.csv,2,PT09M07.00S,PT06M45.00S,142,2.3666666666666667,6,57,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+47,wemby_playbyplay_2024-25_0022400109.csv,2,PT00M55.10S,PT00M55.10S,0,0.0,1,0,{'Turnover'},{nan}
+48,wemby_playbyplay_2024-25_0022400109.csv,3,PT10M57.00S,PT10M03.00S,54,0.9,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+49,wemby_playbyplay_2024-25_0022400109.csv,3,PT07M29.00S,PT05M24.00S,125,2.0833333333333335,5,0,"{'Rebound', 'Turnover', 'Missed Shot', 'Substitution', 'Violation'}","{'Missed', nan}"
+50,wemby_playbyplay_2024-25_0022400109.csv,3,PT01M08.00S,PT01M08.00S,0,0.0,1,0,{'Rebound'},{nan}
+51,wemby_playbyplay_2024-25_0022400109.csv,4,PT11M20.00S,PT00M00.00S,680,11.333333333333334,21,760,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+52,wemby_playbyplay_2024-25_0022400125.csv,1,PT11M32.00S,PT09M50.00S,102,1.7,6,15,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+53,wemby_playbyplay_2024-25_0022400125.csv,1,PT07M35.00S,PT06M44.00S,51,0.85,2,0,"{'Rebound', 'Substitution'}",{nan}
+54,wemby_playbyplay_2024-25_0022400125.csv,2,PT11M02.00S,PT10M43.00S,19,0.31666666666666665,2,0,"{'Rebound', 'Substitution'}",{nan}
+55,wemby_playbyplay_2024-25_0022400125.csv,2,PT06M43.00S,PT03M17.00S,206,3.433333333333333,7,0,"{'Turnover', 'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+56,wemby_playbyplay_2024-25_0022400125.csv,2,PT01M09.00S,PT00M03.10S,66,1.1,3,189,"{'Turnover', 'Free Throw'}",{nan}
+57,wemby_playbyplay_2024-25_0022400125.csv,3,PT08M56.00S,PT08M56.00S,0,0.0,1,0,{'Turnover'},{nan}
+58,wemby_playbyplay_2024-25_0022400125.csv,3,PT06M20.00S,PT04M45.00S,95,1.5833333333333333,2,0,"{nan, 'Substitution'}",{nan}
+59,wemby_playbyplay_2024-25_0022400125.csv,4,PT10M40.00S,PT07M04.00S,216,3.6,5,0,"{'Turnover', 'Rebound', nan, 'Substitution'}",{nan}
+60,wemby_playbyplay_2024-25_0022400130.csv,1,PT11M27.00S,PT05M05.00S,382,6.366666666666666,15,49,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+61,wemby_playbyplay_2024-25_0022400130.csv,2,PT11M40.00S,PT06M37.00S,303,5.05,10,168,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+62,wemby_playbyplay_2024-25_0022400130.csv,2,PT03M32.00S,PT00M29.50S,183,3.05,5,89,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+63,wemby_playbyplay_2024-25_0022400130.csv,3,PT10M54.00S,PT10M54.00S,0,0.0,1,0,{nan},{nan}
+64,wemby_playbyplay_2024-25_0022400130.csv,3,PT08M53.00S,PT08M53.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+65,wemby_playbyplay_2024-25_0022400130.csv,3,PT06M37.00S,PT04M51.00S,106,1.7666666666666666,8,508,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+66,wemby_playbyplay_2024-25_0022400130.csv,3,PT01M03.00S,PT00M35.60S,28,0.4666666666666667,3,0,"{'Rebound', nan}",{nan}
+67,wemby_playbyplay_2024-25_0022400130.csv,4,PT10M29.00S,PT07M19.00S,190,3.1666666666666665,6,0,"{'Rebound', 'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+68,wemby_playbyplay_2024-25_0022400130.csv,4,PT01M48.00S,PT00M26.70S,82,1.3666666666666667,4,189,"{nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+69,wemby_playbyplay_2024-25_0022400146.csv,1,PT12M00.00S,PT10M06.00S,114,1.9,2,10,"{'Made Shot', 'Jump Ball'}","{nan, 'Made'}"
+70,wemby_playbyplay_2024-25_0022400146.csv,1,PT07M29.00S,PT05M47.00S,102,1.7,4,30,"{'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+71,wemby_playbyplay_2024-25_0022400146.csv,2,PT10M46.00S,PT07M18.00S,208,3.466666666666667,4,156,"{nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+72,wemby_playbyplay_2024-25_0022400146.csv,2,PT03M10.00S,PT00M06.10S,184,3.066666666666667,7,119,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot'}","{'Missed', nan, 'Made'}"
+73,wemby_playbyplay_2024-25_0022400146.csv,3,PT11M02.00S,PT10M47.00S,15,0.25,2,123,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+74,wemby_playbyplay_2024-25_0022400146.csv,3,PT08M05.00S,PT04M58.00S,187,3.1166666666666667,5,136,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+75,wemby_playbyplay_2024-25_0022400146.csv,4,PT11M42.00S,PT07M29.00S,253,4.216666666666667,9,361,"{'Rebound', 'Turnover', nan, 'Foul', 'Substitution', 'Free Throw'}",{nan}
+76,wemby_playbyplay_2024-25_0022400146.csv,4,PT04M22.00S,PT01M19.00S,183,3.05,6,0,"{'Rebound', 'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+77,wemby_playbyplay_2024-25_0022400168.csv,1,PT10M38.00S,PT07M35.00S,183,3.05,10,14,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+78,wemby_playbyplay_2024-25_0022400168.csv,2,PT10M38.00S,PT06M13.00S,265,4.416666666666667,8,64,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+79,wemby_playbyplay_2024-25_0022400168.csv,2,PT03M16.00S,PT00M27.50S,169,2.816666666666667,6,182,"{'Turnover', 'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+80,wemby_playbyplay_2024-25_0022400168.csv,3,PT11M40.00S,PT03M37.00S,483,8.05,15,649,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+81,wemby_playbyplay_2024-25_0022400168.csv,4,PT10M18.00S,PT03M41.00S,397,6.616666666666666,15,576,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+82,wemby_playbyplay_2024-25_0022400168.csv,4,PT01M28.00S,PT00M15.20S,73,1.2166666666666666,5,211,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+83,wemby_playbyplay_2024-25_0022400173.csv,1,PT11M23.00S,PT05M30.00S,353,5.883333333333334,12,4,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+84,wemby_playbyplay_2024-25_0022400173.csv,1,PT01M47.00S,PT00M08.80S,99,1.65,4,86,"{nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+85,wemby_playbyplay_2024-25_0022400173.csv,2,PT11M40.00S,PT10M12.00S,88,1.4666666666666666,3,0,"{'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+86,wemby_playbyplay_2024-25_0022400173.csv,2,PT07M55.00S,PT07M55.00S,0,0.0,1,0,{'Substitution'},{nan}
+87,wemby_playbyplay_2024-25_0022400173.csv,2,PT00M28.00S,PT00M28.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+88,wemby_playbyplay_2024-25_0022400173.csv,3,PT11M36.00S,PT08M11.00S,205,3.4166666666666665,8,312,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+89,wemby_playbyplay_2024-25_0022400173.csv,3,PT02M50.00S,PT01M29.00S,81,1.35,3,153,"{'Turnover', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+90,wemby_playbyplay_2024-25_0022400173.csv,4,PT10M36.00S,PT10M05.00S,31,0.5166666666666667,2,180,"{'Substitution', 'Made Shot'}","{nan, 'Made'}"
+91,wemby_playbyplay_2024-25_0022400183.csv,1,PT12M00.00S,PT08M15.00S,225,3.75,5,0,"{'Rebound', nan, 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+92,wemby_playbyplay_2024-25_0022400183.csv,1,PT06M01.00S,PT06M01.00S,0,0.0,1,0,{'Substitution'},{nan}
+93,wemby_playbyplay_2024-25_0022400183.csv,1,PT00M43.10S,PT00M28.90S,15,0.25,2,55,"{nan, 'Made Shot'}","{nan, 'Made'}"
+94,wemby_playbyplay_2024-25_0022400183.csv,2,PT11M31.00S,PT07M02.00S,269,4.483333333333333,6,125,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+95,wemby_playbyplay_2024-25_0022400183.csv,3,PT10M36.00S,PT04M49.00S,347,5.783333333333333,11,252,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+96,wemby_playbyplay_2024-25_0022400183.csv,4,PT11M43.00S,PT07M48.00S,235,3.9166666666666665,11,187,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+97,wemby_playbyplay_2024-25_0022400183.csv,4,PT03M52.00S,PT00M28.80S,204,3.4,5,0,"{'Turnover', 'Rebound', nan, 'Substitution'}",{nan}
+98,wemby_playbyplay_2024-25_0022400197.csv,1,PT12M00.00S,PT06M10.00S,350,5.833333333333333,15,8,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+99,wemby_playbyplay_2024-25_0022400197.csv,1,PT02M07.00S,PT00M01.00S,126,2.1,6,47,"{'Turnover', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+100,wemby_playbyplay_2024-25_0022400197.csv,2,PT11M40.00S,PT07M52.00S,228,3.8,8,214,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+101,wemby_playbyplay_2024-25_0022400197.csv,2,PT02M19.00S,PT02M19.00S,0,0.0,1,0,{'Turnover'},{nan}
+102,wemby_playbyplay_2024-25_0022400197.csv,3,PT11M11.00S,PT06M47.00S,264,4.4,6,215,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+103,wemby_playbyplay_2024-25_0022400197.csv,3,PT00M06.70S,PT00M06.70S,0,0.0,1,0,{'Rebound'},{nan}
+104,wemby_playbyplay_2024-25_0022400197.csv,4,PT11M13.00S,PT06M55.00S,258,4.3,10,345,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+105,wemby_playbyplay_2024-25_0022400197.csv,4,PT04M50.00S,PT00M10.10S,280,4.666666666666667,8,0,"{'Rebound', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan}"
+106,wemby_playbyplay_2024-25_0022400216.csv,1,PT12M00.00S,PT06M05.00S,355,5.916666666666667,8,34,"{'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+107,wemby_playbyplay_2024-25_0022400216.csv,1,PT01M54.00S,PT01M04.00S,50,0.8333333333333334,3,0,"{'Turnover', 'Rebound', nan}",{nan}
+108,wemby_playbyplay_2024-25_0022400216.csv,2,PT11M20.00S,PT05M09.00S,371,6.183333333333334,12,224,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+109,wemby_playbyplay_2024-25_0022400216.csv,2,PT01M28.00S,PT00M40.90S,48,0.8,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+110,wemby_playbyplay_2024-25_0022400216.csv,3,PT11M11.00S,PT06M39.00S,272,4.533333333333333,10,253,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+111,wemby_playbyplay_2024-25_0022400216.csv,3,PT01M26.00S,PT00M01.40S,85,1.4166666666666667,3,155,"{'Missed Shot', 'Made Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+112,wemby_playbyplay_2024-25_0022400216.csv,4,PT10M40.00S,PT06M24.00S,256,4.266666666666667,7,333,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Substitution'}","{nan, 'Made'}"
+113,wemby_playbyplay_2024-25_0022400216.csv,4,PT04M12.00S,PT00M52.30S,200,3.3333333333333335,8,825,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+114,wemby_playbyplay_2024-25_0022400224.csv,1,PT12M00.00S,PT07M11.00S,289,4.816666666666666,11,57,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+115,wemby_playbyplay_2024-25_0022400224.csv,1,PT00M19.50S,PT00M19.50S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+116,wemby_playbyplay_2024-25_0022400224.csv,2,PT10M41.00S,PT05M32.00S,309,5.15,12,477,"{'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+117,wemby_playbyplay_2024-25_0022400224.csv,2,PT01M15.00S,PT00M36.60S,39,0.65,3,127,"{'Free Throw', 'Missed Shot'}","{'Missed', nan}"
+118,wemby_playbyplay_2024-25_0022400224.csv,3,PT10M52.00S,PT06M00.00S,292,4.866666666666666,12,951,"{'Rebound', 'Made Shot', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+119,wemby_playbyplay_2024-25_0022400224.csv,3,PT01M29.00S,PT00M01.20S,88,1.4666666666666666,5,387,"{'Rebound', 'Free Throw', nan, 'Made Shot'}","{nan, 'Made'}"
+120,wemby_playbyplay_2024-25_0022400224.csv,4,PT11M27.00S,PT07M30.00S,237,3.95,9,1034,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+121,wemby_playbyplay_2024-25_0022400224.csv,4,PT03M47.00S,PT00M23.40S,204,3.4,4,0,"{nan, 'Foul', 'Missed Shot'}","{'Missed', nan}"
+122,wemby_playbyplay_2024-25_0022400269.csv,1,PT12M00.00S,PT07M17.00S,283,4.716666666666667,11,27,"{'Rebound', 'Made Shot', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+123,wemby_playbyplay_2024-25_0022400269.csv,1,PT02M19.00S,PT00M42.30S,97,1.6166666666666667,2,39,"{'Turnover', 'Made Shot'}","{nan, 'Made'}"
+124,wemby_playbyplay_2024-25_0022400269.csv,2,PT10M16.00S,PT07M17.00S,179,2.9833333333333334,4,0,"{nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+125,wemby_playbyplay_2024-25_0022400269.csv,2,PT02M04.00S,PT00M02.00S,122,2.033333333333333,5,85,"{'Turnover', 'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+126,wemby_playbyplay_2024-25_0022400269.csv,3,PT11M05.00S,PT09M23.00S,102,1.7,3,204,"{'Foul', 'Made Shot'}","{nan, 'Made'}"
+127,wemby_playbyplay_2024-25_0022400269.csv,3,PT06M49.00S,PT05M46.00S,63,1.05,3,0,"{'Turnover', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+128,wemby_playbyplay_2024-25_0022400269.csv,3,PT02M20.00S,PT00M40.50S,100,1.6666666666666667,4,0,"{'Turnover', 'Rebound', 'Foul', 'Substitution'}",{nan}
+129,wemby_playbyplay_2024-25_0022400269.csv,4,PT11M06.00S,PT06M09.00S,297,4.95,10,509,"{nan, 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+130,wemby_playbyplay_2024-25_0022400269.csv,4,PT03M59.00S,PT02M40.00S,79,1.3166666666666667,5,186,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+131,wemby_playbyplay_2024-25_0022400269.csv,4,PT00M36.20S,PT00M36.20S,0,0.0,2,395,{'Free Throw'},{nan}
+132,wemby_playbyplay_2024-25_0022400296.csv,1,PT12M00.00S,PT09M04.00S,176,2.933333333333333,7,8,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Jump Ball'}","{nan, 'Made'}"
+133,wemby_playbyplay_2024-25_0022400296.csv,1,PT06M33.00S,PT05M16.00S,77,1.2833333333333334,3,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+134,wemby_playbyplay_2024-25_0022400296.csv,1,PT01M08.00S,PT01M08.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+135,wemby_playbyplay_2024-25_0022400296.csv,2,PT10M52.00S,PT07M21.00S,211,3.5166666666666666,6,130,"{'Turnover', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+136,wemby_playbyplay_2024-25_0022400296.csv,2,PT01M52.00S,PT00M29.30S,83,1.3833333333333333,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+137,wemby_playbyplay_2024-25_0022400296.csv,3,PT11M16.00S,PT05M20.00S,356,5.933333333333334,13,371,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+138,wemby_playbyplay_2024-25_0022400296.csv,3,PT00M55.50S,PT00M00.00S,55,0.9166666666666666,4,336,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+139,wemby_playbyplay_2024-25_0022400296.csv,4,PT09M53.00S,PT09M53.00S,0,0.0,1,0,{nan},{nan}
+140,wemby_playbyplay_2024-25_0022400296.csv,4,PT07M28.00S,PT03M33.00S,235,3.9166666666666665,8,197,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+141,wemby_playbyplay_2024-25_0022400313.csv,1,PT09M34.00S,PT06M01.00S,213,3.55,7,38,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+142,wemby_playbyplay_2024-25_0022400313.csv,1,PT01M30.00S,PT01M30.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+143,wemby_playbyplay_2024-25_0022400313.csv,2,PT10M24.00S,PT03M01.00S,443,7.383333333333334,19,466,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+144,wemby_playbyplay_2024-25_0022400313.csv,2,PT00M53.70S,PT00M29.60S,24,0.4,2,0,"{'Rebound', nan}",{nan}
+145,wemby_playbyplay_2024-25_0022400313.csv,3,PT11M47.00S,PT08M27.00S,200,3.3333333333333335,5,270,"{'Made Shot', 'Foul', 'Turnover', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+146,wemby_playbyplay_2024-25_0022400313.csv,3,PT05M43.00S,PT05M43.00S,0,0.0,1,0,{'Substitution'},{nan}
+147,wemby_playbyplay_2024-25_0022400313.csv,3,PT00M00.00S,PT00M00.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+148,wemby_playbyplay_2024-25_0022400313.csv,4,PT11M45.00S,PT11M45.00S,0,0.0,1,0,{'Turnover'},{nan}
+149,wemby_playbyplay_2024-25_0022400313.csv,4,PT09M29.00S,PT00M06.30S,563,9.383333333333333,21,1884,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+150,wemby_playbyplay_2024-25_0022400354.csv,1,PT12M00.00S,PT08M59.00S,181,3.0166666666666666,12,2,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+151,wemby_playbyplay_2024-25_0022400354.csv,2,PT08M10.00S,PT02M51.00S,319,5.316666666666666,9,306,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+152,wemby_playbyplay_2024-25_0022400354.csv,3,PT10M08.00S,PT07M12.00S,176,2.933333333333333,9,601,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+153,wemby_playbyplay_2024-25_0022400354.csv,3,PT02M00.00S,PT02M00.00S,0,0.0,1,0,{'Rebound'},{nan}
+154,wemby_playbyplay_2024-25_0022400354.csv,4,PT09M16.00S,PT09M10.00S,6,0.1,2,0,"{'Turnover', 'Substitution'}",{nan}
+155,wemby_playbyplay_2024-25_0022400354.csv,4,PT03M12.00S,PT00M04.50S,188,3.1333333333333333,10,1175,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Free Throw'}","{'Missed', nan, 'Made'}"
+156,wemby_playbyplay_2024-25_0022400370.csv,1,PT12M00.00S,PT05M56.00S,364,6.066666666666666,13,96,"{'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+157,wemby_playbyplay_2024-25_0022400370.csv,1,PT00M40.00S,PT00M33.90S,7,0.11666666666666667,3,115,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+158,wemby_playbyplay_2024-25_0022400370.csv,2,PT10M45.00S,PT10M45.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+159,wemby_playbyplay_2024-25_0022400370.csv,2,PT08M43.00S,PT05M39.00S,184,3.066666666666667,10,424,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+160,wemby_playbyplay_2024-25_0022400370.csv,2,PT02M46.00S,PT00M05.30S,161,2.683333333333333,5,123,"{'Turnover', 'Free Throw', nan, 'Made Shot'}","{nan, 'Made'}"
+161,wemby_playbyplay_2024-25_0022400370.csv,3,PT10M52.00S,PT08M41.00S,131,2.183333333333333,7,0,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+162,wemby_playbyplay_2024-25_0022400370.csv,3,PT06M04.00S,PT04M43.00S,81,1.35,3,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+163,wemby_playbyplay_2024-25_0022400370.csv,4,PT08M06.00S,PT00M17.40S,469,7.816666666666666,12,1025,"{'Free Throw', 'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+164,wemby_playbyplay_2024-25_0022400370.csv,5,PT05M00.00S,PT01M52.00S,188,3.1333333333333333,6,744,"{nan, 'Missed Shot', 'Made Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+165,wemby_playbyplay_2024-25_0022400386.csv,1,PT12M00.00S,PT04M49.00S,431,7.183333333333334,11,8,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+166,wemby_playbyplay_2024-25_0022400386.csv,2,PT10M12.00S,PT03M22.00S,410,6.833333333333333,12,137,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+167,wemby_playbyplay_2024-25_0022400386.csv,2,PT00M55.10S,PT00M01.70S,54,0.9,3,205,"{'Made Shot', 'Missed Shot'}","{'Missed', 'Made'}"
+168,wemby_playbyplay_2024-25_0022400386.csv,3,PT11M22.00S,PT10M13.00S,69,1.15,3,108,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+169,wemby_playbyplay_2024-25_0022400386.csv,3,PT07M50.00S,PT06M55.00S,55,0.9166666666666666,5,372,"{'Free Throw', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+170,wemby_playbyplay_2024-25_0022400386.csv,3,PT03M19.00S,PT00M22.80S,177,2.95,11,716,"{'Rebound', 'Made Shot', nan, 'Jump Ball', 'Free Throw'}","{nan, 'Made'}"
+171,wemby_playbyplay_2024-25_0022400386.csv,4,PT11M21.00S,PT08M31.00S,170,2.8333333333333335,7,638,"{'Free Throw', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+172,wemby_playbyplay_2024-25_0022400394.csv,1,PT11M42.00S,PT06M55.00S,287,4.783333333333333,10,0,"{'Rebound', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+173,wemby_playbyplay_2024-25_0022400394.csv,1,PT01M45.00S,PT00M00.30S,105,1.75,7,37,"{'Rebound', nan, 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+174,wemby_playbyplay_2024-25_0022400394.csv,2,PT11M26.00S,PT01M45.00S,581,9.683333333333334,12,184,"{'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+175,wemby_playbyplay_2024-25_0022400394.csv,3,PT11M41.00S,PT08M57.00S,164,2.7333333333333334,6,318,"{'Rebound', 'Missed Shot', nan, 'Made Shot'}","{'Missed', nan, 'Made'}"
+176,wemby_playbyplay_2024-25_0022400394.csv,3,PT06M45.00S,PT06M26.00S,19,0.31666666666666665,2,0,"{'Rebound', 'Substitution'}",{nan}
+177,wemby_playbyplay_2024-25_0022400394.csv,3,PT02M35.00S,PT00M27.20S,128,2.1333333333333333,5,311,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+178,wemby_playbyplay_2024-25_0022400394.csv,4,PT11M30.00S,PT11M30.00S,0,0.0,1,0,{'Rebound'},{nan}
+179,wemby_playbyplay_2024-25_0022400394.csv,4,PT08M41.00S,PT08M02.00S,39,0.65,2,175,"{'Substitution', 'Made Shot'}","{nan, 'Made'}"
+180,wemby_playbyplay_2024-25_0022400394.csv,4,PT03M21.00S,PT00M17.30S,184,3.066666666666667,5,201,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+181,wemby_playbyplay_2024-25_0022400405.csv,1,PT11M43.00S,PT05M08.00S,395,6.583333333333333,16,46,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+182,wemby_playbyplay_2024-25_0022400405.csv,1,PT01M53.00S,PT00M33.20S,80,1.3333333333333333,4,96,"{'Made Shot', 'Missed Shot'}","{'Missed', 'Made'}"
+183,wemby_playbyplay_2024-25_0022400405.csv,2,PT11M32.00S,PT06M37.00S,295,4.916666666666667,12,280,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+184,wemby_playbyplay_2024-25_0022400405.csv,2,PT04M17.00S,PT00M09.10S,248,4.133333333333334,9,213,"{'Turnover', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+185,wemby_playbyplay_2024-25_0022400405.csv,3,PT11M41.00S,PT03M36.00S,485,8.083333333333334,13,563,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+186,wemby_playbyplay_2024-25_0022400405.csv,4,PT11M45.00S,PT06M18.00S,327,5.45,10,913,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+187,wemby_playbyplay_2024-25_0022400405.csv,4,PT03M36.00S,PT01M38.00S,118,1.9666666666666666,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+188,wemby_playbyplay_2024-25_0022400421.csv,1,PT10M52.00S,PT10M52.00S,0,0.0,1,4,{'Made Shot'},{'Made'}
+189,wemby_playbyplay_2024-25_0022400421.csv,1,PT08M25.00S,PT06M22.00S,123,2.05,4,0,"{nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+190,wemby_playbyplay_2024-25_0022400421.csv,1,PT01M57.00S,PT01M57.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+191,wemby_playbyplay_2024-25_0022400421.csv,2,PT10M16.00S,PT09M53.00S,23,0.38333333333333336,2,0,{'Missed Shot'},{'Missed'}
+192,wemby_playbyplay_2024-25_0022400421.csv,2,PT07M36.00S,PT07M36.00S,0,0.0,1,0,{'Substitution'},{nan}
+193,wemby_playbyplay_2024-25_0022400421.csv,2,PT01M55.00S,PT01M20.00S,35,0.5833333333333334,3,76,"{'Rebound', 'Foul', 'Made Shot'}","{nan, 'Made'}"
+194,wemby_playbyplay_2024-25_0022400421.csv,3,PT10M53.00S,PT04M43.00S,370,6.166666666666667,13,399,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+195,wemby_playbyplay_2024-25_0022400421.csv,4,PT11M23.00S,PT01M59.00S,564,9.4,14,515,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+196,wemby_playbyplay_2024-25_0022400441.csv,1,PT10M58.00S,PT04M16.00S,402,6.7,7,66,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+197,wemby_playbyplay_2024-25_0022400441.csv,1,PT00M00.30S,PT00M00.30S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+198,wemby_playbyplay_2024-25_0022400441.csv,2,PT10M07.00S,PT07M04.00S,183,3.05,8,0,"{'Rebound', 'Turnover', 'Missed Shot', 'Substitution', 'Violation'}","{'Missed', nan}"
+199,wemby_playbyplay_2024-25_0022400441.csv,2,PT03M07.00S,PT01M24.00S,103,1.7166666666666666,3,97,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+200,wemby_playbyplay_2024-25_0022400441.csv,3,PT11M31.00S,PT04M20.00S,431,7.183333333333334,13,774,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+201,wemby_playbyplay_2024-25_0022400441.csv,4,PT11M47.00S,PT00M18.00S,689,11.483333333333333,20,1379,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Violation', 'Free Throw'}","{'Missed', nan, 'Made'}"
+202,wemby_playbyplay_2024-25_0022400451.csv,1,PT12M00.00S,PT06M42.00S,318,5.3,14,29,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+203,wemby_playbyplay_2024-25_0022400451.csv,1,PT02M00.00S,PT00M31.60S,89,1.4833333333333334,6,250,"{'Free Throw', 'Made Shot'}","{nan, 'Made'}"
+204,wemby_playbyplay_2024-25_0022400451.csv,2,PT09M32.00S,PT06M48.00S,164,2.7333333333333334,8,125,"{'Rebound', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+205,wemby_playbyplay_2024-25_0022400451.csv,2,PT02M04.00S,PT00M00.00S,124,2.066666666666667,7,97,"{'Missed Shot', 'Rebound', 'Foul', 'Made Shot'}","{'Missed', nan, 'Made'}"
+206,wemby_playbyplay_2024-25_0022400451.csv,3,PT11M21.00S,PT07M09.00S,252,4.2,6,234,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+207,wemby_playbyplay_2024-25_0022400451.csv,3,PT01M03.00S,PT00M27.80S,36,0.6,3,151,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+208,wemby_playbyplay_2024-25_0022400451.csv,4,PT11M12.00S,PT08M39.00S,153,2.55,4,0,"{'Turnover', 'Rebound', nan, 'Substitution'}",{nan}
+209,wemby_playbyplay_2024-25_0022400475.csv,1,PT11M36.00S,PT06M03.00S,333,5.55,14,57,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+210,wemby_playbyplay_2024-25_0022400475.csv,1,PT01M31.00S,PT00M24.30S,67,1.1166666666666667,3,57,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+211,wemby_playbyplay_2024-25_0022400475.csv,2,PT11M32.00S,PT05M57.00S,335,5.583333333333333,14,322,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+212,wemby_playbyplay_2024-25_0022400475.csv,2,PT02M58.00S,PT00M14.30S,164,2.7333333333333334,5,206,"{'Turnover', 'Rebound', 'Foul', 'Made Shot'}","{nan, 'Made'}"
+213,wemby_playbyplay_2024-25_0022400475.csv,3,PT11M38.00S,PT07M45.00S,233,3.8833333333333333,11,236,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+214,wemby_playbyplay_2024-25_0022400475.csv,3,PT05M29.00S,PT05M15.00S,14,0.23333333333333334,4,155,"{'Rebound', 'Foul', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+215,wemby_playbyplay_2024-25_0022400475.csv,4,PT11M07.00S,PT07M52.00S,195,3.25,8,375,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+216,wemby_playbyplay_2024-25_0022400475.csv,4,PT05M30.00S,PT03M23.00S,127,2.1166666666666667,3,206,"{'Turnover', nan, 'Made Shot'}","{nan, 'Made'}"
+217,wemby_playbyplay_2024-25_0022400475.csv,4,PT00M04.30S,PT00M04.30S,0,0.0,1,0,{nan},{nan}
+218,wemby_playbyplay_2024-25_0022400484.csv,1,PT12M00.00S,PT08M24.00S,216,3.6,11,15,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Jump Ball', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+219,wemby_playbyplay_2024-25_0022400484.csv,2,PT10M50.00S,PT01M27.00S,563,9.383333333333333,21,497,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Violation', 'Free Throw'}","{'Missed', nan, 'Made'}"
+220,wemby_playbyplay_2024-25_0022400484.csv,3,PT10M08.00S,PT05M10.00S,298,4.966666666666667,10,133,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+221,wemby_playbyplay_2024-25_0022400484.csv,3,PT03M04.00S,PT00M00.00S,184,3.066666666666667,5,0,"{'Rebound', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+222,wemby_playbyplay_2024-25_0022400484.csv,4,PT11M31.00S,PT09M10.00S,141,2.35,6,0,"{'Rebound', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+223,wemby_playbyplay_2024-25_0022400484.csv,4,PT04M58.00S,PT04M41.00S,17,0.2833333333333333,4,399,"{'Turnover', 'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+224,wemby_playbyplay_2024-25_0022400484.csv,4,PT02M13.00S,PT00M24.10S,109,1.8166666666666667,4,0,"{'Rebound', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+225,wemby_playbyplay_2024-25_0022400484.csv,5,PT05M00.00S,PT02M57.00S,123,2.05,4,0,"{'Turnover', nan, 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+226,wemby_playbyplay_2024-25_0022400484.csv,5,PT00M34.60S,PT00M34.60S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+227,wemby_playbyplay_2024-25_0022400498.csv,1,PT11M43.00S,PT06M03.00S,340,5.666666666666667,14,23,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+228,wemby_playbyplay_2024-25_0022400498.csv,1,PT00M01.60S,PT00M01.60S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+229,wemby_playbyplay_2024-25_0022400498.csv,2,PT11M40.00S,PT08M49.00S,171,2.85,6,51,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+230,wemby_playbyplay_2024-25_0022400498.csv,2,PT06M33.00S,PT06M15.00S,18,0.3,2,74,"{'Substitution', 'Made Shot'}","{nan, 'Made'}"
+231,wemby_playbyplay_2024-25_0022400498.csv,2,PT02M41.00S,PT00M05.90S,156,2.6,6,216,"{'Turnover', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+232,wemby_playbyplay_2024-25_0022400498.csv,3,PT11M37.00S,PT05M08.00S,389,6.483333333333333,13,521,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+233,wemby_playbyplay_2024-25_0022400498.csv,3,PT01M23.00S,PT01M04.00S,19,0.31666666666666665,2,0,"{'Foul', 'Missed Shot'}","{'Missed', nan}"
+234,wemby_playbyplay_2024-25_0022400498.csv,4,PT11M23.00S,PT06M09.00S,314,5.233333333333333,10,202,"{'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+235,wemby_playbyplay_2024-25_0022400498.csv,4,PT02M20.00S,PT00M08.60S,132,2.2,4,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+236,wemby_playbyplay_2024-25_0022400516.csv,1,PT11M34.00S,PT06M16.00S,318,5.3,10,34,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+237,wemby_playbyplay_2024-25_0022400516.csv,1,PT01M40.00S,PT01M40.00S,0,0.0,1,0,{'Turnover'},{nan}
+238,wemby_playbyplay_2024-25_0022400516.csv,2,PT11M11.00S,PT06M02.00S,309,5.15,7,0,"{'Rebound', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+239,wemby_playbyplay_2024-25_0022400516.csv,3,PT10M16.00S,PT05M56.00S,260,4.333333333333333,7,122,"{'Rebound', 'Made Shot', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+240,wemby_playbyplay_2024-25_0022400516.csv,3,PT00M08.20S,PT00M08.20S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+241,wemby_playbyplay_2024-25_0022400516.csv,4,PT11M44.00S,PT09M14.00S,150,2.5,5,0,"{'Turnover', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+242,wemby_playbyplay_2024-25_0022400516.csv,4,PT07M14.00S,PT02M48.00S,266,4.433333333333334,5,0,"{'Substitution', 'Rebound', nan, 'Foul'}",{nan}
+243,wemby_playbyplay_2024-25_0022400552.csv,1,PT09M55.00S,PT03M01.00S,414,6.9,10,83,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+244,wemby_playbyplay_2024-25_0022400552.csv,2,PT10M25.00S,PT08M03.00S,142,2.3666666666666667,6,137,"{nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+245,wemby_playbyplay_2024-25_0022400552.csv,2,PT04M26.00S,PT04M19.00S,7,0.11666666666666667,2,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+246,wemby_playbyplay_2024-25_0022400552.csv,2,PT01M26.00S,PT01M26.00S,0,0.0,1,0,{'Rebound'},{nan}
+247,wemby_playbyplay_2024-25_0022400552.csv,3,PT10M49.00S,PT06M16.00S,273,4.55,8,123,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+248,wemby_playbyplay_2024-25_0022400552.csv,3,PT03M27.00S,PT01M29.00S,118,1.9666666666666666,4,324,"{nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+249,wemby_playbyplay_2024-25_0022400552.csv,4,PT07M10.00S,PT01M41.00S,329,5.483333333333333,7,428,"{'Rebound', 'Made Shot', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+250,wemby_playbyplay_2024-25_0022400567.csv,1,PT12M00.00S,PT11M59.00S,1,0.016666666666666666,2,0,"{'Foul', 'Jump Ball'}",{nan}
+251,wemby_playbyplay_2024-25_0022400567.csv,1,PT09M55.00S,PT06M03.00S,232,3.8666666666666667,8,30,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+252,wemby_playbyplay_2024-25_0022400567.csv,1,PT02M07.00S,PT00M08.30S,119,1.9833333333333334,8,0,"{'Turnover', 'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+253,wemby_playbyplay_2024-25_0022400567.csv,2,PT10M07.00S,PT07M06.00S,181,3.0166666666666666,5,0,"{'Rebound', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+254,wemby_playbyplay_2024-25_0022400567.csv,2,PT02M11.00S,PT00M00.00S,131,2.183333333333333,7,0,"{'Rebound', nan, 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+255,wemby_playbyplay_2024-25_0022400567.csv,3,PT10M59.00S,PT10M17.00S,42,0.7,2,0,"{'Foul', 'Missed Shot'}","{'Missed', nan}"
+256,wemby_playbyplay_2024-25_0022400567.csv,3,PT08M13.00S,PT06M39.00S,94,1.5666666666666667,5,140,"{'Rebound', 'Foul', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+257,wemby_playbyplay_2024-25_0022400567.csv,3,PT02M37.00S,PT00M00.00S,157,2.6166666666666667,4,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+258,wemby_playbyplay_2024-25_0022400567.csv,4,PT11M47.00S,PT02M19.00S,568,9.466666666666667,10,426,"{'Rebound', 'Made Shot', 'Violation', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+259,wemby_playbyplay_2024-25_0022400582.csv,1,PT12M00.00S,PT09M58.00S,122,2.033333333333333,7,9,"{'Rebound', 'Made Shot', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+260,wemby_playbyplay_2024-25_0022400582.csv,1,PT07M28.00S,PT06M13.00S,75,1.25,3,0,"{'Turnover', nan, 'Substitution'}",{nan}
+261,wemby_playbyplay_2024-25_0022400582.csv,1,PT01M58.00S,PT00M00.10S,118,1.9666666666666666,6,0,"{'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+262,wemby_playbyplay_2024-25_0022400582.csv,2,PT11M05.00S,PT10M00.00S,65,1.0833333333333333,2,71,"{nan, 'Made Shot'}","{nan, 'Made'}"
+263,wemby_playbyplay_2024-25_0022400582.csv,2,PT07M57.00S,PT06M36.00S,81,1.35,4,80,"{'Turnover', nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+264,wemby_playbyplay_2024-25_0022400582.csv,3,PT10M14.00S,PT06M38.00S,216,3.6,9,143,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+265,wemby_playbyplay_2024-25_0022400582.csv,3,PT01M12.00S,PT00M49.90S,23,0.38333333333333336,2,0,{'Missed Shot'},{'Missed'}
+266,wemby_playbyplay_2024-25_0022400582.csv,4,PT11M44.00S,PT03M40.00S,484,8.066666666666666,14,829,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+267,wemby_playbyplay_2024-25_0022400592.csv,1,PT11M49.00S,PT03M31.00S,498,8.3,12,100,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+268,wemby_playbyplay_2024-25_0022400592.csv,2,PT06M37.00S,PT00M18.80S,379,6.316666666666666,15,0,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan}"
+269,wemby_playbyplay_2024-25_0022400592.csv,3,PT11M05.00S,PT08M57.00S,128,2.1333333333333333,5,202,"{'Turnover', 'Free Throw', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+270,wemby_playbyplay_2024-25_0022400592.csv,3,PT06M01.00S,PT06M01.00S,0,0.0,1,0,{'Substitution'},{nan}
+271,wemby_playbyplay_2024-25_0022400592.csv,4,PT11M46.00S,PT11M46.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+272,wemby_playbyplay_2024-25_0022400592.csv,4,PT08M49.00S,PT06M36.00S,133,2.216666666666667,6,376,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Substitution'}","{nan, 'Made'}"
+273,wemby_playbyplay_2024-25_0022400592.csv,4,PT02M54.00S,PT02M21.00S,33,0.55,4,222,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+274,wemby_playbyplay_2024-25_0022400621.csv,1,PT11M44.00S,PT05M17.00S,387,6.45,10,65,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+275,wemby_playbyplay_2024-25_0022400621.csv,1,PT00M51.20S,PT00M00.30S,51,0.85,4,57,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+276,wemby_playbyplay_2024-25_0022400621.csv,2,PT11M31.00S,PT05M17.00S,374,6.233333333333333,6,143,"{'Turnover', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+277,wemby_playbyplay_2024-25_0022400621.csv,3,PT10M06.00S,PT07M11.00S,175,2.9166666666666665,8,280,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+278,wemby_playbyplay_2024-25_0022400621.csv,3,PT02M56.00S,PT00M00.10S,176,2.933333333333333,11,364,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+279,wemby_playbyplay_2024-25_0022400621.csv,4,PT11M06.00S,PT05M37.00S,329,5.483333333333333,8,589,"{'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+280,wemby_playbyplay_2024-25_0022400633.csv,1,PT12M00.00S,PT08M34.00S,206,3.433333333333333,5,28,"{'Made Shot', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+281,wemby_playbyplay_2024-25_0022400633.csv,1,PT05M14.00S,PT05M14.00S,0,0.0,1,0,{'Substitution'},{nan}
+282,wemby_playbyplay_2024-25_0022400633.csv,1,PT00M08.80S,PT00M08.80S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+283,wemby_playbyplay_2024-25_0022400633.csv,2,PT11M36.00S,PT05M20.00S,376,6.266666666666667,16,548,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+284,wemby_playbyplay_2024-25_0022400633.csv,2,PT01M16.00S,PT01M11.00S,5,0.08333333333333333,2,0,{'Missed Shot'},{'Missed'}
+285,wemby_playbyplay_2024-25_0022400633.csv,3,PT11M01.00S,PT03M22.00S,459,7.65,13,153,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+286,wemby_playbyplay_2024-25_0022400633.csv,4,PT07M44.00S,PT07M44.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+287,wemby_playbyplay_2024-25_0022400633.csv,4,PT04M33.00S,PT03M35.00S,58,0.9666666666666667,7,222,"{'Rebound', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+288,wemby_playbyplay_2024-25_0022400671.csv,1,PT12M00.00S,PT06M39.00S,321,5.35,9,31,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Jump Ball', 'Substitution'}","{nan, 'Made'}"
+289,wemby_playbyplay_2024-25_0022400671.csv,1,PT01M27.00S,PT00M05.60S,82,1.3666666666666667,5,168,"{'Free Throw', 'Rebound'}",{nan}
+290,wemby_playbyplay_2024-25_0022400671.csv,2,PT11M16.00S,PT07M20.00S,236,3.933333333333333,6,76,"{'Rebound', nan, 'Foul', 'Made Shot'}","{nan, 'Made'}"
+291,wemby_playbyplay_2024-25_0022400671.csv,2,PT04M55.00S,PT04M46.00S,9,0.15,2,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+292,wemby_playbyplay_2024-25_0022400671.csv,3,PT10M56.00S,PT03M28.00S,448,7.466666666666667,15,584,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+293,wemby_playbyplay_2024-25_0022400671.csv,4,PT09M18.00S,PT01M21.00S,477,7.95,13,438,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+294,wemby_playbyplay_2024-25_0022400684.csv,1,PT12M00.00S,PT09M35.00S,145,2.4166666666666665,7,7,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Jump Ball'}","{nan, 'Made'}"
+295,wemby_playbyplay_2024-25_0022400684.csv,1,PT06M40.00S,PT05M04.00S,96,1.6,4,0,"{'Rebound', 'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+296,wemby_playbyplay_2024-25_0022400684.csv,1,PT02M42.00S,PT00M23.30S,139,2.316666666666667,4,0,"{'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+297,wemby_playbyplay_2024-25_0022400684.csv,2,PT05M38.00S,PT00M52.10S,286,4.766666666666667,11,725,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+298,wemby_playbyplay_2024-25_0022400684.csv,3,PT11M44.00S,PT05M05.00S,399,6.65,11,508,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+299,wemby_playbyplay_2024-25_0022400684.csv,3,PT02M42.00S,PT00M00.10S,162,2.7,9,846,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Free Throw'}","{'Missed', nan, 'Made'}"
+300,wemby_playbyplay_2024-25_0022400684.csv,4,PT07M22.00S,PT03M46.00S,216,3.6,10,482,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+301,wemby_playbyplay_2024-25_0022400703.csv,1,PT11M47.00S,PT07M14.00S,273,4.55,13,96,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+302,wemby_playbyplay_2024-25_0022400703.csv,1,PT00M44.60S,PT00M44.60S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+303,wemby_playbyplay_2024-25_0022400703.csv,2,PT11M32.00S,PT07M57.00S,215,3.5833333333333335,6,0,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+304,wemby_playbyplay_2024-25_0022400703.csv,2,PT04M12.00S,PT00M49.70S,203,3.3833333333333333,9,107,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot'}","{'Missed', nan, 'Made'}"
+305,wemby_playbyplay_2024-25_0022400703.csv,3,PT11M24.00S,PT08M16.00S,188,3.1333333333333333,7,238,"{'Missed Shot', 'Foul', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+306,wemby_playbyplay_2024-25_0022400703.csv,3,PT03M17.00S,PT03M17.00S,0,0.0,1,157,{'Made Shot'},{'Made'}
+307,wemby_playbyplay_2024-25_0022400703.csv,3,PT01M16.00S,PT00M00.70S,76,1.2666666666666666,4,335,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+308,wemby_playbyplay_2024-25_0022400703.csv,4,PT11M42.00S,PT11M42.00S,0,0.0,2,173,{'Free Throw'},{nan}
+309,wemby_playbyplay_2024-25_0022400703.csv,4,PT09M38.00S,PT09M26.00S,12,0.2,2,184,"{'Substitution', 'Made Shot'}","{nan, 'Made'}"
+310,wemby_playbyplay_2024-25_0022400703.csv,4,PT07M02.00S,PT03M46.00S,196,3.2666666666666666,9,206,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+311,wemby_playbyplay_2024-25_0022400719.csv,1,PT10M13.00S,PT10M05.00S,8,0.13333333333333333,2,10,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+312,wemby_playbyplay_2024-25_0022400719.csv,1,PT07M52.00S,PT06M59.00S,53,0.8833333333333333,6,30,"{'Rebound', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+313,wemby_playbyplay_2024-25_0022400719.csv,2,PT10M52.00S,PT09M22.00S,90,1.5,8,137,"{'Rebound', 'Turnover', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan}"
+314,wemby_playbyplay_2024-25_0022400719.csv,2,PT07M15.00S,PT07M15.00S,0,0.0,1,0,{'Substitution'},{nan}
+315,wemby_playbyplay_2024-25_0022400719.csv,2,PT03M35.00S,PT02M18.00S,77,1.2833333333333334,4,207,"{'Free Throw', 'Foul', 'Substitution'}",{nan}
+316,wemby_playbyplay_2024-25_0022400719.csv,3,PT11M14.00S,PT06M50.00S,264,4.4,7,432,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+317,wemby_playbyplay_2024-25_0022400719.csv,3,PT01M57.00S,PT00M00.90S,117,1.95,3,200,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+318,wemby_playbyplay_2024-25_0022400719.csv,4,PT11M19.00S,PT08M17.00S,182,3.033333333333333,6,212,"{'Rebound', 'Made Shot', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+319,wemby_playbyplay_2024-25_0022400719.csv,4,PT05M06.00S,PT00M02.90S,304,5.066666666666666,10,728,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+320,wemby_playbyplay_2024-25_0022400734.csv,1,PT11M43.00S,PT11M43.00S,0,0.0,1,2,{'Made Shot'},{'Made'}
+321,wemby_playbyplay_2024-25_0022400734.csv,1,PT09M27.00S,PT06M26.00S,181,3.0166666666666666,12,49,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+322,wemby_playbyplay_2024-25_0022400734.csv,1,PT02M34.00S,PT00M00.00S,154,2.566666666666667,5,0,"{'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+323,wemby_playbyplay_2024-25_0022400734.csv,2,PT10M32.00S,PT07M38.00S,174,2.9,4,73,"{'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+324,wemby_playbyplay_2024-25_0022400734.csv,2,PT03M40.00S,PT00M14.20S,206,3.433333333333333,4,96,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+325,wemby_playbyplay_2024-25_0022400734.csv,3,PT10M33.00S,PT06M03.00S,270,4.5,7,0,"{'Rebound', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+326,wemby_playbyplay_2024-25_0022400734.csv,3,PT02M57.00S,PT00M21.40S,156,2.6,5,0,"{'Turnover', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+327,wemby_playbyplay_2024-25_0022400734.csv,4,PT11M45.00S,PT08M21.00S,204,3.4,6,358,"{'Made Shot', nan, 'Foul', 'Substitution', 'Violation'}","{nan, 'Made'}"
+328,wemby_playbyplay_2024-25_0022400734.csv,4,PT00M30.60S,PT00M30.60S,0,0.0,1,0,{nan},{nan}
+329,wemby_playbyplay_2024-25_0022400743.csv,1,PT09M55.00S,PT07M08.00S,167,2.783333333333333,8,43,"{'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+330,wemby_playbyplay_2024-25_0022400743.csv,1,PT00M54.90S,PT00M20.20S,34,0.5666666666666667,2,0,"{nan, 'Violation'}",{nan}
+331,wemby_playbyplay_2024-25_0022400743.csv,2,PT10M13.00S,PT05M57.00S,256,4.266666666666667,5,158,"{'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+332,wemby_playbyplay_2024-25_0022400743.csv,2,PT01M57.00S,PT00M50.90S,67,1.1166666666666667,6,223,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+333,wemby_playbyplay_2024-25_0022400743.csv,3,PT11M19.00S,PT06M55.00S,264,4.4,16,503,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+334,wemby_playbyplay_2024-25_0022400743.csv,3,PT00M08.70S,PT00M08.70S,0,0.0,1,0,{'Rebound'},{nan}
+335,wemby_playbyplay_2024-25_0022400743.csv,4,PT07M54.00S,PT07M54.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+336,wemby_playbyplay_2024-25_0022400743.csv,4,PT04M59.00S,PT00M02.20S,297,4.95,6,221,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot'}","{'Missed', nan, 'Made'}"
+337,wemby_playbyplay_2024-25_0022400757.csv,1,PT11M05.00S,PT10M20.00S,45,0.75,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+338,wemby_playbyplay_2024-25_0022400757.csv,1,PT07M34.00S,PT03M15.00S,259,4.316666666666666,13,161,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+339,wemby_playbyplay_2024-25_0022400757.csv,2,PT11M12.00S,PT05M33.00S,339,5.65,7,90,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+340,wemby_playbyplay_2024-25_0022400757.csv,2,PT01M40.00S,PT00M34.20S,66,1.1,5,120,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+341,wemby_playbyplay_2024-25_0022400757.csv,3,PT10M37.00S,PT06M34.00S,243,4.05,9,300,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+342,wemby_playbyplay_2024-25_0022400757.csv,3,PT02M30.00S,PT01M47.00S,43,0.7166666666666667,3,0,"{'Rebound', nan, 'Foul'}",{nan}
+343,wemby_playbyplay_2024-25_0022400757.csv,4,PT11M41.00S,PT07M27.00S,254,4.233333333333333,6,411,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+344,wemby_playbyplay_2024-25_0022400757.csv,4,PT05M16.00S,PT00M36.30S,280,4.666666666666667,7,713,"{'Rebound', 'Missed Shot', nan, 'Made Shot'}","{'Missed', nan, 'Made'}"
+345,wemby_playbyplay_2024-25_0022400769.csv,1,PT11M33.00S,PT08M33.00S,180,3.0,9,12,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+346,wemby_playbyplay_2024-25_0022400769.csv,1,PT06M23.00S,PT06M23.00S,0,0.0,1,0,{'Substitution'},{nan}
+347,wemby_playbyplay_2024-25_0022400769.csv,1,PT01M53.00S,PT01M00.00S,53,0.8833333333333333,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+348,wemby_playbyplay_2024-25_0022400769.csv,2,PT11M29.00S,PT07M59.00S,210,3.5,7,205,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+349,wemby_playbyplay_2024-25_0022400769.csv,2,PT05M15.00S,PT03M53.00S,82,1.3666666666666667,3,90,"{'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+350,wemby_playbyplay_2024-25_0022400769.csv,3,PT11M44.00S,PT06M37.00S,307,5.116666666666666,9,131,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+351,wemby_playbyplay_2024-25_0022400769.csv,3,PT01M32.00S,PT01M32.00S,0,0.0,1,0,{'Foul'},{nan}
+352,wemby_playbyplay_2024-25_0022400769.csv,4,PT11M22.00S,PT10M50.00S,32,0.5333333333333333,2,0,{'Rebound'},{nan}
+353,wemby_playbyplay_2024-25_0022400769.csv,4,PT07M52.00S,PT00M25.70S,447,7.45,12,417,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+354,wemby_playbyplay_2024-25_0022401215.csv,1,PT10M33.00S,PT10M33.00S,0,0.0,2,10,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+355,wemby_playbyplay_2024-25_0022401215.csv,1,PT07M49.00S,PT06M24.00S,85,1.4166666666666667,5,23,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+356,wemby_playbyplay_2024-25_0022401215.csv,1,PT00M48.60S,PT00M00.00S,48,0.8,2,56,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+357,wemby_playbyplay_2024-25_0022401215.csv,2,PT11M42.00S,PT07M38.00S,244,4.066666666666666,11,60,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+358,wemby_playbyplay_2024-25_0022401215.csv,2,PT03M34.00S,PT00M29.10S,185,3.0833333333333335,6,339,"{'Free Throw', 'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+359,wemby_playbyplay_2024-25_0022401215.csv,3,PT09M55.00S,PT08M37.00S,78,1.3,3,106,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+360,wemby_playbyplay_2024-25_0022401215.csv,3,PT06M10.00S,PT05M34.00S,36,0.6,4,255,"{'Free Throw', 'Rebound', 'Substitution'}",{nan}
+361,wemby_playbyplay_2024-25_0022401215.csv,3,PT01M39.00S,PT00M08.60S,91,1.5166666666666666,6,311,"{'Free Throw', nan, 'Missed Shot'}","{'Missed', nan}"
+362,wemby_playbyplay_2024-25_0022401215.csv,4,PT10M56.00S,PT09M58.00S,58,0.9666666666666667,2,0,"{'Foul', 'Missed Shot'}","{'Missed', nan}"
+363,wemby_playbyplay_2024-25_0022401215.csv,4,PT06M26.00S,PT05M45.00S,41,0.6833333333333333,3,202,"{'Turnover', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+364,wemby_playbyplay_2024-25_0022401215.csv,4,PT01M42.00S,PT00M02.40S,100,1.6666666666666667,5,918,"{'Free Throw', 'Rebound'}",{nan}
+365,wemby_playbyplay_2024-25_0022401218.csv,1,PT12M00.00S,PT03M53.00S,487,8.116666666666667,16,62,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+366,wemby_playbyplay_2024-25_0022401218.csv,2,PT11M42.00S,PT05M32.00S,370,6.166666666666667,12,105,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+367,wemby_playbyplay_2024-25_0022401218.csv,2,PT01M32.00S,PT00M14.90S,78,1.3,5,255,"{'Free Throw', nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+368,wemby_playbyplay_2024-25_0022401218.csv,3,PT10M22.00S,PT05M03.00S,319,5.316666666666666,9,234,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+369,wemby_playbyplay_2024-25_0022401218.csv,4,PT11M47.00S,PT05M18.00S,389,6.483333333333333,13,154,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+370,wemby_playbyplay_2024-25_0022401218.csv,4,PT03M00.00S,PT03M00.00S,0,0.0,1,0,{'Substitution'},{nan}
+371,wemby_playbyplay_2025-26_0022500004.csv,1,PT11M20.00S,PT06M34.00S,286,4.766666666666667,8,47,"{'Made Shot', nan, 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+372,wemby_playbyplay_2025-26_0022500004.csv,1,PT02M41.00S,PT00M03.90S,158,2.6333333333333333,6,162,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+373,wemby_playbyplay_2025-26_0022500004.csv,2,PT10M53.00S,PT06M09.00S,284,4.733333333333333,12,148,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+374,wemby_playbyplay_2025-26_0022500004.csv,2,PT03M30.00S,PT00M46.10S,164,2.7333333333333334,10,396,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+375,wemby_playbyplay_2025-26_0022500004.csv,3,PT11M16.00S,PT06M56.00S,260,4.333333333333333,15,779,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+376,wemby_playbyplay_2025-26_0022500004.csv,4,PT10M35.00S,PT04M56.00S,339,5.65,11,919,"{'Free Throw', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+377,wemby_playbyplay_2025-26_0022500010.csv,1,PT03M39.00S,PT00M48.70S,171,2.85,7,278,"{'Rebound', 'Made Shot', 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+378,wemby_playbyplay_2025-26_0022500010.csv,2,PT09M47.00S,PT05M40.00S,247,4.116666666666666,13,188,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+379,wemby_playbyplay_2025-26_0022500010.csv,2,PT02M27.00S,PT01M35.00S,52,0.8666666666666667,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+380,wemby_playbyplay_2025-26_0022500010.csv,3,PT07M37.00S,PT01M30.00S,367,6.116666666666666,9,469,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+381,wemby_playbyplay_2025-26_0022500010.csv,4,PT07M55.00S,PT06M07.00S,108,1.8,6,387,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+382,wemby_playbyplay_2025-26_0022500010.csv,4,PT01M23.00S,PT01M12.00S,11,0.18333333333333332,2,0,"{nan, 'Substitution'}",{nan}
+383,wemby_playbyplay_2025-26_0022500032.csv,1,PT12M00.00S,PT07M08.00S,292,4.866666666666666,8,5,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Jump Ball', 'Substitution'}","{nan, 'Made'}"
+384,wemby_playbyplay_2025-26_0022500032.csv,1,PT01M43.00S,PT00M58.90S,45,0.75,3,0,"{'Turnover', 'Missed Shot'}","{'Missed', nan}"
+385,wemby_playbyplay_2025-26_0022500032.csv,2,PT11M39.00S,PT10M24.00S,75,1.25,2,0,{'Rebound'},{nan}
+386,wemby_playbyplay_2025-26_0022500032.csv,2,PT06M14.00S,PT06M14.00S,0,0.0,1,0,{'Substitution'},{nan}
+387,wemby_playbyplay_2025-26_0022500032.csv,2,PT03M53.00S,PT00M32.00S,201,3.35,3,91,"{'Made Shot', 'Missed Shot'}","{'Missed', 'Made'}"
+388,wemby_playbyplay_2025-26_0022500032.csv,3,PT11M30.00S,PT06M28.00S,302,5.033333333333333,10,484,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+389,wemby_playbyplay_2025-26_0022500032.csv,3,PT02M04.00S,PT01M06.00S,58,0.9666666666666667,7,311,"{'Rebound', 'Foul', 'Missed Shot', 'Jump Ball', 'Free Throw'}","{'Missed', nan}"
+390,wemby_playbyplay_2025-26_0022500032.csv,4,PT11M19.00S,PT07M01.00S,258,4.3,9,543,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+391,wemby_playbyplay_2025-26_0022500032.csv,4,PT03M18.00S,PT00M38.10S,160,2.6666666666666665,5,671,"{'Free Throw', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+392,wemby_playbyplay_2025-26_0022500047.csv,1,PT12M00.00S,PT10M11.00S,109,1.8166666666666667,4,0,"{'Turnover', 'Foul', 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+393,wemby_playbyplay_2025-26_0022500047.csv,1,PT07M35.00S,PT07M35.00S,0,0.0,1,0,{'Substitution'},{nan}
+394,wemby_playbyplay_2025-26_0022500047.csv,1,PT01M46.00S,PT00M02.80S,104,1.7333333333333334,3,72,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+395,wemby_playbyplay_2025-26_0022500047.csv,2,PT11M14.00S,PT07M52.00S,202,3.3666666666666667,4,51,"{nan, 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+396,wemby_playbyplay_2025-26_0022500047.csv,2,PT04M31.00S,PT03M30.00S,61,1.0166666666666666,3,0,"{'Turnover', nan, 'Missed Shot'}","{'Missed', nan}"
+397,wemby_playbyplay_2025-26_0022500047.csv,2,PT00M55.20S,PT00M00.50S,55,0.9166666666666666,2,85,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+398,wemby_playbyplay_2025-26_0022500047.csv,3,PT10M44.00S,PT07M07.00S,217,3.6166666666666667,10,314,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+399,wemby_playbyplay_2025-26_0022500047.csv,3,PT01M15.00S,PT00M30.70S,45,0.75,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+400,wemby_playbyplay_2025-26_0022500047.csv,4,PT11M46.00S,PT10M51.00S,55,0.9166666666666666,4,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+401,wemby_playbyplay_2025-26_0022500047.csv,4,PT08M31.00S,PT07M25.00S,66,1.1,7,519,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+402,wemby_playbyplay_2025-26_0022500047.csv,4,PT05M14.00S,PT05M14.00S,0,0.0,1,192,{'Made Shot'},{'Made'}
+403,wemby_playbyplay_2025-26_0022500047.csv,4,PT03M01.00S,PT00M32.50S,149,2.4833333333333334,7,418,"{'Rebound', 'Missed Shot', nan, 'Made Shot'}","{'Missed', nan, 'Made'}"
+404,wemby_playbyplay_2025-26_0022500095.csv,1,PT11M44.00S,PT10M01.00S,103,1.7166666666666666,8,13,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+405,wemby_playbyplay_2025-26_0022500095.csv,1,PT06M58.00S,PT06M58.00S,0,0.0,1,0,{'Substitution'},{nan}
+406,wemby_playbyplay_2025-26_0022500095.csv,1,PT00M53.70S,PT00M14.60S,39,0.65,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+407,wemby_playbyplay_2025-26_0022500095.csv,2,PT11M43.00S,PT08M32.00S,191,3.183333333333333,7,190,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+408,wemby_playbyplay_2025-26_0022500095.csv,2,PT05M22.00S,PT00M00.80S,322,5.366666666666666,11,99,"{'Rebound', 'Made Shot', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+409,wemby_playbyplay_2025-26_0022500095.csv,3,PT11M43.00S,PT09M35.00S,128,2.1333333333333333,8,484,"{'Free Throw', nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+410,wemby_playbyplay_2025-26_0022500095.csv,3,PT07M13.00S,PT06M22.00S,51,0.85,6,137,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+411,wemby_playbyplay_2025-26_0022500095.csv,3,PT01M21.00S,PT01M21.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+412,wemby_playbyplay_2025-26_0022500095.csv,4,PT11M27.00S,PT08M10.00S,197,3.283333333333333,6,516,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+413,wemby_playbyplay_2025-26_0022500095.csv,4,PT02M38.00S,PT00M00.40S,158,2.6333333333333333,6,202,"{'Missed Shot', 'Rebound', 'Foul', 'Made Shot'}","{'Missed', nan, 'Made'}"
+414,wemby_playbyplay_2025-26_0022500095.csv,5,PT04M42.00S,PT04M17.00S,25,0.4166666666666667,4,216,"{nan, 'Foul', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+415,wemby_playbyplay_2025-26_0022500105.csv,1,PT10M48.00S,PT06M34.00S,254,4.233333333333333,10,0,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+416,wemby_playbyplay_2025-26_0022500105.csv,1,PT02M07.00S,PT00M27.30S,100,1.6666666666666667,6,151,"{'Free Throw', 'Rebound', nan}",{nan}
+417,wemby_playbyplay_2025-26_0022500105.csv,2,PT11M15.00S,PT08M57.00S,138,2.3,7,59,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+418,wemby_playbyplay_2025-26_0022500105.csv,2,PT04M43.00S,PT00M26.10S,257,4.283333333333333,13,722,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+419,wemby_playbyplay_2025-26_0022500105.csv,3,PT11M27.00S,PT07M34.00S,233,3.8833333333333333,8,246,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+420,wemby_playbyplay_2025-26_0022500105.csv,3,PT02M44.00S,PT00M44.80S,120,2.0,3,0,"{'Turnover', nan, 'Missed Shot'}","{'Missed', nan}"
+421,wemby_playbyplay_2025-26_0022500105.csv,4,PT08M55.00S,PT00M03.20S,532,8.866666666666667,20,1272,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+422,wemby_playbyplay_2025-26_0022500118.csv,1,PT12M00.00S,PT12M00.00S,0,0.0,1,0,{'Jump Ball'},{nan}
+423,wemby_playbyplay_2025-26_0022500118.csv,1,PT09M54.00S,PT05M19.00S,275,4.583333333333333,11,154,"{'Free Throw', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+424,wemby_playbyplay_2025-26_0022500118.csv,2,PT11M36.00S,PT11M04.00S,32,0.5333333333333333,2,0,{'Rebound'},{nan}
+425,wemby_playbyplay_2025-26_0022500118.csv,2,PT08M15.00S,PT05M53.00S,142,2.3666666666666667,5,151,"{'Free Throw', 'Rebound', 'Substitution'}",{nan}
+426,wemby_playbyplay_2025-26_0022500118.csv,2,PT02M09.00S,PT02M09.00S,0,0.0,1,0,{nan},{nan}
+427,wemby_playbyplay_2025-26_0022500118.csv,3,PT11M20.00S,PT06M58.00S,262,4.366666666666666,9,0,"{'Turnover', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+428,wemby_playbyplay_2025-26_0022500118.csv,3,PT02M27.00S,PT00M16.70S,131,2.183333333333333,9,963,"{'Free Throw', 'Rebound', 'Foul', 'Made Shot'}","{nan, 'Made'}"
+429,wemby_playbyplay_2025-26_0022500118.csv,4,PT08M40.00S,PT06M31.00S,129,2.15,3,196,"{'Turnover', 'Made Shot'}","{nan, 'Made'}"
+430,wemby_playbyplay_2025-26_0022500118.csv,4,PT03M59.00S,PT02M10.00S,109,1.8166666666666667,4,429,"{nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+431,wemby_playbyplay_2025-26_0022500141.csv,1,PT12M00.00S,PT05M58.00S,362,6.033333333333333,9,27,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+432,wemby_playbyplay_2025-26_0022500141.csv,1,PT01M16.00S,PT00M34.50S,42,0.7,4,117,"{'Free Throw', 'Rebound'}",{nan}
+433,wemby_playbyplay_2025-26_0022500141.csv,2,PT11M43.00S,PT08M14.00S,209,3.4833333333333334,6,0,"{'Rebound', 'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+434,wemby_playbyplay_2025-26_0022500141.csv,2,PT04M58.00S,PT00M09.70S,289,4.816666666666666,12,531,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+435,wemby_playbyplay_2025-26_0022500141.csv,3,PT10M51.00S,PT05M14.00S,337,5.616666666666666,12,248,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+436,wemby_playbyplay_2025-26_0022500141.csv,3,PT02M56.00S,PT00M03.80S,173,2.8833333333333333,8,148,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+437,wemby_playbyplay_2025-26_0022500141.csv,4,PT10M53.00S,PT07M25.00S,208,3.466666666666667,8,168,"{nan, 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+438,wemby_playbyplay_2025-26_0022500141.csv,4,PT04M58.00S,PT00M14.60S,284,4.733333333333333,10,596,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+439,wemby_playbyplay_2025-26_0022500154.csv,1,PT11M37.00S,PT08M22.00S,195,3.25,4,0,"{'Rebound', 'Violation', 'Missed Shot'}","{'Missed', nan}"
+440,wemby_playbyplay_2025-26_0022500154.csv,1,PT06M18.00S,PT06M16.00S,2,0.03333333333333333,3,0,"{'Turnover', 'Foul', 'Substitution'}",{nan}
+441,wemby_playbyplay_2025-26_0022500154.csv,1,PT00M21.70S,PT00M21.10S,0,0.0,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+442,wemby_playbyplay_2025-26_0022500154.csv,2,PT10M32.00S,PT10M25.00S,7,0.11666666666666667,2,0,"{nan, 'Foul'}",{nan}
+443,wemby_playbyplay_2025-26_0022500154.csv,2,PT07M31.00S,PT07M31.00S,0,0.0,1,0,{'Substitution'},{nan}
+444,wemby_playbyplay_2025-26_0022500154.csv,2,PT03M56.00S,PT00M00.00S,236,3.933333333333333,8,112,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+445,wemby_playbyplay_2025-26_0022500154.csv,3,PT11M20.00S,PT10M12.00S,68,1.1333333333333333,4,0,"{'Turnover', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+446,wemby_playbyplay_2025-26_0022500154.csv,3,PT07M57.00S,PT07M52.00S,5,0.08333333333333333,2,0,"{'Rebound', 'Substitution'}",{nan}
+447,wemby_playbyplay_2025-26_0022500154.csv,3,PT05M07.00S,PT02M34.00S,153,2.55,4,0,"{'Turnover', nan, 'Missed Shot'}","{'Missed', nan}"
+448,wemby_playbyplay_2025-26_0022500154.csv,3,PT00M02.10S,PT00M02.10S,0,0.0,1,0,{'Rebound'},{nan}
+449,wemby_playbyplay_2025-26_0022500154.csv,4,PT11M48.00S,PT04M32.00S,436,7.266666666666667,13,598,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+450,wemby_playbyplay_2025-26_0022500179.csv,1,PT11M11.00S,PT11M09.00S,2,0.03333333333333333,3,2,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+451,wemby_playbyplay_2025-26_0022500179.csv,1,PT09M02.00S,PT07M38.00S,84,1.4,3,0,"{'Rebound', nan, 'Foul'}",{nan}
+452,wemby_playbyplay_2025-26_0022500179.csv,1,PT05M28.00S,PT05M09.00S,19,0.31666666666666665,3,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+453,wemby_playbyplay_2025-26_0022500179.csv,1,PT00M01.30S,PT00M01.30S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+454,wemby_playbyplay_2025-26_0022500179.csv,2,PT11M14.00S,PT08M39.00S,155,2.5833333333333335,7,126,"{'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+455,wemby_playbyplay_2025-26_0022500179.csv,2,PT02M39.00S,PT02M39.00S,0,0.0,1,0,{nan},{nan}
+456,wemby_playbyplay_2025-26_0022500179.csv,2,PT00M05.30S,PT00M00.50S,5,0.08333333333333333,4,119,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+457,wemby_playbyplay_2025-26_0022500179.csv,3,PT10M32.00S,PT07M07.00S,205,3.4166666666666665,5,136,"{'Turnover', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+458,wemby_playbyplay_2025-26_0022500179.csv,3,PT05M06.00S,PT03M41.00S,85,1.4166666666666667,6,630,"{'Free Throw', 'Rebound', 'Substitution'}",{nan}
+459,wemby_playbyplay_2025-26_0022500179.csv,3,PT01M28.00S,PT00M09.30S,79,1.3166666666666667,4,176,"{'Free Throw', 'Rebound', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+460,wemby_playbyplay_2025-26_0022500179.csv,4,PT10M31.00S,PT10M31.00S,0,0.0,3,0,"{'Turnover', 'Foul', 'Substitution'}",{nan}
+461,wemby_playbyplay_2025-26_0022500179.csv,4,PT05M28.00S,PT01M40.00S,228,3.8,11,875,"{'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+462,wemby_playbyplay_2025-26_0022500188.csv,1,PT12M00.00S,PT04M33.00S,447,7.45,15,18,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+463,wemby_playbyplay_2025-26_0022500188.csv,2,PT11M43.00S,PT06M47.00S,296,4.933333333333334,9,0,"{'Rebound', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+464,wemby_playbyplay_2025-26_0022500188.csv,2,PT01M42.00S,PT00M30.70S,72,1.2,5,238,"{'Turnover', 'Rebound', 'Foul', 'Made Shot'}","{nan, 'Made'}"
+465,wemby_playbyplay_2025-26_0022500188.csv,3,PT11M38.00S,PT07M18.00S,260,4.333333333333333,10,127,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+466,wemby_playbyplay_2025-26_0022500188.csv,3,PT01M45.00S,PT00M53.20S,52,0.8666666666666667,3,0,"{'Turnover', nan, 'Violation'}",{nan}
+467,wemby_playbyplay_2025-26_0022500188.csv,4,PT11M12.00S,PT08M21.00S,171,2.85,6,566,"{'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+468,wemby_playbyplay_2025-26_0022500188.csv,4,PT04M55.00S,PT00M06.50S,289,4.816666666666666,7,0,"{'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+469,wemby_playbyplay_2025-26_0022500202.csv,1,PT11M44.00S,PT06M29.00S,315,5.25,15,96,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+470,wemby_playbyplay_2025-26_0022500202.csv,2,PT11M30.00S,PT09M26.00S,124,2.066666666666667,4,0,"{'Rebound', nan, 'Substitution'}",{nan}
+471,wemby_playbyplay_2025-26_0022500202.csv,2,PT03M57.00S,PT00M01.80S,236,3.933333333333333,9,238,"{'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+472,wemby_playbyplay_2025-26_0022500202.csv,3,PT11M44.00S,PT06M37.00S,307,5.116666666666666,8,148,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+473,wemby_playbyplay_2025-26_0022500202.csv,3,PT03M54.00S,PT03M26.00S,28,0.4666666666666667,3,0,"{'Turnover', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+474,wemby_playbyplay_2025-26_0022500202.csv,3,PT00M30.40S,PT00M30.40S,0,0.0,2,367,{'Free Throw'},{nan}
+475,wemby_playbyplay_2025-26_0022500202.csv,4,PT10M22.00S,PT06M03.00S,259,4.316666666666666,9,1007,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+476,wemby_playbyplay_2025-26_0022500202.csv,4,PT03M20.00S,PT03M20.00S,0,0.0,1,0,{'Rebound'},{nan}
+477,wemby_playbyplay_2025-26_0022500202.csv,4,PT01M00.00S,PT00M06.40S,54,0.9,6,930,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+478,wemby_playbyplay_2025-26_0022500220.csv,1,PT12M00.00S,PT07M07.00S,293,4.883333333333334,11,32,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+479,wemby_playbyplay_2025-26_0022500220.csv,1,PT02M26.00S,PT00M42.40S,104,1.7333333333333334,3,0,"{'Turnover', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+480,wemby_playbyplay_2025-26_0022500220.csv,2,PT11M34.00S,PT07M24.00S,250,4.166666666666667,10,276,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+481,wemby_playbyplay_2025-26_0022500220.csv,2,PT02M31.00S,PT00M05.70S,146,2.433333333333333,4,0,"{'Turnover', 'Missed Shot'}","{'Missed', nan}"
+482,wemby_playbyplay_2025-26_0022500220.csv,3,PT10M08.00S,PT09M05.00S,63,1.05,5,233,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+483,wemby_playbyplay_2025-26_0022500220.csv,3,PT06M46.00S,PT05M34.00S,72,1.2,5,0,"{'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+484,wemby_playbyplay_2025-26_0022500220.csv,3,PT01M36.00S,PT00M26.00S,70,1.1666666666666667,3,169,"{'Turnover', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+485,wemby_playbyplay_2025-26_0022500220.csv,4,PT11M13.00S,PT03M11.00S,482,8.033333333333333,14,810,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+486,wemby_playbyplay_2025-26_0022500220.csv,4,PT00M33.40S,PT00M02.70S,31,0.5166666666666667,8,712,"{'Free Throw', 'Rebound', 'Foul', 'Made Shot'}","{nan, 'Made'}"
+487,wemby_playbyplay_2025-26_0022500370.csv,2,PT05M57.00S,PT02M29.00S,208,3.466666666666667,7,94,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+488,wemby_playbyplay_2025-26_0022500370.csv,3,PT08M22.00S,PT04M31.00S,231,3.85,12,403,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+489,wemby_playbyplay_2025-26_0022500370.csv,3,PT00M03.20S,PT00M02.70S,1,0.016666666666666666,3,166,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+490,wemby_playbyplay_2025-26_0022500370.csv,4,PT11M06.00S,PT07M04.00S,242,4.033333333333333,9,513,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+491,wemby_playbyplay_2025-26_0022500383.csv,1,PT05M45.00S,PT04M40.00S,65,1.0833333333333333,3,72,"{'Free Throw', 'Made Shot'}","{nan, 'Made'}"
+492,wemby_playbyplay_2025-26_0022500383.csv,1,PT02M10.00S,PT01M06.00S,64,1.0666666666666667,5,0,"{'Turnover', 'Rebound', nan, 'Substitution'}",{nan}
+493,wemby_playbyplay_2025-26_0022500383.csv,2,PT08M30.00S,PT06M42.00S,108,1.8,5,315,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+494,wemby_playbyplay_2025-26_0022500383.csv,2,PT04M27.00S,PT02M20.00S,127,2.1166666666666667,10,203,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+495,wemby_playbyplay_2025-26_0022500383.csv,3,PT08M08.00S,PT01M13.00S,415,6.916666666666667,12,606,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+496,wemby_playbyplay_2025-26_0022500383.csv,4,PT11M35.00S,PT10M53.00S,42,0.7,9,356,"{'Rebound', 'Made Shot', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+497,wemby_playbyplay_2025-26_0022500399.csv,1,PT05M00.00S,PT01M24.00S,216,3.6,9,115,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+498,wemby_playbyplay_2025-26_0022500399.csv,2,PT08M44.00S,PT00M30.90S,494,8.233333333333333,18,488,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+499,wemby_playbyplay_2025-26_0022500399.csv,3,PT08M18.00S,PT02M11.00S,367,6.116666666666666,8,0,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+500,wemby_playbyplay_2025-26_0022500399.csv,4,PT11M20.00S,PT11M20.00S,0,0.0,1,0,{'Substitution'},{nan}
+501,wemby_playbyplay_2025-26_0022500417.csv,1,PT05M31.00S,PT00M47.80S,284,4.733333333333333,5,88,"{'Turnover', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+502,wemby_playbyplay_2025-26_0022500417.csv,2,PT06M22.00S,PT06M11.00S,11,0.18333333333333332,6,90,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+503,wemby_playbyplay_2025-26_0022500417.csv,2,PT04M02.00S,PT01M40.00S,142,2.3666666666666667,7,100,"{'Rebound', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+504,wemby_playbyplay_2025-26_0022500417.csv,3,PT06M58.00S,PT00M25.80S,393,6.55,7,148,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+505,wemby_playbyplay_2025-26_0022500417.csv,4,PT09M00.00S,PT09M00.00S,0,0.0,1,184,{'Made Shot'},{'Made'}
+506,wemby_playbyplay_2025-26_0022500417.csv,4,PT05M57.00S,PT05M57.00S,0,0.0,1,0,{'Substitution'},{nan}
+507,wemby_playbyplay_2025-26_0022500440.csv,1,PT12M00.00S,PT06M47.00S,313,5.216666666666667,8,59,"{'Made Shot', 'Substitution', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+508,wemby_playbyplay_2025-26_0022500440.csv,2,PT11M04.00S,PT07M18.00S,226,3.7666666666666666,7,152,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+509,wemby_playbyplay_2025-26_0022500440.csv,2,PT02M16.00S,PT00M24.90S,112,1.8666666666666667,4,128,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+510,wemby_playbyplay_2025-26_0022500440.csv,3,PT11M18.00S,PT06M49.00S,269,4.483333333333333,12,860,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+511,wemby_playbyplay_2025-26_0022500440.csv,3,PT01M03.00S,PT00M00.00S,63,1.05,5,369,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Free Throw'}","{nan, 'Made'}"
+512,wemby_playbyplay_2025-26_0022500440.csv,4,PT10M23.00S,PT07M33.00S,170,2.8333333333333335,10,1006,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+513,wemby_playbyplay_2025-26_0022500440.csv,4,PT03M30.00S,PT01M13.00S,137,2.283333333333333,7,237,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+514,wemby_playbyplay_2025-26_0022500456.csv,1,PT12M00.00S,PT06M41.00S,319,5.316666666666666,8,22,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+515,wemby_playbyplay_2025-26_0022500456.csv,1,PT01M44.00S,PT00M00.00S,104,1.7333333333333334,4,136,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+516,wemby_playbyplay_2025-26_0022500456.csv,2,PT11M14.00S,PT08M43.00S,151,2.5166666666666666,6,105,"{'Free Throw', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+517,wemby_playbyplay_2025-26_0022500456.csv,2,PT01M50.00S,PT00M34.70S,76,1.2666666666666666,5,0,"{'Turnover', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+518,wemby_playbyplay_2025-26_0022500456.csv,3,PT10M55.00S,PT07M00.00S,235,3.9166666666666665,9,355,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+519,wemby_playbyplay_2025-26_0022500456.csv,3,PT02M14.00S,PT00M57.80S,77,1.2833333333333334,7,446,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+520,wemby_playbyplay_2025-26_0022500456.csv,4,PT11M40.00S,PT09M59.00S,101,1.6833333333333333,3,156,"{'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+521,wemby_playbyplay_2025-26_0022500456.csv,4,PT04M49.00S,PT00M53.10S,236,3.933333333333333,11,593,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Jump Ball', 'Free Throw'}","{'Missed', nan, 'Made'}"
+522,wemby_playbyplay_2025-26_0022500467.csv,1,PT12M00.00S,PT06M58.00S,302,5.033333333333333,12,48,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Jump Ball', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+523,wemby_playbyplay_2025-26_0022500467.csv,1,PT00M39.80S,PT00M39.80S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+524,wemby_playbyplay_2025-26_0022500467.csv,2,PT11M25.00S,PT06M36.00S,289,4.816666666666666,10,385,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+525,wemby_playbyplay_2025-26_0022500467.csv,2,PT03M08.00S,PT00M00.60S,188,3.1333333333333333,11,668,"{'Free Throw', 'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+526,wemby_playbyplay_2025-26_0022500467.csv,3,PT11M31.00S,PT05M08.00S,383,6.383333333333334,12,976,"{'Rebound', 'Made Shot', 'Foul', 'Violation', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+527,wemby_playbyplay_2025-26_0022500467.csv,4,PT11M04.00S,PT10M32.00S,32,0.5333333333333333,3,0,"{'Rebound', 'Substitution'}",{nan}
+528,wemby_playbyplay_2025-26_0022500512.csv,1,PT07M17.00S,PT04M46.00S,151,2.5166666666666666,6,66,"{'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+529,wemby_playbyplay_2025-26_0022500512.csv,1,PT01M25.00S,PT00M33.40S,52,0.8666666666666667,3,49,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+530,wemby_playbyplay_2025-26_0022500512.csv,2,PT11M50.00S,PT07M38.00S,252,4.2,10,204,"{'Rebound', 'Made Shot', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+531,wemby_playbyplay_2025-26_0022500512.csv,2,PT01M12.00S,PT00M53.60S,19,0.31666666666666665,2,0,{'Missed Shot'},{'Missed'}
+532,wemby_playbyplay_2025-26_0022500512.csv,3,PT09M40.00S,PT03M29.00S,371,6.183333333333334,18,945,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+533,wemby_playbyplay_2025-26_0022500512.csv,4,PT05M52.00S,PT03M45.00S,127,2.1166666666666667,6,577,"{'Turnover', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+534,wemby_playbyplay_2025-26_0022500523.csv,1,PT05M05.00S,PT03M17.00S,108,1.8,8,32,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+535,wemby_playbyplay_2025-26_0022500523.csv,1,PT01M06.00S,PT00M29.80S,37,0.6166666666666667,4,47,"{'Free Throw', 'Rebound'}",{nan}
+536,wemby_playbyplay_2025-26_0022500523.csv,2,PT11M43.00S,PT05M39.00S,364,6.066666666666666,8,51,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+537,wemby_playbyplay_2025-26_0022500523.csv,3,PT07M30.00S,PT03M54.00S,216,3.6,11,0,"{'Rebound', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+538,wemby_playbyplay_2025-26_0022500523.csv,3,PT01M00.00S,PT00M31.50S,29,0.48333333333333334,2,0,{'Missed Shot'},{'Missed'}
+539,wemby_playbyplay_2025-26_0022500523.csv,4,PT11M08.00S,PT07M10.00S,238,3.966666666666667,9,478,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+540,wemby_playbyplay_2025-26_0022500523.csv,4,PT04M56.00S,PT00M51.10S,245,4.083333333333333,9,579,"{'Rebound', 'Made Shot', 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+541,wemby_playbyplay_2025-26_0022500545.csv,1,PT02M20.00S,PT02M05.00S,15,0.25,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+542,wemby_playbyplay_2025-26_0022500545.csv,2,PT08M21.00S,PT06M24.00S,117,1.95,4,137,"{'Made Shot', 'Missed Shot'}","{'Missed', 'Made'}"
+543,wemby_playbyplay_2025-26_0022500545.csv,2,PT04M22.00S,PT04M22.00S,0,0.0,1,0,{'Substitution'},{nan}
+544,wemby_playbyplay_2025-26_0022500545.csv,3,PT07M53.00S,PT03M08.00S,285,4.75,13,744,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+545,wemby_playbyplay_2025-26_0022500545.csv,4,PT10M52.00S,PT05M23.00S,329,5.483333333333333,10,321,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+546,wemby_playbyplay_2025-26_0022500545.csv,4,PT01M33.00S,PT00M19.10S,74,1.2333333333333334,3,382,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+547,wemby_playbyplay_2025-26_0022500552.csv,1,PT11M47.00S,PT08M03.00S,224,3.7333333333333334,11,33,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+548,wemby_playbyplay_2025-26_0022500552.csv,2,PT11M35.00S,PT11M35.00S,0,0.0,1,57,{'Made Shot'},{'Made'}
+549,wemby_playbyplay_2025-26_0022500552.csv,2,PT09M30.00S,PT07M59.00S,91,1.5166666666666666,5,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+550,wemby_playbyplay_2025-26_0022500552.csv,2,PT03M00.00S,PT00M28.40S,152,2.533333333333333,11,542,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+551,wemby_playbyplay_2025-26_0022500552.csv,3,PT11M24.00S,PT08M20.00S,184,3.066666666666667,6,331,"{nan, 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+552,wemby_playbyplay_2025-26_0022500552.csv,3,PT03M08.00S,PT00M03.70S,185,3.0833333333333335,3,0,"{'Rebound', 'Foul', 'Substitution'}",{nan}
+553,wemby_playbyplay_2025-26_0022500552.csv,4,PT07M32.00S,PT05M54.00S,98,1.6333333333333333,7,682,"{'Turnover', 'Free Throw', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+554,wemby_playbyplay_2025-26_0022500552.csv,4,PT03M54.00S,PT00M06.60S,228,3.8,5,189,"{'Free Throw', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+555,wemby_playbyplay_2025-26_0022500568.csv,1,PT11M07.00S,PT07M55.00S,192,3.2,10,25,"{'Rebound', 'Made Shot', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+556,wemby_playbyplay_2025-26_0022500568.csv,2,PT11M36.00S,PT07M30.00S,246,4.1,9,131,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+557,wemby_playbyplay_2025-26_0022500568.csv,2,PT00M55.90S,PT00M05.80S,50,0.8333333333333334,4,105,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+558,wemby_playbyplay_2025-26_0022500568.csv,3,PT11M28.00S,PT07M18.00S,250,4.166666666666667,6,226,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+559,wemby_playbyplay_2025-26_0022500568.csv,3,PT04M42.00S,PT04M42.00S,0,0.0,1,0,{'Turnover'},{nan}
+560,wemby_playbyplay_2025-26_0022500568.csv,3,PT02M19.00S,PT02M19.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+561,wemby_playbyplay_2025-26_0022500568.csv,3,PT00M11.30S,PT00M11.30S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+562,wemby_playbyplay_2025-26_0022500568.csv,4,PT09M26.00S,PT08M52.00S,34,0.5666666666666667,5,364,"{'Free Throw', 'Rebound', 'Violation', 'Made Shot'}","{nan, 'Made'}"
+563,wemby_playbyplay_2025-26_0022500568.csv,4,PT06M20.00S,PT06M20.00S,0,0.0,1,0,{'Substitution'},{nan}
+564,wemby_playbyplay_2025-26_0022500568.csv,4,PT01M41.00S,PT01M41.00S,0,0.0,1,0,{'Substitution'},{nan}
+565,wemby_playbyplay_2025-26_0022500582.csv,1,PT12M00.00S,PT11M40.00S,20,0.3333333333333333,2,0,"{'Turnover', 'Jump Ball'}",{nan}
+566,wemby_playbyplay_2025-26_0022500582.csv,1,PT09M39.00S,PT09M18.00S,21,0.35,3,0,"{'Foul', 'Substitution'}",{nan}
+567,wemby_playbyplay_2025-26_0022500582.csv,2,PT10M05.00S,PT04M26.00S,339,5.65,14,387,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+568,wemby_playbyplay_2025-26_0022500582.csv,2,PT01M19.00S,PT00M53.20S,26,0.43333333333333335,2,109,"{'Free Throw', 'Rebound'}",{nan}
+569,wemby_playbyplay_2025-26_0022500582.csv,3,PT11M36.00S,PT07M04.00S,272,4.533333333333333,7,408,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+570,wemby_playbyplay_2025-26_0022500582.csv,3,PT03M57.00S,PT00M00.00S,237,3.95,6,175,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+571,wemby_playbyplay_2025-26_0022500598.csv,1,PT12M00.00S,PT12M00.00S,0,0.0,1,0,{'Jump Ball'},{nan}
+572,wemby_playbyplay_2025-26_0022500598.csv,1,PT08M22.00S,PT06M58.00S,84,1.4,5,29,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+573,wemby_playbyplay_2025-26_0022500598.csv,2,PT10M26.00S,PT06M45.00S,221,3.683333333333333,12,426,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+574,wemby_playbyplay_2025-26_0022500598.csv,2,PT03M33.00S,PT00M00.70S,213,3.55,8,524,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+575,wemby_playbyplay_2025-26_0022500598.csv,3,PT10M02.00S,PT08M07.00S,115,1.9166666666666667,4,0,"{'Turnover', 'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+576,wemby_playbyplay_2025-26_0022500598.csv,3,PT04M50.00S,PT00M05.40S,285,4.75,8,348,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+577,wemby_playbyplay_2025-26_0022500598.csv,4,PT11M41.00S,PT10M18.00S,83,1.3833333333333333,6,184,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+578,wemby_playbyplay_2025-26_0022500598.csv,4,PT03M40.00S,PT00M01.30S,219,3.65,14,1389,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+579,wemby_playbyplay_2025-26_0022500611.csv,1,PT12M00.00S,PT06M04.00S,356,5.933333333333334,14,91,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+580,wemby_playbyplay_2025-26_0022500611.csv,2,PT11M43.00S,PT05M42.00S,361,6.016666666666667,13,233,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+581,wemby_playbyplay_2025-26_0022500611.csv,3,PT11M24.00S,PT06M46.00S,278,4.633333333333334,10,281,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+582,wemby_playbyplay_2025-26_0022500611.csv,4,PT11M12.00S,PT05M12.00S,360,6.0,11,930,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+583,wemby_playbyplay_2025-26_0022500615.csv,1,PT10M33.00S,PT08M28.00S,125,2.0833333333333335,8,43,"{'Rebound', 'Foul', 'Missed Shot', 'Violation', 'Free Throw'}","{'Missed', nan}"
+584,wemby_playbyplay_2025-26_0022500615.csv,1,PT06M20.00S,PT06M20.00S,0,0.0,1,0,{'Substitution'},{nan}
+585,wemby_playbyplay_2025-26_0022500615.csv,2,PT11M21.00S,PT11M21.00S,0,0.0,1,69,{'Made Shot'},{'Made'}
+586,wemby_playbyplay_2025-26_0022500615.csv,2,PT09M21.00S,PT05M58.00S,203,3.3833333333333333,8,351,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+587,wemby_playbyplay_2025-26_0022500615.csv,2,PT00M41.20S,PT00M01.70S,40,0.6666666666666666,4,125,"{'Missed Shot', 'Foul', 'Made Shot'}","{'Missed', nan, 'Made'}"
+588,wemby_playbyplay_2025-26_0022500615.csv,3,PT11M43.00S,PT07M04.00S,279,4.65,7,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+589,wemby_playbyplay_2025-26_0022500615.csv,3,PT02M11.00S,PT00M00.70S,131,2.183333333333333,3,0,"{'Rebound', 'Foul', 'Missed Shot'}","{'Missed', nan}"
+590,wemby_playbyplay_2025-26_0022500615.csv,4,PT08M56.00S,PT07M38.00S,78,1.3,6,0,"{'Turnover', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+591,wemby_playbyplay_2025-26_0022500615.csv,4,PT02M18.00S,PT00M01.90S,137,2.283333333333333,8,217,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+592,wemby_playbyplay_2025-26_0022500632.csv,1,PT11M42.00S,PT10M41.00S,61,1.0166666666666666,2,0,"{'Turnover', 'Rebound'}",{nan}
+593,wemby_playbyplay_2025-26_0022500632.csv,1,PT07M18.00S,PT04M39.00S,159,2.65,4,67,"{nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+594,wemby_playbyplay_2025-26_0022500632.csv,2,PT10M19.00S,PT06M59.00S,200,3.3333333333333335,10,280,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+595,wemby_playbyplay_2025-26_0022500632.csv,2,PT01M08.00S,PT00M04.90S,64,1.0666666666666667,2,118,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+596,wemby_playbyplay_2025-26_0022500632.csv,3,PT11M02.00S,PT03M35.00S,447,7.45,16,420,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+597,wemby_playbyplay_2025-26_0022500632.csv,4,PT11M45.00S,PT07M04.00S,281,4.683333333333334,10,394,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+598,wemby_playbyplay_2025-26_0022500632.csv,4,PT03M42.00S,PT00M48.50S,174,2.9,4,224,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+599,wemby_playbyplay_2025-26_0022500654.csv,1,PT12M00.00S,PT06M33.00S,327,5.45,13,61,"{'Rebound', 'Made Shot', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+600,wemby_playbyplay_2025-26_0022500654.csv,2,PT10M43.00S,PT06M34.00S,249,4.15,9,0,"{'Rebound', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+601,wemby_playbyplay_2025-26_0022500654.csv,2,PT02M56.00S,PT00M03.00S,173,2.8833333333333333,5,91,"{'Rebound', 'Foul', 'Made Shot', 'Jump Ball'}","{nan, 'Made'}"
+602,wemby_playbyplay_2025-26_0022500654.csv,3,PT08M30.00S,PT07M23.00S,67,1.1166666666666667,5,119,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+603,wemby_playbyplay_2025-26_0022500654.csv,3,PT03M00.00S,PT00M04.20S,176,2.933333333333333,7,0,"{'Turnover', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+604,wemby_playbyplay_2025-26_0022500654.csv,4,PT11M48.00S,PT08M17.00S,211,3.5166666666666666,9,321,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution'}","{nan, 'Made'}"
+605,wemby_playbyplay_2025-26_0022500654.csv,4,PT04M19.00S,PT01M00.00S,199,3.316666666666667,6,0,"{'Free Throw', nan, 'Foul', 'Missed Shot'}","{'Missed', nan}"
+606,wemby_playbyplay_2025-26_0022500679.csv,1,PT11M42.00S,PT09M33.00S,129,2.15,5,31,"{'Turnover', 'Free Throw', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+607,wemby_playbyplay_2025-26_0022500679.csv,1,PT07M14.00S,PT07M14.00S,0,0.0,3,0,"{'Turnover', 'Foul', 'Substitution'}",{nan}
+608,wemby_playbyplay_2025-26_0022500679.csv,2,PT10M33.00S,PT10M33.00S,0,0.0,1,0,{'Rebound'},{nan}
+609,wemby_playbyplay_2025-26_0022500679.csv,2,PT08M27.00S,PT06M34.00S,113,1.8833333333333333,6,160,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+610,wemby_playbyplay_2025-26_0022500679.csv,2,PT04M07.00S,PT00M55.50S,192,3.2,10,227,"{'Rebound', 'Made Shot', nan, 'Foul', 'Free Throw'}","{nan, 'Made'}"
+611,wemby_playbyplay_2025-26_0022500679.csv,3,PT11M19.00S,PT07M52.00S,207,3.45,8,369,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+612,wemby_playbyplay_2025-26_0022500679.csv,4,PT11M47.00S,PT05M18.00S,389,6.483333333333333,26,1223,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+613,wemby_playbyplay_2025-26_0022500679.csv,4,PT02M23.00S,PT00M40.20S,103,1.7166666666666666,7,618,"{'Rebound', 'Made Shot', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+614,wemby_playbyplay_2025-26_0022500697.csv,1,PT11M37.00S,PT06M14.00S,323,5.383333333333334,6,2,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+615,wemby_playbyplay_2025-26_0022500697.csv,2,PT11M23.00S,PT08M18.00S,185,3.0833333333333335,5,69,"{'Turnover', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+616,wemby_playbyplay_2025-26_0022500697.csv,2,PT04M41.00S,PT01M24.00S,197,3.283333333333333,4,0,"{'Foul', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+617,wemby_playbyplay_2025-26_0022500697.csv,3,PT10M46.00S,PT10M23.00S,23,0.38333333333333336,2,114,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+618,wemby_playbyplay_2025-26_0022500697.csv,3,PT08M21.00S,PT06M28.00S,113,1.8833333333333333,6,369,"{'Free Throw', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+619,wemby_playbyplay_2025-26_0022500697.csv,4,PT11M29.00S,PT03M13.00S,496,8.266666666666667,12,732,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Violation', 'Free Throw'}","{'Missed', nan, 'Made'}"
+620,wemby_playbyplay_2025-26_0022500697.csv,4,PT00M27.00S,PT00M05.30S,22,0.36666666666666664,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+621,wemby_playbyplay_2025-26_0022500703.csv,1,PT12M00.00S,PT06M37.00S,323,5.383333333333334,11,43,"{'Rebound', 'Made Shot', nan, 'Jump Ball', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+622,wemby_playbyplay_2025-26_0022500703.csv,2,PT11M33.00S,PT09M13.00S,140,2.3333333333333335,7,73,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+623,wemby_playbyplay_2025-26_0022500703.csv,2,PT07M02.00S,PT06M26.00S,36,0.6,3,0,"{nan, 'Substitution'}",{nan}
+624,wemby_playbyplay_2025-26_0022500703.csv,2,PT02M54.00S,PT01M14.00S,100,1.6666666666666667,6,213,"{'Free Throw', 'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+625,wemby_playbyplay_2025-26_0022500703.csv,3,PT09M42.00S,PT06M59.00S,163,2.716666666666667,7,264,"{'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+626,wemby_playbyplay_2025-26_0022500703.csv,3,PT01M47.00S,PT00M08.40S,99,1.65,8,806,"{'Free Throw', 'Missed Shot', 'Jump Ball'}","{'Missed', nan}"
+627,wemby_playbyplay_2025-26_0022500703.csv,4,PT08M59.00S,PT07M19.00S,100,1.6666666666666667,3,182,"{'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+628,wemby_playbyplay_2025-26_0022500703.csv,4,PT03M59.00S,PT02M10.00S,109,1.8166666666666667,12,600,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+629,wemby_playbyplay_2025-26_0022500730.csv,1,PT12M00.00S,PT05M39.00S,381,6.35,13,58,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+630,wemby_playbyplay_2025-26_0022500730.csv,2,PT11M36.00S,PT11M36.00S,0,0.0,1,0,{'Rebound'},{nan}
+631,wemby_playbyplay_2025-26_0022500730.csv,2,PT09M09.00S,PT07M14.00S,115,1.9166666666666667,6,80,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+632,wemby_playbyplay_2025-26_0022500730.csv,2,PT01M12.00S,PT01M12.00S,0,0.0,1,122,{'Made Shot'},{'Made'}
+633,wemby_playbyplay_2025-26_0022500730.csv,3,PT10M25.00S,PT10M25.00S,0,0.0,1,139,{'Made Shot'},{'Made'}
+634,wemby_playbyplay_2025-26_0022500730.csv,3,PT07M41.00S,PT07M41.00S,0,0.0,1,0,{'Rebound'},{nan}
+635,wemby_playbyplay_2025-26_0022500730.csv,3,PT05M17.00S,PT03M23.00S,114,1.9,8,168,"{'Free Throw', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+636,wemby_playbyplay_2025-26_0022500730.csv,4,PT11M08.00S,PT08M24.00S,164,2.7333333333333334,9,187,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+637,wemby_playbyplay_2025-26_0022500730.csv,4,PT02M30.00S,PT00M38.00S,112,1.8666666666666667,8,648,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+638,wemby_playbyplay_2025-26_0022500738.csv,1,PT11M37.00S,PT06M07.00S,330,5.5,14,46,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+639,wemby_playbyplay_2025-26_0022500738.csv,2,PT11M30.00S,PT11M30.00S,0,0.0,1,0,{'Turnover'},{nan}
+640,wemby_playbyplay_2025-26_0022500738.csv,2,PT08M57.00S,PT01M38.00S,439,7.316666666666666,11,456,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+641,wemby_playbyplay_2025-26_0022500738.csv,3,PT11M07.00S,PT05M00.00S,367,6.116666666666666,7,158,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+642,wemby_playbyplay_2025-26_0022500738.csv,4,PT11M11.00S,PT11M11.00S,0,0.0,1,199,{'Made Shot'},{'Made'}
+643,wemby_playbyplay_2025-26_0022500738.csv,4,PT08M48.00S,PT07M55.00S,53,0.8833333333333333,3,0,"{'Rebound', nan, 'Substitution'}",{nan}
+644,wemby_playbyplay_2025-26_0022500738.csv,4,PT03M01.00S,PT00M54.70S,127,2.1166666666666667,12,1247,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan}"
+645,wemby_playbyplay_2025-26_0022500749.csv,1,PT12M00.00S,PT10M41.00S,79,1.3166666666666667,3,2,"{'Made Shot', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+646,wemby_playbyplay_2025-26_0022500749.csv,1,PT08M16.00S,PT07M57.00S,19,0.31666666666666665,5,61,"{'Free Throw', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+647,wemby_playbyplay_2025-26_0022500749.csv,1,PT02M04.00S,PT00M37.10S,87,1.45,4,59,"{'Free Throw', 'Rebound', nan}",{nan}
+648,wemby_playbyplay_2025-26_0022500749.csv,2,PT10M42.00S,PT07M16.00S,206,3.433333333333333,6,88,"{'Substitution', 'Missed Shot', 'Foul', 'Made Shot'}","{'Missed', nan, 'Made'}"
+649,wemby_playbyplay_2025-26_0022500749.csv,2,PT01M34.00S,PT00M41.40S,53,0.8833333333333333,3,141,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+650,wemby_playbyplay_2025-26_0022500749.csv,3,PT11M03.00S,PT06M28.00S,275,4.583333333333333,10,160,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+651,wemby_playbyplay_2025-26_0022500749.csv,3,PT02M17.00S,PT00M54.40S,83,1.3833333333333333,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+652,wemby_playbyplay_2025-26_0022500749.csv,4,PT11M50.00S,PT07M22.00S,268,4.466666666666667,6,207,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Violation'}","{'Missed', nan, 'Made'}"
+653,wemby_playbyplay_2025-26_0022500774.csv,1,PT11M22.00S,PT04M01.00S,441,7.35,24,358,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+654,wemby_playbyplay_2025-26_0022500774.csv,2,PT09M43.00S,PT03M30.00S,373,6.216666666666667,14,493,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+655,wemby_playbyplay_2025-26_0022500774.csv,2,PT00M51.80S,PT00M06.00S,45,0.75,5,411,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+656,wemby_playbyplay_2025-26_0022500774.csv,3,PT10M29.00S,PT04M13.00S,376,6.266666666666667,13,168,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+657,wemby_playbyplay_2025-26_0022500788.csv,1,PT11M12.00S,PT08M40.00S,152,2.533333333333333,4,15,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+658,wemby_playbyplay_2025-26_0022500788.csv,1,PT06M25.00S,PT05M25.00S,60,1.0,3,33,"{'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+659,wemby_playbyplay_2025-26_0022500788.csv,2,PT11M10.00S,PT08M50.00S,140,2.3333333333333335,5,157,"{'Free Throw', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+660,wemby_playbyplay_2025-26_0022500788.csv,2,PT06M23.00S,PT00M05.40S,378,6.3,9,198,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+661,wemby_playbyplay_2025-26_0022500788.csv,3,PT10M24.00S,PT06M25.00S,239,3.9833333333333334,6,141,"{'Rebound', 'Made Shot', 'Foul', 'Substitution', 'Violation'}","{nan, 'Made'}"
+662,wemby_playbyplay_2025-26_0022500788.csv,3,PT01M56.00S,PT00M35.10S,81,1.35,5,367,"{'Free Throw', nan, 'Missed Shot'}","{'Missed', nan}"
+663,wemby_playbyplay_2025-26_0022500788.csv,4,PT11M46.00S,PT07M03.00S,283,4.716666666666667,12,798,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+664,wemby_playbyplay_2025-26_0022500788.csv,4,PT04M03.00S,PT04M03.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+665,wemby_playbyplay_2025-26_0022500788.csv,4,PT01M56.00S,PT01M04.00S,52,0.8666666666666667,3,473,"{'Turnover', 'Free Throw'}",{nan}
+666,wemby_playbyplay_2025-26_0022500798.csv,1,PT12M00.00S,PT09M12.00S,168,2.8,6,8,"{'Rebound', 'Made Shot', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+667,wemby_playbyplay_2025-26_0022500798.csv,1,PT06M07.00S,PT06M00.00S,7,0.11666666666666667,4,0,"{'Rebound', nan, 'Substitution'}",{nan}
+668,wemby_playbyplay_2025-26_0022500798.csv,2,PT08M34.00S,PT04M46.00S,228,3.8,9,220,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+669,wemby_playbyplay_2025-26_0022500798.csv,2,PT01M38.00S,PT00M52.70S,46,0.7666666666666667,4,203,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+670,wemby_playbyplay_2025-26_0022500798.csv,3,PT11M38.00S,PT05M23.00S,375,6.25,15,394,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+671,wemby_playbyplay_2025-26_0022500798.csv,4,PT11M44.00S,PT09M41.00S,123,2.05,3,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+672,wemby_playbyplay_2025-26_0022500815.csv,1,PT12M00.00S,PT05M37.00S,383,6.383333333333334,13,48,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+673,wemby_playbyplay_2025-26_0022500815.csv,2,PT10M52.00S,PT05M37.00S,315,5.25,9,195,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+674,wemby_playbyplay_2025-26_0022500815.csv,2,PT02M10.00S,PT00M01.00S,129,2.15,5,133,"{'Rebound', nan, 'Foul', 'Made Shot'}","{nan, 'Made'}"
+675,wemby_playbyplay_2025-26_0022500815.csv,3,PT11M31.00S,PT05M47.00S,344,5.733333333333333,18,783,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+676,wemby_playbyplay_2025-26_0022500815.csv,3,PT01M09.00S,PT00M49.70S,20,0.3333333333333333,3,196,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+677,wemby_playbyplay_2025-26_0022500815.csv,4,PT11M25.00S,PT09M38.00S,107,1.7833333333333334,3,421,"{'Missed Shot', 'Made Shot'}","{'Missed', 'Made'}"
+678,wemby_playbyplay_2025-26_0022500815.csv,4,PT07M17.00S,PT06M02.00S,75,1.25,5,460,"{'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+679,wemby_playbyplay_2025-26_0022500828.csv,1,PT10M25.00S,PT08M59.00S,86,1.4333333333333333,3,29,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+680,wemby_playbyplay_2025-26_0022500828.csv,1,PT05M40.00S,PT05M14.00S,26,0.43333333333333335,3,0,"{'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+681,wemby_playbyplay_2025-26_0022500828.csv,1,PT02M17.00S,PT00M50.40S,87,1.45,6,0,"{'Turnover', 'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+682,wemby_playbyplay_2025-26_0022500828.csv,2,PT08M34.00S,PT06M59.00S,95,1.5833333333333333,5,0,"{'Turnover', 'Rebound', nan, 'Missed Shot'}","{'Missed', nan}"
+683,wemby_playbyplay_2025-26_0022500828.csv,2,PT03M59.00S,PT03M59.00S,0,0.0,1,0,{'Substitution'},{nan}
+684,wemby_playbyplay_2025-26_0022500828.csv,2,PT01M47.00S,PT00M00.70S,107,1.7833333333333334,7,223,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+685,wemby_playbyplay_2025-26_0022500828.csv,3,PT10M14.00S,PT10M12.00S,2,0.03333333333333333,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+686,wemby_playbyplay_2025-26_0022500828.csv,3,PT07M30.00S,PT05M26.00S,124,2.066666666666667,8,135,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+687,wemby_playbyplay_2025-26_0022500828.csv,4,PT11M28.00S,PT05M53.00S,335,5.583333333333333,14,489,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+688,wemby_playbyplay_2025-26_0022500828.csv,4,PT02M38.00S,PT01M11.00S,87,1.45,10,1038,"{'Rebound', 'Free Throw', nan, 'Made Shot'}","{nan, 'Made'}"
+689,wemby_playbyplay_2025-26_0022500843.csv,1,PT11M45.00S,PT11M45.00S,0,0.0,2,3,{'Free Throw'},{nan}
+690,wemby_playbyplay_2025-26_0022500843.csv,1,PT08M56.00S,PT05M40.00S,196,3.2666666666666666,7,51,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+691,wemby_playbyplay_2025-26_0022500843.csv,2,PT11M46.00S,PT09M31.00S,135,2.25,5,0,"{'Turnover', nan, 'Missed Shot'}","{'Missed', nan}"
+692,wemby_playbyplay_2025-26_0022500843.csv,2,PT07M05.00S,PT06M39.00S,26,0.43333333333333335,2,0,"{'Rebound', 'Substitution'}",{nan}
+693,wemby_playbyplay_2025-26_0022500843.csv,2,PT01M18.00S,PT01M18.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+694,wemby_playbyplay_2025-26_0022500843.csv,3,PT11M22.00S,PT07M49.00S,213,3.55,7,121,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+695,wemby_playbyplay_2025-26_0022500843.csv,4,PT11M20.00S,PT07M55.00S,205,3.4166666666666665,8,175,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+696,wemby_playbyplay_2025-26_0022500843.csv,4,PT04M04.00S,PT02M55.00S,69,1.15,4,206,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+697,wemby_playbyplay_2025-26_0022500843.csv,4,PT00M43.90S,PT00M03.10S,40,0.6666666666666666,5,217,"{'Rebound', 'Free Throw', nan}",{nan}
+698,wemby_playbyplay_2025-26_0022500851.csv,1,PT09M23.00S,PT04M59.00S,264,4.4,9,61,"{nan, 'Foul', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+699,wemby_playbyplay_2025-26_0022500851.csv,2,PT11M40.00S,PT11M40.00S,0,0.0,1,0,{'Rebound'},{nan}
+700,wemby_playbyplay_2025-26_0022500851.csv,2,PT09M20.00S,PT04M30.00S,290,4.833333333333333,12,324,"{'Rebound', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+701,wemby_playbyplay_2025-26_0022500851.csv,2,PT01M35.00S,PT01M35.00S,0,0.0,1,119,{'Made Shot'},{'Made'}
+702,wemby_playbyplay_2025-26_0022500851.csv,3,PT11M26.00S,PT11M07.00S,19,0.31666666666666665,2,131,"{'Foul', 'Made Shot'}","{nan, 'Made'}"
+703,wemby_playbyplay_2025-26_0022500851.csv,3,PT09M06.00S,PT05M08.00S,238,3.966666666666667,7,160,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+704,wemby_playbyplay_2025-26_0022500851.csv,4,PT11M03.00S,PT09M18.00S,105,1.75,6,0,"{'Substitution', 'Rebound', 'Foul', nan}",{nan}
+705,wemby_playbyplay_2025-26_0022500868.csv,1,PT11M15.00S,PT05M59.00S,316,5.266666666666667,15,37,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+706,wemby_playbyplay_2025-26_0022500868.csv,1,PT00M42.20S,PT00M00.50S,42,0.7,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+707,wemby_playbyplay_2025-26_0022500868.csv,2,PT09M11.00S,PT08M17.00S,54,0.9,2,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+708,wemby_playbyplay_2025-26_0022500868.csv,2,PT04M21.00S,PT00M28.60S,233,3.8833333333333333,8,237,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot'}","{'Missed', nan, 'Made'}"
+709,wemby_playbyplay_2025-26_0022500868.csv,3,PT11M36.00S,PT08M31.00S,185,3.0833333333333335,7,291,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+710,wemby_playbyplay_2025-26_0022500868.csv,3,PT05M59.00S,PT00M00.60S,359,5.983333333333333,14,537,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+711,wemby_playbyplay_2025-26_0022500868.csv,4,PT11M48.00S,PT10M10.00S,98,1.6333333333333333,6,301,"{'Rebound', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+712,wemby_playbyplay_2025-26_0022500868.csv,4,PT03M46.00S,PT03M37.00S,9,0.15,2,0,"{'Substitution', 'Missed Shot'}","{'Missed', nan}"
+713,wemby_playbyplay_2025-26_0022500888.csv,1,PT11M34.00S,PT04M22.00S,432,7.2,11,7,"{'Rebound', 'Turnover', nan, 'Substitution', 'Free Throw'}",{nan}
+714,wemby_playbyplay_2025-26_0022500888.csv,2,PT08M30.00S,PT05M28.00S,182,3.033333333333333,7,86,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+715,wemby_playbyplay_2025-26_0022500888.csv,2,PT03M21.00S,PT01M00.00S,141,2.35,4,106,"{'Turnover', 'Violation', 'Made Shot'}","{nan, 'Made'}"
+716,wemby_playbyplay_2025-26_0022500888.csv,3,PT11M26.00S,PT11M26.00S,0,0.0,1,0,{nan},{nan}
+717,wemby_playbyplay_2025-26_0022500888.csv,3,PT08M51.00S,PT04M21.00S,270,4.5,10,295,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+718,wemby_playbyplay_2025-26_0022500904.csv,1,PT12M00.00S,PT10M25.00S,95,1.5833333333333333,4,12,"{'Made Shot', 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+719,wemby_playbyplay_2025-26_0022500904.csv,1,PT07M45.00S,PT02M40.00S,305,5.083333333333333,13,137,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+720,wemby_playbyplay_2025-26_0022500904.csv,2,PT10M19.00S,PT05M08.00S,311,5.183333333333334,15,409,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+721,wemby_playbyplay_2025-26_0022500904.csv,2,PT02M13.00S,PT00M28.10S,105,1.75,5,364,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+722,wemby_playbyplay_2025-26_0022500904.csv,3,PT11M32.00S,PT03M19.00S,493,8.216666666666667,16,903,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+723,wemby_playbyplay_2025-26_0022500904.csv,4,PT11M28.00S,PT05M49.00S,339,5.65,12,379,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Violation'}","{'Missed', nan, 'Made'}"
+724,wemby_playbyplay_2025-26_0022500904.csv,4,PT02M38.00S,PT00M44.90S,114,1.9,6,0,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+725,wemby_playbyplay_2025-26_0022500913.csv,1,PT12M00.00S,PT07M11.00S,289,4.816666666666666,9,35,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+726,wemby_playbyplay_2025-26_0022500913.csv,2,PT09M01.00S,PT06M12.00S,169,2.816666666666667,16,231,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+727,wemby_playbyplay_2025-26_0022500913.csv,2,PT02M59.00S,PT01M55.00S,64,1.0666666666666667,4,0,"{'Turnover', 'Rebound', 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+728,wemby_playbyplay_2025-26_0022500913.csv,3,PT11M14.00S,PT06M17.00S,297,4.95,9,375,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+729,wemby_playbyplay_2025-26_0022500913.csv,4,PT08M28.00S,PT04M52.00S,216,3.6,6,200,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+730,wemby_playbyplay_2025-26_0022500913.csv,4,PT01M08.00S,PT00M16.00S,52,0.8666666666666667,3,445,"{'Foul', 'Made Shot'}","{nan, 'Made'}"
+731,wemby_playbyplay_2025-26_0022500927.csv,1,PT12M00.00S,PT09M14.00S,166,2.7666666666666666,9,31,"{'Rebound', 'Made Shot', 'Missed Shot', 'Jump Ball', 'Free Throw'}","{'Missed', nan, 'Made'}"
+732,wemby_playbyplay_2025-26_0022500927.csv,1,PT07M14.00S,PT07M14.00S,0,0.0,1,0,{'Substitution'},{nan}
+733,wemby_playbyplay_2025-26_0022500927.csv,1,PT00M23.10S,PT00M15.40S,8,0.13333333333333333,2,0,"{'Rebound', nan}",{nan}
+734,wemby_playbyplay_2025-26_0022500927.csv,2,PT10M40.00S,PT06M17.00S,263,4.383333333333334,7,146,"{nan, 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+735,wemby_playbyplay_2025-26_0022500927.csv,2,PT01M47.00S,PT00M00.00S,107,1.7833333333333334,3,126,"{'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+736,wemby_playbyplay_2025-26_0022500927.csv,3,PT11M13.00S,PT06M12.00S,301,5.016666666666667,11,856,"{'Rebound', 'Made Shot', nan, 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+737,wemby_playbyplay_2025-26_0022500927.csv,3,PT01M12.00S,PT00M04.60S,68,1.1333333333333333,4,401,"{'Rebound', 'Free Throw', nan}",{nan}
+738,wemby_playbyplay_2025-26_0022500927.csv,4,PT11M17.00S,PT07M01.00S,256,4.266666666666667,6,634,"{'Rebound', 'Made Shot', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+739,wemby_playbyplay_2025-26_0022500942.csv,1,PT12M00.00S,PT10M16.00S,104,1.7333333333333334,5,2,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball'}","{'Missed', nan, 'Made'}"
+740,wemby_playbyplay_2025-26_0022500942.csv,1,PT08M12.00S,PT06M37.00S,95,1.5833333333333333,4,18,"{'Turnover', 'Free Throw', 'Substitution'}",{nan}
+741,wemby_playbyplay_2025-26_0022500942.csv,2,PT08M02.00S,PT00M31.10S,451,7.516666666666667,21,493,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+742,wemby_playbyplay_2025-26_0022500942.csv,3,PT11M29.00S,PT10M05.00S,84,1.4,4,250,"{nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+743,wemby_playbyplay_2025-26_0022500942.csv,3,PT07M08.00S,PT06M24.00S,44,0.7333333333333333,2,0,"{nan, 'Missed Shot'}","{'Missed', nan}"
+744,wemby_playbyplay_2025-26_0022500942.csv,3,PT04M24.00S,PT03M48.00S,36,0.6,4,504,"{'Free Throw', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+745,wemby_playbyplay_2025-26_0022500942.csv,3,PT01M17.00S,PT00M28.20S,49,0.8166666666666667,4,550,{'Free Throw'},{nan}
+746,wemby_playbyplay_2025-26_0022500942.csv,4,PT11M50.00S,PT10M47.00S,63,1.05,3,379,"{'Free Throw', 'Missed Shot'}","{'Missed', nan}"
+747,wemby_playbyplay_2025-26_0022500942.csv,4,PT08M42.00S,PT05M55.00S,167,2.783333333333333,6,629,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+748,wemby_playbyplay_2025-26_0022500942.csv,4,PT03M35.00S,PT00M40.90S,175,2.9166666666666665,6,0,"{'Rebound', 'Turnover', 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan}"
+749,wemby_playbyplay_2025-26_0022500973.csv,1,PT12M00.00S,PT07M36.00S,264,4.4,8,58,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+750,wemby_playbyplay_2025-26_0022500973.csv,1,PT03M49.00S,PT00M06.80S,223,3.716666666666667,9,95,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+751,wemby_playbyplay_2025-26_0022500973.csv,2,PT11M35.00S,PT08M36.00S,179,2.9833333333333334,9,117,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+752,wemby_playbyplay_2025-26_0022500973.csv,2,PT04M19.00S,PT00M12.30S,247,4.116666666666666,11,93,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+753,wemby_playbyplay_2025-26_0022500973.csv,3,PT11M14.00S,PT07M35.00S,219,3.65,9,352,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+754,wemby_playbyplay_2025-26_0022500973.csv,3,PT01M25.00S,PT00M32.50S,53,0.8833333333333333,2,0,"{'Foul', 'Missed Shot'}","{'Missed', nan}"
+755,wemby_playbyplay_2025-26_0022500973.csv,4,PT10M36.00S,PT10M36.00S,0,0.0,1,0,{'Rebound'},{nan}
+756,wemby_playbyplay_2025-26_0022500973.csv,4,PT08M29.00S,PT07M53.00S,36,0.6,4,370,"{nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+757,wemby_playbyplay_2025-26_0022500973.csv,4,PT02M40.00S,PT00M47.20S,113,1.8833333333333333,3,211,"{nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+758,wemby_playbyplay_2025-26_0022500990.csv,1,PT11M33.00S,PT04M18.00S,435,7.25,10,36,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+759,wemby_playbyplay_2025-26_0022500990.csv,2,PT11M37.00S,PT07M06.00S,271,4.516666666666667,10,156,"{'Rebound', 'Made Shot', 'Substitution', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+760,wemby_playbyplay_2025-26_0022500990.csv,2,PT03M23.00S,PT00M03.10S,200,3.3333333333333335,5,333,"{'Free Throw', nan, 'Made Shot'}","{nan, 'Made'}"
+761,wemby_playbyplay_2025-26_0022500990.csv,3,PT11M11.00S,PT04M51.00S,380,6.333333333333333,11,265,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+762,wemby_playbyplay_2025-26_0022500990.csv,4,PT11M37.00S,PT07M13.00S,264,4.4,7,364,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+763,wemby_playbyplay_2025-26_0022500990.csv,4,PT01M29.00S,PT00M03.50S,86,1.4333333333333333,5,0,"{'Turnover', 'Free Throw', nan, 'Missed Shot'}","{'Missed', nan}"
+764,wemby_playbyplay_2025-26_0022500998.csv,1,PT11M27.00S,PT11M27.00S,0,0.0,1,2,{'Made Shot'},{'Made'}
+765,wemby_playbyplay_2025-26_0022500998.csv,1,PT09M21.00S,PT07M20.00S,121,2.0166666666666666,5,0,"{'Rebound', 'Foul', 'Substitution'}",{nan}
+766,wemby_playbyplay_2025-26_0022500998.csv,2,PT10M14.00S,PT06M21.00S,233,3.8833333333333333,6,223,"{'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+767,wemby_playbyplay_2025-26_0022500998.csv,3,PT11M45.00S,PT00M19.50S,686,11.433333333333334,18,722,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+768,wemby_playbyplay_2025-26_0022501013.csv,1,PT12M00.00S,PT09M44.00S,136,2.2666666666666666,4,9,"{'Rebound', 'Made Shot', 'Jump Ball'}","{nan, 'Made'}"
+769,wemby_playbyplay_2025-26_0022501013.csv,1,PT07M43.00S,PT05M31.00S,132,2.2,6,79,"{'Rebound', 'Made Shot', nan, 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+770,wemby_playbyplay_2025-26_0022501013.csv,2,PT11M46.00S,PT03M59.00S,467,7.783333333333333,12,473,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+771,wemby_playbyplay_2025-26_0022501013.csv,3,PT10M48.00S,PT03M38.00S,430,7.166666666666667,22,929,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+772,wemby_playbyplay_2025-26_0022501013.csv,4,PT10M10.00S,PT05M53.00S,257,4.283333333333333,7,170,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+773,wemby_playbyplay_2025-26_0022501013.csv,4,PT03M28.00S,PT00M01.10S,207,3.45,8,780,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+774,wemby_playbyplay_2025-26_0022501028.csv,1,PT12M00.00S,PT07M25.00S,275,4.583333333333333,9,13,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+775,wemby_playbyplay_2025-26_0022501028.csv,2,PT11M44.00S,PT05M29.00S,375,6.25,14,164,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+776,wemby_playbyplay_2025-26_0022501028.csv,2,PT01M00.00S,PT00M42.80S,18,0.3,2,0,"{'Turnover', nan}",{nan}
+777,wemby_playbyplay_2025-26_0022501028.csv,3,PT11M13.00S,PT11M13.00S,0,0.0,1,0,{'Missed Shot'},{'Missed'}
+778,wemby_playbyplay_2025-26_0022501028.csv,3,PT09M05.00S,PT03M52.00S,313,5.216666666666667,8,140,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Violation', 'Substitution'}","{'Missed', nan, 'Made'}"
+779,wemby_playbyplay_2025-26_0022501028.csv,4,PT11M01.00S,PT07M08.00S,233,3.8833333333333333,13,1392,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+780,wemby_playbyplay_2025-26_0022501041.csv,1,PT11M46.00S,PT11M46.00S,0,0.0,1,2,{'Made Shot'},{'Made'}
+781,wemby_playbyplay_2025-26_0022501041.csv,1,PT09M07.00S,PT05M35.00S,212,3.533333333333333,7,0,"{'Rebound', nan, 'Substitution', 'Missed Shot'}","{'Missed', nan}"
+782,wemby_playbyplay_2025-26_0022501041.csv,2,PT11M40.00S,PT07M45.00S,235,3.9166666666666665,11,341,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+783,wemby_playbyplay_2025-26_0022501041.csv,2,PT02M47.00S,PT00M39.60S,128,2.1333333333333333,5,259,"{'Turnover', 'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+784,wemby_playbyplay_2025-26_0022501041.csv,3,PT11M46.00S,PT06M20.00S,326,5.433333333333334,15,437,"{'Rebound', 'Made Shot', nan, 'Foul', 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+785,wemby_playbyplay_2025-26_0022501041.csv,3,PT01M49.00S,PT00M05.10S,104,1.7333333333333334,7,371,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+786,wemby_playbyplay_2025-26_0022501041.csv,4,PT10M44.00S,PT08M26.00S,138,2.3,8,390,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+787,wemby_playbyplay_2025-26_0022501056.csv,1,PT11M43.00S,PT06M01.00S,342,5.7,9,26,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+788,wemby_playbyplay_2025-26_0022501056.csv,2,PT10M29.00S,PT04M31.00S,358,5.966666666666667,15,208,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+789,wemby_playbyplay_2025-26_0022501056.csv,2,PT02M10.00S,PT02M10.00S,0,0.0,1,0,{'Rebound'},{nan}
+790,wemby_playbyplay_2025-26_0022501056.csv,2,PT00M10.60S,PT00M00.40S,10,0.16666666666666666,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+791,wemby_playbyplay_2025-26_0022501056.csv,3,PT11M00.00S,PT08M28.00S,152,2.533333333333333,10,452,"{'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+792,wemby_playbyplay_2025-26_0022501056.csv,3,PT06M20.00S,PT05M42.00S,38,0.6333333333333333,5,0,"{'Turnover', 'Rebound', nan, 'Substitution'}",{nan}
+793,wemby_playbyplay_2025-26_0022501056.csv,3,PT02M39.00S,PT00M00.20S,159,2.65,7,162,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+794,wemby_playbyplay_2025-26_0022501076.csv,1,PT11M23.00S,PT10M42.00S,41,0.6833333333333333,3,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+795,wemby_playbyplay_2025-26_0022501076.csv,1,PT07M25.00S,PT07M11.00S,14,0.23333333333333334,2,22,"{'Made Shot', 'Missed Shot'}","{'Missed', 'Made'}"
+796,wemby_playbyplay_2025-26_0022501076.csv,1,PT05M06.00S,PT05M06.00S,0,0.0,1,0,{'Substitution'},{nan}
+797,wemby_playbyplay_2025-26_0022501076.csv,2,PT10M40.00S,PT06M19.00S,261,4.35,8,151,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+798,wemby_playbyplay_2025-26_0022501076.csv,2,PT02M27.00S,PT00M04.80S,143,2.3833333333333333,3,102,"{'Made Shot', 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+799,wemby_playbyplay_2025-26_0022501076.csv,3,PT10M50.00S,PT09M15.00S,95,1.5833333333333333,5,242,"{'Rebound', nan, 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+800,wemby_playbyplay_2025-26_0022501076.csv,3,PT07M14.00S,PT06M00.00S,74,1.2333333333333334,4,142,"{'Turnover', 'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+801,wemby_playbyplay_2025-26_0022501076.csv,3,PT01M47.00S,PT00M17.20S,90,1.5,10,522,"{'Rebound', 'Turnover', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan}"
+802,wemby_playbyplay_2025-26_0022501076.csv,4,PT11M29.00S,PT05M20.00S,369,6.15,22,1156,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+803,wemby_playbyplay_2025-26_0022501094.csv,1,PT12M00.00S,PT06M05.00S,355,5.916666666666667,17,79,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Substitution'}","{'Missed', nan, 'Made'}"
+804,wemby_playbyplay_2025-26_0022501094.csv,1,PT00M01.60S,PT00M01.60S,0,0.0,1,0,{'Rebound'},{nan}
+805,wemby_playbyplay_2025-26_0022501094.csv,2,PT11M36.00S,PT06M53.00S,283,4.716666666666667,11,70,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+806,wemby_playbyplay_2025-26_0022501094.csv,2,PT02M48.00S,PT00M03.80S,165,2.75,8,605,"{'Free Throw', 'Rebound', 'Made Shot'}","{nan, 'Made'}"
+807,wemby_playbyplay_2025-26_0022501094.csv,3,PT11M04.00S,PT07M13.00S,231,3.85,6,633,"{'Substitution', 'Made Shot'}","{nan, 'Made'}"
+808,wemby_playbyplay_2025-26_0022501094.csv,3,PT04M08.00S,PT01M37.00S,151,2.5166666666666666,5,173,"{'Made Shot', 'Turnover', nan, 'Foul', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+809,wemby_playbyplay_2025-26_0022501094.csv,4,PT10M36.00S,PT09M13.00S,83,1.3833333333333333,7,201,"{'Rebound', nan, 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+810,wemby_playbyplay_2025-26_0022501094.csv,4,PT06M53.00S,PT05M34.00S,79,1.3166666666666667,5,434,"{'Rebound', 'Foul', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+811,wemby_playbyplay_2025-26_0022501113.csv,1,PT11M42.00S,PT04M55.00S,407,6.783333333333333,20,147,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+812,wemby_playbyplay_2025-26_0022501113.csv,1,PT02M23.00S,PT00M54.90S,89,1.4833333333333334,7,115,"{'Free Throw', 'Rebound', 'Made Shot', 'Missed Shot'}","{'Missed', nan, 'Made'}"
+813,wemby_playbyplay_2025-26_0022501113.csv,2,PT10M17.00S,PT07M54.00S,143,2.3833333333333333,6,144,"{'Rebound', 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+814,wemby_playbyplay_2025-26_0022501113.csv,2,PT03M04.00S,PT00M07.10S,177,2.95,7,430,"{'Rebound', 'Made Shot', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+815,wemby_playbyplay_2025-26_0022501113.csv,3,PT10M23.00S,PT09M24.00S,59,0.9833333333333333,2,128,"{'Rebound', 'Made Shot'}","{nan, 'Made'}"
+816,wemby_playbyplay_2025-26_0022501113.csv,3,PT07M16.00S,PT07M16.00S,0,0.0,1,0,{'Substitution'},{nan}
+817,wemby_playbyplay_2025-26_0022501113.csv,3,PT02M50.00S,PT00M22.60S,148,2.466666666666667,3,336,"{nan, 'Made Shot'}","{nan, 'Made'}"
+818,wemby_playbyplay_2025-26_0022501113.csv,4,PT11M44.00S,PT08M07.00S,217,3.6166666666666667,11,560,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+819,wemby_playbyplay_2025-26_0022501130.csv,1,PT11M39.00S,PT07M30.00S,249,4.15,10,86,"{'Rebound', 'Made Shot', 'Foul', 'Substitution', 'Free Throw'}","{nan, 'Made'}"
+820,wemby_playbyplay_2025-26_0022501130.csv,1,PT02M03.00S,PT00M11.50S,112,1.8666666666666667,6,293,"{'Free Throw', 'Rebound', 'Missed Shot', 'Made Shot'}","{'Missed', nan, 'Made'}"
+821,wemby_playbyplay_2025-26_0022501130.csv,2,PT11M30.00S,PT07M04.00S,266,4.433333333333334,9,167,"{'Rebound', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+822,wemby_playbyplay_2025-26_0022501130.csv,2,PT03M08.00S,PT00M33.10S,155,2.5833333333333335,10,265,"{'Rebound', nan, 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan}"
+823,wemby_playbyplay_2025-26_0022501130.csv,3,PT11M16.00S,PT11M15.00S,1,0.016666666666666666,2,0,"{'Rebound', 'Missed Shot'}","{'Missed', nan}"
+824,wemby_playbyplay_2025-26_0022501130.csv,3,PT09M14.00S,PT06M10.00S,184,3.066666666666667,5,319,"{'Turnover', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+825,wemby_playbyplay_2025-26_0022501130.csv,3,PT00M01.30S,PT00M01.30S,0,0.0,1,0,{'Rebound'},{nan}
+826,wemby_playbyplay_2025-26_0022501130.csv,4,PT11M25.00S,PT05M39.00S,346,5.766666666666667,13,1415,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+827,wemby_playbyplay_2025-26_0022501130.csv,4,PT02M21.00S,PT00M00.00S,141,2.35,5,475,"{'Free Throw', 'Rebound', 'Missed Shot'}","{'Missed', nan}"
+828,wemby_playbyplay_2025-26_0022501130.csv,5,PT02M49.00S,PT00M05.80S,164,2.7333333333333334,4,264,"{'Missed Shot', 'Rebound', nan, 'Made Shot'}","{'Missed', nan, 'Made'}"
+829,wemby_playbyplay_2025-26_0022501146.csv,1,PT12M00.00S,PT05M41.00S,379,6.316666666666666,13,98,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Jump Ball', 'Violation', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+830,wemby_playbyplay_2025-26_0022501146.csv,1,PT02M42.00S,PT00M32.20S,130,2.1666666666666665,6,55,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul'}","{nan, 'Made'}"
+831,wemby_playbyplay_2025-26_0022501146.csv,2,PT11M14.00S,PT10M36.00S,38,0.6333333333333333,2,0,"{nan, 'Substitution'}",{nan}
+832,wemby_playbyplay_2025-26_0022501146.csv,2,PT05M21.00S,PT00M44.30S,277,4.616666666666666,11,411,"{'Rebound', 'Made Shot', 'Foul', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+833,wemby_playbyplay_2025-26_0022501180.csv,1,PT12M00.00S,PT06M14.00S,346,5.766666666666667,13,85,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Jump Ball', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+834,wemby_playbyplay_2025-26_0022501180.csv,1,PT01M55.00S,PT00M20.20S,95,1.5833333333333333,6,120,"{'Rebound', nan, 'Made Shot'}","{nan, 'Made'}"
+835,wemby_playbyplay_2025-26_0022501180.csv,2,PT10M51.00S,PT10M17.00S,34,0.5666666666666667,4,70,"{'Rebound', 'Missed Shot', 'Substitution', 'Made Shot'}","{'Missed', nan, 'Made'}"
+836,wemby_playbyplay_2025-26_0022501180.csv,2,PT03M49.00S,PT00M00.00S,229,3.816666666666667,10,515,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"
+837,wemby_playbyplay_2025-26_0022501180.csv,3,PT11M19.00S,PT07M02.00S,257,4.283333333333333,10,576,"{'Rebound', 'Made Shot', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+838,wemby_playbyplay_2025-26_0022501180.csv,3,PT02M18.00S,PT01M48.00S,30,0.5,3,379,"{'Free Throw', 'Made Shot'}","{nan, 'Made'}"
+839,wemby_playbyplay_2025-26_0022501180.csv,4,PT11M14.00S,PT08M35.00S,159,2.65,11,1058,"{'Rebound', 'Made Shot', nan, 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan, 'Made'}"
+840,wemby_playbyplay_2025-26_0022501230.csv,2,PT11M28.00S,PT08M33.00S,175,2.9166666666666665,10,53,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Missed Shot', 'Substitution'}","{'Missed', nan, 'Made'}"
+841,wemby_playbyplay_2025-26_0022501230.csv,2,PT03M22.00S,PT00M14.30S,188,3.1333333333333333,5,95,"{'Rebound', 'Made Shot', 'Turnover', nan, 'Foul'}","{nan, 'Made'}"
+842,wemby_playbyplay_2025-26_0022501230.csv,3,PT06M42.00S,PT03M08.00S,214,3.566666666666667,8,281,"{'Rebound', 'Turnover', 'Missed Shot', 'Substitution', 'Free Throw'}","{'Missed', nan}"
+843,wemby_playbyplay_2025-26_0022501230.csv,4,PT11M21.00S,PT08M34.00S,167,2.783333333333333,6,658,"{'Free Throw', nan, 'Substitution', 'Made Shot'}","{nan, 'Made'}"
+844,wemby_playbyplay_2025-26_0022501230.csv,4,PT04M53.00S,PT00M06.10S,287,4.783333333333333,16,1428,"{'Rebound', 'Made Shot', 'Turnover', 'Foul', 'Missed Shot', 'Free Throw'}","{'Missed', nan, 'Made'}"

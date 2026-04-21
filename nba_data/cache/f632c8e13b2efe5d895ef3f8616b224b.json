@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612766,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Charlotte",
+      "TEAM_NAME": "Hornets",
+      "TEAM_ABBREVIATION": "CHA",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Southeast",
+      "TEAM_CODE": "hornets",
+      "TEAM_SLUG": "hornets",
+      "W": 44,
+      "L": 38,
+      "PCT": 0.537,
+      "CONF_RANK": 9,
+      "DIV_RANK": 3,
+      "MIN_YEAR": "1988",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:44:03.766254",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612766
+  }
+}

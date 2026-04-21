@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612759,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "San Antonio",
+      "TEAM_NAME": "Spurs",
+      "TEAM_ABBREVIATION": "SAS",
+      "TEAM_CONFERENCE": "West",
+      "TEAM_DIVISION": "Southwest",
+      "TEAM_CODE": "spurs",
+      "TEAM_SLUG": "spurs",
+      "W": 62,
+      "L": 20,
+      "PCT": 0.756,
+      "CONF_RANK": 2,
+      "DIV_RANK": 1,
+      "MIN_YEAR": "1976",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:42:54.835155",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612759
+  }
+}

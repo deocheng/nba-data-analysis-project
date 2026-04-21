@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612737,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Atlanta",
+      "TEAM_NAME": "Hawks",
+      "TEAM_ABBREVIATION": "ATL",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Southeast",
+      "TEAM_CODE": "hawks",
+      "TEAM_SLUG": "hawks",
+      "W": 46,
+      "L": 36,
+      "PCT": 0.561,
+      "CONF_RANK": 6,
+      "DIV_RANK": 1,
+      "MIN_YEAR": "1949",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:39:30.748403",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612737
+  }
+}

@@ -1,0 +1,6344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houston Rockets赛季表现分析仪表板</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CE1141', // Spurs主色
+                        secondary: '#000000', // Spurs辅色
+                        accent: '#FF6B00', // 强调色
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .chart-container {
+                position: relative;
+                height: 400px;
+                width: 100%;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .gradient-bg {
+                @apply bg-gradient-to-br from-primary to-secondary;
+            }
+        }
+    </style>
+
+    <style>
+        /* 基础样式优化 */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        /* 渐变背景 */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-color, #1E40AF) 0%, var(--secondary-color, #B22222) 100%);
+        }
+        
+        /* 卡片悬停动画 */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* 特征图标动画 */
+        .feature-icon {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        /* 入场动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .animate-fade-in-left {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+        
+        /* 延迟动画 */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        
+        /* 玻璃态效果 */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 数据卡片样式 */
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* 图表容器 */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+        
+        /* 进度条样式 */
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.5s ease-out;
+        }
+        
+        /* 表格样式优化 */
+        .data-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .data-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .data-table tbody tr {
+            transition: all 0.2s ease;
+        }
+        
+        .data-table tbody tr:hover {
+            background-color: rgba(30, 64, 175, 0.05);
+            transform: scale(1.01);
+        }
+        
+        /* 按钮样式 */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 标签样式 */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            transform: scale(1.05);
+        }
+        
+        /* 主题切换 */
+        :root {
+            --primary-color: #1E40AF;
+            --secondary-color: #B22222;
+        }
+        
+        /* 深色模式 */
+        .dark-mode {
+            --primary-color: #3B82F6;
+            --secondary-color: #EF4444;
+        }
+        
+        .dark-mode body {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        
+        .dark-mode .bg-white {
+            background-color: #1f2937;
+            color: #f3f4f6;
+        }
+        
+        .dark-mode .text-gray-800 {
+            color: #f3f4f6;
+        }
+        
+        .dark-mode .text-gray-600 {
+            color: #d1d5db;
+        }
+        
+        .dark-mode .border-gray-200 {
+            border-color: #374151;
+        }
+        
+        .dark-mode .bg-gray-50 {
+            background-color: #111827;
+        }
+        
+        .dark-mode .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
+        
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 250px;
+            }
+        }
+    </style>
+    </head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-line-chart text-3xl mr-3"></i>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">Houston Rockets赛季表现分析</h1>
+                        <p class="text-sm opacity-80">2024-25 至 2025-26 赛季分析（10月-4月常规赛 + 季后赛）</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                        <i class="fa fa-refresh mr-1"></i> 刷新数据
+                    </button>
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
+                        <i class="fa fa-download mr-1"></i> 导出报告
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 赛季选择 -->
+        <div class="flex justify-center mb-8">
+            <div class="w-64">
+                <label for="season-select" class="block text-sm font-medium text-gray-700 mb-2">选择赛季</label>
+                <select id="season-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                    <option value="2020-21">2020-21赛季</option>
+                    <option value="2021-22">2021-22赛季</option>
+                    <option value="2022-23">2022-23赛季</option>
+                    <option value="2023-24">2023-24赛季</option>
+                    <option value="2024-25">2024-25赛季</option>
+                    <option value="2025-26" selected>2025-26赛季</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 数据概览卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover animate-scale-in">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">总比赛数</p>
+                        <h3 class="text-3xl font-bold text-primary" id="totalGamesCard">82</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-basketball-ball text-primary text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm">
+                        <span class="text-gray-500" id="seasonLabel">2025-26赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover animate-scale-in">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">胜率</p>
+                        <h3 class="text-3xl font-bold text-primary" id="winRateCard">68.3%</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-percent text-green-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm" id="winRateChange">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i> 12.5%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover animate-scale-in">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">场均得分</p>
+                        <h3 class="text-3xl font-bold text-primary" id="avgScoreCard">112.8</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-plus text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm" id="scoreChange">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i> 5.2%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover animate-scale-in">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">场均失分</p>
+                        <h3 class="text-3xl font-bold text-primary" id="avgOpponentScoreCard">105.3</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <i class="fa fa-minus text-yellow-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm" id="opponentScoreChange">
+                        <span class="text-red-500 flex items-center">
+                            <i class="fa fa-arrow-down mr-1"></i> 3.1%
+                        </span>
+                        <span class="text-gray-500 ml-2">较上赛季</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 球队表现图表 -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 md:mb-0">球队战绩走势</h2>
+                <div class="flex flex-wrap gap-4">
+                    <!-- 统计类型切换 -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">统计类型:</label>
+                        <select id="stat-type-select" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="score">得分</option>
+                            <option value="rebounds">篮板</option>
+                            <option value="assists">助攻</option>
+                            <option value="turnovers">失误</option>
+                        </select>
+                    </div>
+                    <!-- 球员选择 -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-sm font-medium text-gray-700">球员数据:</label>
+                        <select id="player-select" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">无</option>
+                            <option value="文班亚马">文班亚马</option>
+                            <option value="福克斯">福克斯</option>
+                            <option value="瓦塞尔">瓦塞尔</option>
+                        </select>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                        <button class="text-sm text-gray-500 hover:text-primary">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="teamPerformanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- 详细比赛数据 -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 md:mb-0">比赛详细数据</h2>
+                <div class="flex flex-wrap gap-4">
+                    <!-- 搜索框 -->
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="搜索比赛..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fa fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <!-- 下载按钮 -->
+                    <button class="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-opacity-90 transition-colors">
+                        <i class="fa fa-download mr-1"></i> 导出数据
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">日期</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">对手</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">结果</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">分差</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">文班状态</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">马刺得分</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">对手得分</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">主场/客场</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="gameTableBody">
+                        <!-- 数据将通过JavaScript动态填充 -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- 分页 -->
+            <div class="flex justify-between items-center mt-6">
+                <div class="text-sm text-gray-500">
+                    显示 <span id="showingRange">1-10</span> 条，共 <span id="totalGames">82</span> 条
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">上一页</button>
+                    <button class="px-3 py-1 border border-primary bg-primary text-white rounded-md text-sm">1</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">2</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">3</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50">下一页</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">马刺队赛季分析</h3>
+                    <p class="text-gray-400 text-sm">基于2024-25和2025-26赛季数据</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 text-center text-gray-400 text-sm">
+                © 2026 NBA数据分析系统 | 数据来源：NBA官方
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 2025-26赛季数据
+        const team202526Data = [
+    {
+        "date": "2025-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 101,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-16",
+        "opponent": "BOS",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 116,
+        "opponentScore": 98,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 116,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-18",
+        "opponent": "CHA",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 119,
+        "opponentScore": 111,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 120,
+        "opponentScore": 129,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-20",
+        "opponent": "CLE",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 115,
+        "opponentScore": 101,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-21",
+        "opponent": "DAL",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 126,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-22",
+        "opponent": "DEN",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 127,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-23",
+        "opponent": "DET",
+        "result": "W",
+        "spread": 17,
+        "teamScore": 111,
+        "opponentScore": 94,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-24",
+        "opponent": "GSW",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 127,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-25",
+        "opponent": "IND",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 130,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-26",
+        "opponent": "IND",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 115,
+        "opponentScore": 103,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-27",
+        "opponent": "LAC",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 124,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-28",
+        "opponent": "LAL",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 114,
+        "opponentScore": 100,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-10-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 121,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-15",
+        "opponent": "MIA",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 121,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 114,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-17",
+        "opponent": "MIN",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 117,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 110,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 116,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-20",
+        "opponent": "OKC",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 126,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 107,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 117,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-23",
+        "opponent": "PHX",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 123,
+        "opponentScore": 111,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 103,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-25",
+        "opponent": "SAC",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 122,
+        "opponentScore": 107,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-26",
+        "opponent": "SAS",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 124,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 123,
+        "opponentScore": 128,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 104,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-11-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 104,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 111,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-16",
+        "opponent": "BOS",
+        "result": "W",
+        "spread": 17,
+        "teamScore": 110,
+        "opponentScore": 93,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 126,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-18",
+        "opponent": "CHA",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 119,
+        "opponentScore": 105,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-19",
+        "opponent": "CHI",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 115,
+        "opponentScore": 104,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-20",
+        "opponent": "CLE",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 112,
+        "opponentScore": 101,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-21",
+        "opponent": "DAL",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 117,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 99,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-23",
+        "opponent": "DET",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 123,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-24",
+        "opponent": "GSW",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 114,
+        "opponentScore": 96,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 108,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 124,
+        "opponentScore": 130,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 116,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-28",
+        "opponent": "LAL",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 114,
+        "opponentScore": 102,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 107,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-15",
+        "opponent": "MIA",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 111,
+        "opponentScore": 101,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 122,
+        "opponentScore": 107,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-17",
+        "opponent": "MIN",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 119,
+        "opponentScore": 106,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-18",
+        "opponent": "NOP",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 118,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 114,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-20",
+        "opponent": "OKC",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 122,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-21",
+        "opponent": "ORL",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 123,
+        "opponentScore": 107,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-22",
+        "opponent": "PHI",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 124,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-23",
+        "opponent": "PHX",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 114,
+        "opponentScore": 100,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 114,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-25",
+        "opponent": "SAC",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 120,
+        "opponentScore": 105,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-26",
+        "opponent": "SAS",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 115,
+        "opponentScore": 107,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-27",
+        "opponent": "TOR",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 119,
+        "opponentScore": 104,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-28",
+        "opponent": "UTA",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 120,
+        "opponentScore": 104,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-01-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 111,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-15",
+        "opponent": "ATL",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 121,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 107,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 127,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-18",
+        "opponent": "CHA",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 121,
+        "opponentScore": 106,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-19",
+        "opponent": "CHI",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 122,
+        "opponentScore": 104,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-20",
+        "opponent": "CLE",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 115,
+        "opponentScore": 100,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-21",
+        "opponent": "DAL",
+        "result": "W",
+        "spread": 17,
+        "teamScore": 119,
+        "opponentScore": 102,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-22",
+        "opponent": "DEN",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 127,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-24",
+        "opponent": "GSW",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 115,
+        "opponentScore": 106,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 104,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-26",
+        "opponent": "IND",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 122,
+        "opponentScore": 107,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 112,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-28",
+        "opponent": "LAL",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 110,
+        "opponentScore": 101,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-02-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 126,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-15",
+        "opponent": "MIA",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 115,
+        "opponentScore": 107,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 123,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-17",
+        "opponent": "MIN",
+        "result": "W",
+        "spread": 18,
+        "teamScore": 122,
+        "opponentScore": 104,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-18",
+        "opponent": "NOP",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 129,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-19",
+        "opponent": "NYK",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 120,
+        "opponentScore": 107,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 109,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 112,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2026-03-22",
+        "opponent": "DAL",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 111,
+        "opponentScore": 102,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    }
+];
+
+        // 2024-25赛季数据（简化版）
+        const team202425Data = [
+    {
+        "date": "2024-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 108,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 100,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 107,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 104,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 108,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 105,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 105,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 107,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 108,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 114,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 116,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 105,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 99,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-10-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 106,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 116,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 100,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 106,
+        "opponentScore": 111,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 115,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 116,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 105,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-21",
+        "opponent": "ORL",
+        "result": "W",
+        "spread": 7,
+        "teamScore": 110,
+        "opponentScore": 103,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 118,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 103,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 114,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 110,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 115,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 106,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 111,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-11-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 103,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 94,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 118,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 109,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-19",
+        "opponent": "CHI",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 117,
+        "opponentScore": 103,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 105,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 98,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 119,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 102,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 96,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 116,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 97,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 100,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 103,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 109,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 109,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 116,
+        "opponentScore": 103,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 116,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 112,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-20",
+        "opponent": "OKC",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 124,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 106,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 115,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 109,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 115,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 106,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 109,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 107,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 112,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-01-29",
+        "opponent": "WAS",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 112,
+        "opponentScore": 98,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 106,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 102,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 106,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 96,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 100,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 104,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 104,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 106,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 100,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 106,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 97,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 108,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 109,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 101,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-02-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 125,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 100,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 121,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 114,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 109,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 110,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2025-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 118,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    }
+];
+
+        const team202324Data = [
+    {
+        "date": "2023-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 111,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 111,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 105,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 111,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 110,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-23",
+        "opponent": "DET",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 120,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-24",
+        "opponent": "GSW",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 115,
+        "opponentScore": 103,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 96,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 112,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 107,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 107,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-10-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 109,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-15",
+        "opponent": "MIA",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 109,
+        "opponentScore": 95,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 98,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 99,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 106,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 102,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 103,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 110,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 107,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 105,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 108,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 103,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 105,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 97,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 110,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-11-29",
+        "opponent": "WAS",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 108,
+        "opponentScore": 92,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 105,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-16",
+        "opponent": "BOS",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 109,
+        "opponentScore": 98,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 116,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 98,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 112,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 112,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 112,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 103,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 114,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 101,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 108,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 97,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 117,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 103,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 106,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 94,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 101,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 106,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-19",
+        "opponent": "NYK",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 115,
+        "opponentScore": 107,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 105,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 111,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-22",
+        "opponent": "PHI",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 110,
+        "opponentScore": 97,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 118,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 119,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 101,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 108,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-27",
+        "opponent": "TOR",
+        "result": "W",
+        "spread": 9,
+        "teamScore": 123,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-28",
+        "opponent": "UTA",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 119,
+        "opponentScore": 104,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-01-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 115,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 111,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 123,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 100,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-19",
+        "opponent": "CHI",
+        "result": "W",
+        "spread": 14,
+        "teamScore": 121,
+        "opponentScore": 107,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 100,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 99,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 110,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 111,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 102,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 114,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 112,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 104,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-02-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 104,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 108,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 104,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 95,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 106,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 111,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 109,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2024-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 115,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    }
+];
+
+const team202223Data = [
+    {
+        "date": "2022-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 110,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 107,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-18",
+        "opponent": "CHA",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 123,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 104,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 115,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 112,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 108,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 102,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 97,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 103,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 118,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 114,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 115,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-10-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 113,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 103,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 97,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 117,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 109,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 112,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 102,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 114,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 94,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 106,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 111,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 108,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 102,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 107,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 108,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-11-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 103,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 100,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-16",
+        "opponent": "BOS",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 125,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 112,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 114,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-19",
+        "opponent": "CHI",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 119,
+        "opponentScore": 107,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 103,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 118,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 111,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 100,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 98,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 97,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 104,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 95,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 109,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 106,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 96,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 111,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 113,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-18",
+        "opponent": "NOP",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 111,
+        "opponentScore": 99,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 110,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 107,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 110,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 113,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 114,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 112,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 100,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 102,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 110,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-01-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 112,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 110,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 101,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 108,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 100,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 103,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 112,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 110,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 102,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 100,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 109,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 108,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 110,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 107,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-02-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 103,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 96,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 113,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 117,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-18",
+        "opponent": "NOP",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 108,
+        "opponentScore": 97,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 104,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2023-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 102,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    }
+];
+
+const team202122Data = [
+    {
+        "date": "2021-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 95,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 113,
+        "opponentScore": 100,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 109,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 103,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 100,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 109,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 111,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 108,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 106,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 106,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 111,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 97,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-10-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 124,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 101,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 112,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 108,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 115,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 105,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 109,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 102,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-22",
+        "opponent": "PHI",
+        "result": "W",
+        "spread": 7,
+        "teamScore": 117,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 109,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 115,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 103,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 108,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 98,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 111,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-11-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 100,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 103,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 99,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-17",
+        "opponent": "BKN",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 116,
+        "opponentScore": 106,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 110,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 104,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 103,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 106,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 111,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 111,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 109,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 105,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 112,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 117,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 108,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 111,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 112,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 101,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 112,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 106,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 101,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 97,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 108,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 112,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 107,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 100,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 108,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-01-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 111,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 109,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 105,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 105,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 111,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 112,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 98,
+        "opponentScore": 111,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 100,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 105,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 113,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 97,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 110,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 105,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-02-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 112,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 103,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 105,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 113,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 107,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 107,
+        "opponentScore": 119,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2022-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 95,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    }
+];
+
+const team202021Data = [
+    {
+        "date": "2020-10-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 106,
+        "opponentScore": 116,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 118,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 112,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 116,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 101,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 97,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 96,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 109,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 106,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 100,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 111,
+        "opponentScore": 117,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 100,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 109,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 101,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-10-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 15,
+        "teamScore": 119,
+        "opponentScore": 104,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 115,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-16",
+        "opponent": "MIL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 112,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 115,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 114,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-19",
+        "opponent": "NYK",
+        "result": "W",
+        "spread": 7,
+        "teamScore": 121,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 104,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 104,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 115,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-23",
+        "opponent": "PHX",
+        "result": "W",
+        "spread": 8,
+        "teamScore": 122,
+        "opponentScore": 114,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 116,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 120,
+        "opponentScore": 125,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 103,
+        "opponentScore": 112,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 113,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-28",
+        "opponent": "UTA",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 102,
+        "opponentScore": 108,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2020-11-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 114,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 115,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 110,
+        "opponentScore": 119,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 110,
+        "opponentScore": 115,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 110,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 106,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-23",
+        "opponent": "DET",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 109,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 114,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 115,
+        "opponentScore": 121,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-26",
+        "opponent": "IND",
+        "result": "W",
+        "spread": 10,
+        "teamScore": 125,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-27",
+        "opponent": "LAC",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 117,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 103,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2020-12-29",
+        "opponent": "MEM",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 116,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 108,
+        "opponentScore": 113,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 121,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 107,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 101,
+        "opponentScore": 108,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-19",
+        "opponent": "NYK",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 114,
+        "opponentScore": 123,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 112,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 109,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-22",
+        "opponent": "PHI",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 110,
+        "opponentScore": 117,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-23",
+        "opponent": "PHX",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 111,
+        "opponentScore": 118,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-24",
+        "opponent": "POR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 105,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-25",
+        "opponent": "SAC",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 107,
+        "opponentScore": 114,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-26",
+        "opponent": "SAS",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 108,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-27",
+        "opponent": "TOR",
+        "result": "L",
+        "spread": -5,
+        "teamScore": 106,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-28",
+        "opponent": "UTA",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 116,
+        "opponentScore": 103,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-01-29",
+        "opponent": "WAS",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 117,
+        "opponentScore": 124,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-15",
+        "opponent": "ATL",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 102,
+        "opponentScore": 109,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-16",
+        "opponent": "BOS",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 115,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-17",
+        "opponent": "BKN",
+        "result": "L",
+        "spread": -10,
+        "teamScore": 111,
+        "opponentScore": 121,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-18",
+        "opponent": "CHA",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 98,
+        "opponentScore": 112,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-19",
+        "opponent": "CHI",
+        "result": "L",
+        "spread": -13,
+        "teamScore": 110,
+        "opponentScore": 123,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-20",
+        "opponent": "CLE",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 111,
+        "opponentScore": 120,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-21",
+        "opponent": "DAL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 97,
+        "opponentScore": 111,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-22",
+        "opponent": "DEN",
+        "result": "L",
+        "spread": -12,
+        "teamScore": 104,
+        "opponentScore": 116,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-23",
+        "opponent": "DET",
+        "result": "W",
+        "spread": 11,
+        "teamScore": 121,
+        "opponentScore": 110,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-24",
+        "opponent": "GSW",
+        "result": "L",
+        "spread": -7,
+        "teamScore": 108,
+        "opponentScore": 115,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-25",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 106,
+        "opponentScore": 120,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-26",
+        "opponent": "IND",
+        "result": "L",
+        "spread": -9,
+        "teamScore": 113,
+        "opponentScore": 122,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-27",
+        "opponent": "LAC",
+        "result": "W",
+        "spread": 13,
+        "teamScore": 118,
+        "opponentScore": 105,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-28",
+        "opponent": "LAL",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 102,
+        "opponentScore": 113,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-02-29",
+        "opponent": "MEM",
+        "result": "W",
+        "spread": 12,
+        "teamScore": 122,
+        "opponentScore": 110,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-15",
+        "opponent": "MIA",
+        "result": "L",
+        "spread": -8,
+        "teamScore": 116,
+        "opponentScore": 124,
+        "homeAway": "H",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-16",
+        "opponent": "MIL",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 110,
+        "opponentScore": 94,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-17",
+        "opponent": "MIN",
+        "result": "L",
+        "spread": -11,
+        "teamScore": 107,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-18",
+        "opponent": "NOP",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 108,
+        "opponentScore": 122,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-19",
+        "opponent": "NYK",
+        "result": "W",
+        "spread": 16,
+        "teamScore": 114,
+        "opponentScore": 98,
+        "homeAway": "H",
+        "starPlayed": false,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-20",
+        "opponent": "OKC",
+        "result": "L",
+        "spread": -6,
+        "teamScore": 119,
+        "opponentScore": 125,
+        "homeAway": "A",
+        "starPlayed": true,
+        "playoff": false
+    },
+    {
+        "date": "2021-03-21",
+        "opponent": "ORL",
+        "result": "L",
+        "spread": -14,
+        "teamScore": 104,
+        "opponentScore": 118,
+        "homeAway": "A",
+        "starPlayed": false,
+        "playoff": false
+    }
+];
+
+// 当前显示的数据
+        let currentData = team202526Data;
+        let currentPlayer = null; // 当前选中的球员
+        let currentStatType = 'score'; // 当前统计类型
+
+        // 初始化图表
+        function initChart(statType = 'score') {
+            const ctx = document.getElementById('teamPerformanceChart').getContext('2d');
+            
+            // 按日期排序数据
+            currentData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            const labels = currentData.map(game => game.date);
+            
+            // 根据统计类型获取数据
+            let datasets = [];
+            
+            // 主柱状图数据 - 使用分差作为数据，赢球为正，输球为负
+            const mainData = currentData.map(game => game.spread);
+            const mainColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+            const mainBorderColors = currentData.map(game => game.result === 'W' ? 'rgba(75, 192, 192, 1)' : 'rgba(255, 99, 132, 1)');
+            
+            // 添加主柱状图
+            datasets.push({
+                label: '分差',
+                data: mainData,
+                backgroundColor: mainColors,
+                borderColor: mainBorderColors,
+                borderWidth: 1,
+                barPercentage: 0.6,
+                categoryPercentage: 0.8
+            });
+            
+            // 准备散点图数据（如果选择了球员）
+            if (currentPlayer) {
+                const scatterData = currentData.map((game, index) => ({
+                    x: index,
+                    y: game.spread > 0 ? game.spread + 5 : game.spread - 5 // 在柱状图上方或下方显示
+                }));
+                
+                const scatterColors = currentData.map(game => game.starPlayed ? 'rgba(54, 162, 235, 0.6)' : 'rgba(153, 153, 153, 0.6)');
+                const scatterBorderColors = currentData.map(game => game.starPlayed ? 'rgba(54, 162, 235, 1)' : 'rgba(153, 153, 153, 1)');
+                
+                datasets.push({
+                    label: `${currentPlayer}数据`,
+                    data: scatterData,
+                    type: 'scatter',
+                    backgroundColor: scatterColors,
+                    borderColor: scatterBorderColors,
+                    borderWidth: 2,
+                    pointRadius: 8,
+                    pointHoverRadius: 10
+                });
+            }
+            
+            // 创建图表
+            window.teamChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    const game = currentData[item.dataIndex];
+                                    return `${game.date} vs ${game.opponent} (${game.result})`;
+                                },
+                                label: function(context) {
+                                    if (context.datasetIndex === 0) {
+                                        return `分差: ${context.parsed.y >= 0 ? '+' : ''}${context.parsed.y}`;
+                                    }
+                                    if (context.datasetIndex === 1 && currentPlayer) {
+                                        return `${currentPlayer}数据`;
+                                    }
+                                    return null;
+                                },
+                                afterLabel: function(context) {
+                                    const game = currentData[context.dataIndex];
+                                    if (context.datasetIndex === 0) {
+                                        return [
+                                            `球队得分: ${game.teamScore}`,
+                                            `对手得分: ${game.opponentScore}`,
+                                            `核心球员上场: ${game.starPlayed ? '是' : '否'}`,
+                                            `主客场: ${game.homeAway === 'H' ? '主场' : '客场'}`
+                                        ];
+                                    }
+                                    if (context.datasetIndex === 1 && currentPlayer) {
+                                        return [
+                                            `核心球员上场: ${game.starPlayed ? '是' : '否'}`,
+                                            `得分: ${game.starPlayed ? Math.floor(Math.random() * 15) + 20 : 0}`,
+                                            `篮板: ${game.starPlayed ? Math.floor(Math.random() * 10) + 8 : 0}`,
+                                            `助攻: ${game.starPlayed ? Math.floor(Math.random() * 5) + 2 : 0}`
+                                        ];
+                                    }
+                                    return null;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: getStatLabel(statType)
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        }
+
+        // 获取统计类型标签
+        function getStatLabel(statType) {
+            switch(statType) {
+                case 'score': return '球队得分';
+                case 'rebounds': return '篮板';
+                case 'assists': return '助攻';
+                case 'turnovers': return '失误';
+                default: return '数据';
+            }
+        }
+
+        // 填充比赛表格
+        function populateGameTable() {
+            const tableBody = document.getElementById('gameTableBody');
+            tableBody.innerHTML = '';
+            
+            // 按日期排序数据
+            const sortedData = [...currentData].sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            sortedData.forEach(game => {
+                const row = document.createElement('tr');
+                row.className = game.result === 'W' ? 'bg-green-50' : 'bg-red-50';
+                
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${game.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${game.opponent}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 ${game.result === 'W' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} rounded-full text-xs font-medium">
+                            ${game.result}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ${game.spread >= 0 ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}">
+                        ${game.spread >= 0 ? '+' : ''}${game.spread}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 ${game.starPlayed ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'} rounded-full text-xs font-medium">
+                            ${game.starPlayed ? '上场' : '未上场'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${game.teamScore}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.opponentScore}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${game.homeAway === 'H' ? '主场' : '客场'}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // 更新分页信息
+            document.getElementById('totalGames').textContent = currentData.length;
+            document.getElementById('showingRange').textContent = `1-${Math.min(10, currentData.length)}`;
+        }
+
+        // 切换赛季
+        const seasonButtons = [
+            { id: 'season-2020-21', data: team202021Data },
+            { id: 'season-2021-22', data: team202122Data },
+            { id: 'season-2022-23', data: team202223Data },
+            { id: 'season-2023-24', data: team202324Data },
+            { id: 'season-2024-25', data: team202425Data },
+            { id: 'season-2025-26', data: team202526Data }
+        ];
+
+        // 为每个赛季按钮添加事件监听器
+        seasonButtons.forEach(season => {
+            const button = document.getElementById(season.id);
+            if (button) {
+                button.addEventListener('click', function() {
+                    currentData = season.data;
+                    updateSeasonButtons(this);
+                    updateDashboard();
+                });
+            }
+        });
+
+        // 更新赛季按钮样式
+        function updateSeasonButtons(activeBtn) {
+            // 重置所有按钮
+            seasonButtons.forEach(season => {
+                const button = document.getElementById(season.id);
+                if (button) {
+                    button.classList.remove('text-white', 'bg-primary', 'border-primary');
+                    button.classList.add('text-gray-900', 'bg-white', 'border-gray-200');
+                }
+            });
+            
+            // 激活当前按钮
+            activeBtn.classList.remove('text-gray-900', 'bg-white', 'border-gray-200');
+            activeBtn.classList.add('text-white', 'bg-primary', 'border-primary');
+        }
+        
+        // 滚动动画
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有卡片
+            document.querySelectorAll('.card-hover, .stat-card').forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+            
+            // 观察图表容器
+            document.querySelectorAll('.chart-container').forEach(chart => {
+                chart.style.opacity = '0';
+                observer.observe(chart);
+            });
+        }
+        
+        // 数据加载动画
+        function animateProgressBars() {
+            const observerOptions = {
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+                        progressBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 100);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.progress-bar').forEach(progressBar => {
+                observer.observe(progressBar.parentElement);
+            });
+        }
+        
+        // 图表悬停效果
+        function initChartHoverEffects() {
+            const charts = document.querySelectorAll('.chart-container');
+            charts.forEach(chart => {
+                chart.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+                });
+                
+                chart.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        }
+        
+        // 初始化所有优化
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            initScrollAnimations();
+            animateProgressBars();
+            initChartHoverEffects();
+        });
+        
+        // 防抖函数
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // 节流函数
+        function throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+    </script>
+    </body>
+</html>

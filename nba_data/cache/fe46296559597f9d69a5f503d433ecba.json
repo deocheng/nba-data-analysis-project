@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612761,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "Toronto",
+      "TEAM_NAME": "Raptors",
+      "TEAM_ABBREVIATION": "TOR",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Atlantic",
+      "TEAM_CODE": "raptors",
+      "TEAM_SLUG": "raptors",
+      "W": 46,
+      "L": 36,
+      "PCT": 0.561,
+      "CONF_RANK": 5,
+      "DIV_RANK": 3,
+      "MIN_YEAR": "1995",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:43:17.066130",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612761
+  }
+}

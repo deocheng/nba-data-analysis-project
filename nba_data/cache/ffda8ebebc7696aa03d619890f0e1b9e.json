@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "TEAM_ID": 1610612752,
+      "SEASON_YEAR": "2025-26",
+      "TEAM_CITY": "New York",
+      "TEAM_NAME": "Knicks",
+      "TEAM_ABBREVIATION": "NYK",
+      "TEAM_CONFERENCE": "East",
+      "TEAM_DIVISION": "Atlantic",
+      "TEAM_CODE": "knicks",
+      "TEAM_SLUG": "knicks",
+      "W": 53,
+      "L": 29,
+      "PCT": 0.646,
+      "CONF_RANK": 3,
+      "DIV_RANK": 2,
+      "MIN_YEAR": "1946",
+      "MAX_YEAR": "2025"
+    }
+  ],
+  "cached_at": "2026-04-20T23:41:50.212605",
+  "endpoint": "team_info",
+  "params": {
+    "team_id": 1610612752
+  }
+}

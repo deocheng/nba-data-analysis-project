@@ -1,0 +1,18 @@
+# NBA数据爬取系统依赖
+
+# 核心依赖
+requests==2.31.0
+pandas==2.2.0
+beautifulsoup4==4.12.2
+lxml==4.9.4
+nba_api==1.2.1
+
+# 可选依赖
+schedule==1.2.1  # 定时任务
+SQLAlchemy==2.0.25  # 数据库ORM
+python-dotenv==1.0.0  # 环境变量管理
+
+# 开发依赖
+pytest==7.4.3  # 测试
+black==23.11.0  # 代码格式化
+flake8==6.1.0  # 代码检查

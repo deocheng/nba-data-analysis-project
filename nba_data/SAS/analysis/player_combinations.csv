@@ -1,0 +1,352 @@
+﻿player1,player2,minutes
+Castle,Wembanyama,3471.9
+Castle,Vassell,3432.5
+Wembanyama,Vassell,3432.5
+Castle,Barnes,3392.7
+Barnes,Wembanyama,3392.7
+Barnes,Vassell,3392.7
+Champagnie,Castle,2956.2
+Champagnie,Barnes,2956.2
+Champagnie,Wembanyama,2956.2
+Champagnie,Vassell,2956.2
+Champagnie,Fox,2031.7
+Castle,Fox,2031.7
+Barnes,Fox,2031.7
+Wembanyama,Fox,2031.7
+Vassell,Fox,2031.7
+Champagnie,Johnson,1616.0
+Castle,Johnson,1616.0
+Barnes,Johnson,1616.0
+Wembanyama,Johnson,1616.0
+Johnson,Vassell,1616.0
+Johnson,Fox,1616.0
+Champagnie,Paul,1587.5
+Castle,Paul,1587.5
+Barnes,Paul,1587.5
+Paul,Wembanyama,1587.5
+Paul,Johnson,1587.5
+Paul,Vassell,1587.5
+Paul,Fox,1587.5
+Champagnie,Sochan,1042.6
+Castle,Sochan,1042.6
+Barnes,Sochan,1042.6
+Paul,Sochan,1042.6
+Wembanyama,Sochan,1042.6
+Johnson,Sochan,1042.6
+Vassell,Sochan,1042.6
+Sochan,Fox,1042.6
+Champagnie,Harper,1011.2
+Castle,Harper,1011.2
+Barnes,Harper,1011.2
+Paul,Harper,1011.2
+Wembanyama,Harper,1011.2
+Johnson,Harper,1011.2
+Vassell,Harper,1011.2
+Sochan,Harper,1011.2
+Fox,Harper,1011.2
+Champagnie,Kornet,939.6
+Castle,Kornet,939.6
+Barnes,Kornet,939.6
+Paul,Kornet,939.6
+Wembanyama,Kornet,939.6
+Johnson,Kornet,939.6
+Vassell,Kornet,939.6
+Sochan,Kornet,939.6
+Fox,Kornet,939.6
+Kornet,Harper,939.6
+Champagnie,Collins,450.0
+Castle,Collins,450.0
+Barnes,Collins,450.0
+Paul,Collins,450.0
+Wembanyama,Collins,450.0
+Johnson,Collins,450.0
+Collins,Vassell,450.0
+Collins,Sochan,450.0
+Collins,Fox,450.0
+Collins,Kornet,450.0
+Collins,Harper,450.0
+Champagnie,Bryant,250.4
+Castle,Bryant,250.4
+Barnes,Bryant,250.4
+Paul,Bryant,250.4
+Wembanyama,Bryant,250.4
+Johnson,Bryant,250.4
+Collins,Bryant,250.4
+Vassell,Bryant,250.4
+Sochan,Bryant,250.4
+Fox,Bryant,250.4
+Kornet,Bryant,250.4
+Harper,Bryant,250.4
+Champagnie,Bassey,190.5
+Castle,Bassey,190.5
+Barnes,Bassey,190.5
+Paul,Bassey,190.5
+Wembanyama,Bassey,190.5
+Johnson,Bassey,190.5
+Collins,Bassey,190.5
+Vassell,Bassey,190.5
+Bassey,Sochan,190.5
+Bassey,Fox,190.5
+Bassey,Kornet,190.5
+Bassey,Harper,190.5
+Bassey,Bryant,190.5
+Champagnie,Jones,157.3
+Castle,Jones,157.3
+Barnes,Jones,157.3
+Paul,Jones,157.3
+Wembanyama,Jones,157.3
+Johnson,Jones,157.3
+Collins,Jones,157.3
+Vassell,Jones,157.3
+Jones,Bassey,157.3
+Jones,Sochan,157.3
+Jones,Fox,157.3
+Jones,Kornet,157.3
+Jones,Harper,157.3
+Jones,Bryant,157.3
+Champagnie,Wesley,105.4
+Castle,Wesley,105.4
+Barnes,Wesley,105.4
+Paul,Wesley,105.4
+Wembanyama,Wesley,105.4
+Johnson,Wesley,105.4
+Collins,Wesley,105.4
+Vassell,Wesley,105.4
+Wesley,Jones,105.4
+Wesley,Bassey,105.4
+Wesley,Sochan,105.4
+Wesley,Fox,105.4
+Wesley,Kornet,105.4
+Wesley,Harper,105.4
+Wesley,Bryant,105.4
+Champagnie,Branham,82.7
+Castle,Branham,82.7
+Barnes,Branham,82.7
+Paul,Branham,82.7
+Wembanyama,Branham,82.7
+Johnson,Branham,82.7
+Collins,Branham,82.7
+Vassell,Branham,82.7
+Wesley,Branham,82.7
+Jones,Branham,82.7
+Bassey,Branham,82.7
+Sochan,Branham,82.7
+Branham,Fox,82.7
+Branham,Kornet,82.7
+Branham,Harper,82.7
+Branham,Bryant,82.7
+Champagnie,Waters III,72.5
+Castle,Waters III,72.5
+Barnes,Waters III,72.5
+Paul,Waters III,72.5
+Wembanyama,Waters III,72.5
+Johnson,Waters III,72.5
+Collins,Waters III,72.5
+Vassell,Waters III,72.5
+Wesley,Waters III,72.5
+Jones,Waters III,72.5
+Bassey,Waters III,72.5
+Sochan,Waters III,72.5
+Branham,Waters III,72.5
+Fox,Waters III,72.5
+Kornet,Waters III,72.5
+Harper,Waters III,72.5
+Bryant,Waters III,72.5
+Champagnie,McLaughlin,62.1
+Castle,McLaughlin,62.1
+Barnes,McLaughlin,62.1
+Paul,McLaughlin,62.1
+Wembanyama,McLaughlin,62.1
+Johnson,McLaughlin,62.1
+Collins,McLaughlin,62.1
+Vassell,McLaughlin,62.1
+Wesley,McLaughlin,62.1
+Jones,McLaughlin,62.1
+Bassey,McLaughlin,62.1
+Sochan,McLaughlin,62.1
+Branham,McLaughlin,62.1
+Fox,McLaughlin,62.1
+Kornet,McLaughlin,62.1
+Harper,McLaughlin,62.1
+McLaughlin,Bryant,62.1
+McLaughlin,Waters III,62.1
+Champagnie,Biyombo,55.6
+Castle,Biyombo,55.6
+Barnes,Biyombo,55.6
+Paul,Biyombo,55.6
+Wembanyama,Biyombo,55.6
+Johnson,Biyombo,55.6
+Collins,Biyombo,55.6
+Vassell,Biyombo,55.6
+Wesley,Biyombo,55.6
+Jones,Biyombo,55.6
+Bassey,Biyombo,55.6
+Sochan,Biyombo,55.6
+Branham,Biyombo,55.6
+Fox,Biyombo,55.6
+Kornet,Biyombo,55.6
+Harper,Biyombo,55.6
+McLaughlin,Biyombo,55.6
+Bryant,Biyombo,55.6
+Biyombo,Waters III,55.6
+Champagnie,Olynyk,49.1
+Castle,Olynyk,49.1
+Barnes,Olynyk,49.1
+Paul,Olynyk,49.1
+Wembanyama,Olynyk,49.1
+Johnson,Olynyk,49.1
+Collins,Olynyk,49.1
+Vassell,Olynyk,49.1
+Wesley,Olynyk,49.1
+Jones,Olynyk,49.1
+Bassey,Olynyk,49.1
+Sochan,Olynyk,49.1
+Branham,Olynyk,49.1
+Fox,Olynyk,49.1
+Kornet,Olynyk,49.1
+Harper,Olynyk,49.1
+McLaughlin,Olynyk,49.1
+Bryant,Olynyk,49.1
+Biyombo,Olynyk,49.1
+Waters III,Olynyk,49.1
+Champagnie,Mamukelashvili,41.7
+Castle,Mamukelashvili,41.7
+Barnes,Mamukelashvili,41.7
+Paul,Mamukelashvili,41.7
+Wembanyama,Mamukelashvili,41.7
+Johnson,Mamukelashvili,41.7
+Collins,Mamukelashvili,41.7
+Vassell,Mamukelashvili,41.7
+Wesley,Mamukelashvili,41.7
+Jones,Mamukelashvili,41.7
+Bassey,Mamukelashvili,41.7
+Sochan,Mamukelashvili,41.7
+Branham,Mamukelashvili,41.7
+Mamukelashvili,Fox,41.7
+Mamukelashvili,Kornet,41.7
+Mamukelashvili,Harper,41.7
+Mamukelashvili,McLaughlin,41.7
+Mamukelashvili,Bryant,41.7
+Mamukelashvili,Biyombo,41.7
+Mamukelashvili,Waters III,41.7
+Mamukelashvili,Olynyk,41.7
+Champagnie,Plumlee,15.5
+Castle,Plumlee,15.5
+Barnes,Plumlee,15.5
+Paul,Plumlee,15.5
+Wembanyama,Plumlee,15.5
+Johnson,Plumlee,15.5
+Collins,Plumlee,15.5
+Vassell,Plumlee,15.5
+Wesley,Plumlee,15.5
+Jones,Plumlee,15.5
+Bassey,Plumlee,15.5
+Sochan,Plumlee,15.5
+Branham,Plumlee,15.5
+Fox,Plumlee,15.5
+Kornet,Plumlee,15.5
+Harper,Plumlee,15.5
+McLaughlin,Plumlee,15.5
+Bryant,Plumlee,15.5
+Biyombo,Plumlee,15.5
+Waters III,Plumlee,15.5
+Olynyk,Plumlee,13.3
+Champagnie,Cissoko,10.2
+Castle,Cissoko,10.2
+Barnes,Cissoko,10.2
+Paul,Cissoko,10.2
+Wembanyama,Cissoko,10.2
+Johnson,Cissoko,10.2
+Collins,Cissoko,10.2
+Vassell,Cissoko,10.2
+Wesley,Cissoko,10.2
+Jones,Cissoko,10.2
+Bassey,Cissoko,10.2
+Sochan,Cissoko,10.2
+Branham,Cissoko,10.2
+Mamukelashvili,Cissoko,10.2
+Cissoko,Fox,10.2
+Cissoko,Kornet,10.2
+Cissoko,Harper,10.2
+Cissoko,McLaughlin,10.2
+Cissoko,Bryant,10.2
+Cissoko,Biyombo,10.2
+Cissoko,Waters III,10.2
+Cissoko,Olynyk,10.2
+Champagnie,Duke Jr.,8.8
+Castle,Duke Jr.,8.8
+Barnes,Duke Jr.,8.8
+Paul,Duke Jr.,8.8
+Wembanyama,Duke Jr.,8.8
+Johnson,Duke Jr.,8.8
+Collins,Duke Jr.,8.8
+Vassell,Duke Jr.,8.8
+Wesley,Duke Jr.,8.8
+Jones,Duke Jr.,8.8
+Bassey,Duke Jr.,8.8
+Sochan,Duke Jr.,8.8
+Branham,Duke Jr.,8.8
+Mamukelashvili,Duke Jr.,8.8
+Cissoko,Duke Jr.,8.8
+Duke Jr.,Fox,8.8
+Duke Jr.,Kornet,8.8
+Duke Jr.,Harper,8.8
+Duke Jr.,McLaughlin,8.8
+Duke Jr.,Bryant,8.8
+Duke Jr.,Biyombo,8.8
+Duke Jr.,Waters III,8.8
+Duke Jr.,Olynyk,8.8
+Champagnie,Ingram,3.6
+Castle,Ingram,3.6
+Barnes,Ingram,3.6
+Paul,Ingram,3.6
+Wembanyama,Ingram,3.6
+Johnson,Ingram,3.6
+Collins,Ingram,3.6
+Vassell,Ingram,3.6
+Wesley,Ingram,3.6
+Jones,Ingram,3.6
+Bassey,Ingram,3.6
+Sochan,Ingram,3.6
+Branham,Ingram,3.6
+Mamukelashvili,Ingram,3.6
+Cissoko,Ingram,3.6
+Duke Jr.,Ingram,3.6
+Ingram,Fox,3.6
+Ingram,Kornet,3.6
+Ingram,Harper,3.6
+Ingram,McLaughlin,3.6
+Ingram,Bryant,3.6
+Ingram,Biyombo,3.6
+Ingram,Waters III,3.6
+Ingram,Olynyk,3.6
+Mamukelashvili,Plumlee,2.7
+Champagnie,Jones Garcia,1.6
+Castle,Jones Garcia,1.6
+Barnes,Jones Garcia,1.6
+Paul,Jones Garcia,1.6
+Wembanyama,Jones Garcia,1.6
+Johnson,Jones Garcia,1.6
+Collins,Jones Garcia,1.6
+Vassell,Jones Garcia,1.6
+Wesley,Jones Garcia,1.6
+Jones,Jones Garcia,1.6
+Bassey,Jones Garcia,1.6
+Sochan,Jones Garcia,1.6
+Branham,Jones Garcia,1.6
+Mamukelashvili,Jones Garcia,1.6
+Cissoko,Jones Garcia,1.6
+Duke Jr.,Jones Garcia,1.6
+Ingram,Jones Garcia,1.6
+Fox,Jones Garcia,1.6
+Kornet,Jones Garcia,1.6
+Harper,Jones Garcia,1.6
+McLaughlin,Jones Garcia,1.6
+Bryant,Jones Garcia,1.6
+Biyombo,Jones Garcia,1.6
+Jones Garcia,Waters III,1.6
+Jones Garcia,Olynyk,1.6
+Cissoko,Plumlee,0.0
+Duke Jr.,Plumlee,0.0
+Ingram,Plumlee,0.0
+Jones Garcia,Plumlee,0.0
