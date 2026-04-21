@@ -1,0 +1,68 @@
+{
+  "basic_stats": {
+    "GP": 71,
+    "MP": 35.2,
+    "FGM": 9.2,
+    "FGA": 18.6,
+    "FG3M": 2.4,
+    "FG3A": 6.9,
+    "FTM": 4.2,
+    "FTA": 5.9,
+    "ORB": 1.1,
+    "DRB": 6.4,
+    "TRB": 7.5,
+    "AST": 8.3,
+    "STL": 1.3,
+    "BLK": 0.6,
+    "TOV": 3.5,
+    "PF": 1.6,
+    "PTS": 25.0
+  },
+  "advanced_stats": {
+    "eFG%": 0.5591397849462364,
+    "TS%": 0.589733912058879,
+    "3PAr": 0.3709677419354839,
+    "FTr": 0.3172043010752688,
+    "2P%": 0.581196581196581,
+    "3P%": 0.34782608695652173,
+    "FT%": 0.711864406779661,
+    "USG%": 34.36363636363637,
+    "ORB%": 150.0,
+    "DRB%": 872.7272727272726,
+    "TRB%": 1022.7272727272726,
+    "ORB_per_36": 1.125,
+    "DRB_per_36": 6.545454545454546,
+    "TRB_per_36": 7.670454545454545,
+    "AST%": 25.15456418959874,
+    "AST/TOV": 2.3714285714285714,
+    "AST_per_36": 8.488636363636363,
+    "STL_per_36": 1.3295454545454544,
+    "BLK_per_36": 0.6136363636363635,
+    "PF_per_36": 1.6363636363636365,
+    "Defensive_Activity": 1.943181818181818,
+    "PER_simplified": 17.66,
+    "Game_Score": 17.79
+  },
+  "player_profile": {
+    "name": "LeBron James",
+    "ratings": {
+      "overall": "Starter",
+      "scoring_efficiency": "Excellent"
+    },
+    "categories": [
+      "Primary Playmaker",
+      "Efficient Scorer"
+    ],
+    "key_strengths": [
+      "Highly efficient scorer",
+      "Effective shot selection",
+      "Strong playmaking",
+      "Strong rebounding"
+    ],
+    "areas_to_improve": [],
+    "comparison_baseline": {
+      "ts_vs_average": "Average",
+      "efg_vs_average": "Average"
+    }
+  }
+}

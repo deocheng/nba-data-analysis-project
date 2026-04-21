@@ -22,6 +22,59 @@
 - 🎨 **精美可视化**：使用Chart.js创建交互式图表
 - 📈 **LeBron James 分析**：专门针对他职业生涯出场时间和休息时间的分析
 - 💾 **数据缓存**：避免重复API请求，提高效率
+- 📉 **高阶数据计算**：整合主流的NBA高级数据分析指标
+
+## 📉 NBA高阶数据计算器
+
+本项目包含了完整的NBA高级数据计算模块，支持计算：
+
+### 主要高阶数据指标
+
+#### 1. 投篮效率类
+- **TS% (True Shooting Percentage)** - 真实投篮命中率，综合考虑2分、3分和罚球
+- **eFG% (Effective Field Goal Percentage)** - 有效投篮命中率，调整三分的权重
+- **3PAr (3-Point Attempt Rate)** - 三分出手比例
+- **FTr (Free Throw Rate)** - 罚球率
+
+#### 2. 使用率与贡献类
+- **USG% (Usage Percentage)** - 使用率，衡量球员参与进攻的程度
+- **PER (Player Efficiency Rating)** - 球员效率值，综合评分（简化版）
+- **Game Score** - 单场比赛评分
+
+#### 3. 篮板与防守类
+- **ORB% / DRB%** - 进攻/防守篮板率（每36分钟）
+- **STL_per_36** - 抢断率（每36分钟）
+- **BLK_per_36** - 盖帽率（每36分钟）
+- **Defensive Activity** - 防守活跃度指标
+
+#### 4. 组织与失误类
+- **AST% (Assist Percentage)** - 助攻百分比
+- **TOV% (Turnover Percentage)** - 失误百分比
+- **AST/TOV** - 助攻失误比
+
+### 高级数据文件
+
+- **`full_advanced_stats.py`** - 完整版高级数据计算器，包含详细分析和评级
+- **`advanced_stats_calculator.py`** - 简化版高级数据计算器，快速计算
+- **`nba_data/lebron_analysis/lebron_full_advanced_stats.json`** - LeBron完整高级数据分析示例
+
+### 高级数据演示
+
+运行高级数据计算器：
+```bash
+# 完整版高级数据分析
+python full_advanced_stats.py
+
+# 简化版高级数据计算
+python advanced_stats_calculator.py
+```
+
+### 分析特点
+
+- **球员评级** - 自动根据高级数据对球员进行评级（Elite/All-Star/Starter/Rotation）
+- **强项/弱项识别** - 自动识别球员的技术特点
+- **与联盟平均比较** - 对比分析球员与联盟平均水平的差异
+- **完整数据档案** - 生成球员的完整分析档案
 
 ## 参考项目
 
@@ -80,7 +133,9 @@ nba-data-analysis-project/
 ├── data_source_manager.py # 数据源管理
 ├── enhanced_nba_scraper.py # 增强型数据爬取器
 ├── analyze_lebron_career.py # LeBron分析脚本
-└── collect_all_teams.py # 批量获取球队数据
+├── collect_all_teams.py # 批量获取球队数据
+├── full_advanced_stats.py # 完整版高级数据计算器
+└── advanced_stats_calculator.py # 简化版高级数据计算器
 ```
 
 ## 核心功能
