@@ -16,6 +16,8 @@
 !collect_all_teams.py
 !full_advanced_stats.py
 !advanced_stats_calculator.py
+!setup_players.py
+!analyze_players.py
 
 # Allow all files under nba_data/ but no other directories
 !nba_data/**
