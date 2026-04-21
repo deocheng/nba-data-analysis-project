@@ -47,7 +47,6 @@ venv/
 env/
 ENV/
 .venv/
-hermes-venv/
 .vscode/
 .idea/
 *.swp
